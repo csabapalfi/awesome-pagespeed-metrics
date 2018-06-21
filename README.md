@@ -16,9 +16,9 @@ Web APIs/polyfills in the browser
 
 ## ☎️ 'classic' browser metrics
 
-[`DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded)
+[Docs - `DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded)
 
-[`load`](https://developer.mozilla.org/en-US/docs/Web/Events/load) or more specifically `window.load`
+[Docs - `load`](https://developer.mozilla.org/en-US/docs/Web/Events/load) or more specifically `window.load`
 
 [Spec - Navigation Timing](https://www.w3.org/TR/navigation-timing-2/)
 
@@ -106,11 +106,11 @@ componentDidMount() {
 
 [Polyfill - First Input Delay](https://github.com/GoogleChromeLabs/first-input-delay)
 
-## 🥃 smooth? - no metrics 😱
+## 🥃 smooth? - frame rate
 
-maybe just input delay?
+[Docs - Chrome Devtools - FPS](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/#analyze_frames_per_second)
 
-TODO
+[Docs - Firefox Developer Tools - Frame rate](https://developer.mozilla.org/en-US/docs/Tools/Performance/Frame_rate)
 
 ## 😵 load abandonment
 
