@@ -24,6 +24,8 @@ Web APIs/polyfills in the browser
 
 [Spec - Resource Timing](https://www.w3.org/TR/resource-timing-2/)
 
+[Blogpost - Navigation and Resource Timing](https://developers.google.com/web/fundamentals/performance/navigation-and-resource-timing/)
+
 no direct connection ux in itself 🙁
 
 ## 👫 user-centric metrics
