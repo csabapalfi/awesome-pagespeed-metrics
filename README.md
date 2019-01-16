@@ -34,11 +34,11 @@ the idea from [Leveraging the Performance Metrics that Most Affect User Experien
 
 🔜 is it happening?
 
-🤔 is it meaningful?
+🤔 is it meaningful? (useful)
 
 👆 is it usable?
 
-🥃 is it smooth?
+🥃 is it smooth? (delightful)
 
 use these to organize/prioritize your metrics
 
