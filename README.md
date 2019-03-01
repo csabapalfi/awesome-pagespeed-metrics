@@ -22,8 +22,7 @@
 - [Is it usable?](#is-it-usable)
   * [User Timing marks](#user-timing-marks)
   * [First CPU Idle](#first-cpu-idle)
-  * [Time to Interactive (TTI, Consistently Interactive)](#time-to-interactive-tti-consistently-interactive)
-  * [First Interactive](#first-interactive)
+  * [Time to Interactive (TTI)](#time-to-interactive-tti)
   * [Estimated Input Latency](#estimated-input-latency)
   * [First Input Delay (FID)](#first-input-delay-fid)
 - [Is it delightful/smooth?](#is-it-delightfulsmooth)
@@ -195,27 +194,23 @@ componentDidMount() {
 
 ### First CPU Idle
 
-> TODO cleanup/reorg all TTI links
-
 First CPU Idle marks the first time at which the page's main thread is quiet enough to handle input.
 
-### Time to Interactive (TTI, Consistently Interactive)
+* Lab: Lighthouse, WPT (but it's called **First interactive** in WPT)
+* [Docs - First Interactive - WPT](https://github.com/WPO-Foundation/webpagetest/blob/master/docs/Metrics/TimeToInteractive.md)
+* [Docs - First CPU Idle - Lighthouse](https://developers.google.com/web/tools/lighthouse/audits/first-cpu-idle)
+
+
+### Time to Interactive (TTI)
 
 Time to interactive is the amount of time it takes for the page to become fully interactive.
 
-a.k.a Consistently Interactive
+Easy to confuse with First Interactive or First CPU Idle.
 
-### First Interactive
-
-[Definition - Time to Interactie - webpagetest](https://github.com/WPO-Foundation/webpagetest/blob/master/docs/Metrics/TimeToInteractive.md)
-
-[Definition - First Interactive - Lighthouse](https://developers.google.com/web/tools/lighthouse/audits/first-interactive)
-
-[Spec - First Interactive - Lighthouse](https://docs.google.com/document/d/1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c/edit)
-
-[Spec - Long Tasks](https://w3c.github.io/longtasks/)
-
-[Polyfill - First Interactive](https://github.com/GoogleChromeLabs/tti-polyfill)
+* Lab: Lighthouse, WPT (but it's called Consistently interactive in WPT)
+* Field: Chrome 58+ with polyfill
+* [Polyfill - TTI](https://github.com/GoogleChromeLabs/tti-polyfill)
+* [Spec - TTI - LH](https://docs.google.com/document/d/1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c/edit)
 
 ### Estimated Input Latency
 
@@ -292,3 +287,5 @@ Surface any backend server timing metrics (e.g. database latency, etc.) in the d
 ### Critical rendering path
 
 ### The Main Thread and Long tasks
+
+* [Spec - Long Tasks](https://w3c.github.io/longtasks/)
