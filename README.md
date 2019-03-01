@@ -2,9 +2,11 @@
 
 # Awesome Web Performance Metrics
 
-- [Lab data or Field data](#lab-data-or-field-data)
-  * [Lab data (Synthetic measurements)](#lab-data-synthetic-measurements)
-  * [Field data (Real User Monitoring - RUM)](#field-data-real-user-monitoring---rum)
+- [Lab data (Synthetic measurements)](#lab-data-synthetic-measurements)
+  * [Google Lighthouse (LH)](#google-lighthouse-lh)
+  * [WebpageTest (WPT)](#webpagetest-wpt)
+  * [Sitespeed.io](#sitespeedio)
+- [Field data (Real User Monitoring - RUM)](#field-data-real-user-monitoring---rum)
 - [User-centric metrics](#user-centric-metrics)
 - [Is it happening?](#is-it-happening)
   * [Start render](#start-render)
@@ -38,21 +40,36 @@
   * [Critical rendering path](#critical-rendering-path)
   * [The Main Thread and Long tasks](#the-main-thread-and-long-tasks)
 
-## Lab data or Field data
-
-### Lab data (Synthetic measurements)
+## Lab data (Synthetic measurements)
 
 Make a request to your page with a tool and evaluate performance.
 
-* [Docs - Lighthouse (LH)](https://developers.google.com/web/tools/lighthouse/#devtools) and tools built on top of it
+### Google Lighthouse (LH)
+
+Lighthouse is a tool built on Chrome to audit web pages. You can run it from Chrome DevTools, a Chrome Extension or from the command line (even with headless Chrome).
+
+* [Docs - Lighthouse](https://developers.google.com/web/tools/lighthouse/#devtools)
+* Tools built on LH:
     * [Tool - Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
     * [Tool - web.dev/measure](https://web.dev/measure)
+
+### WebpageTest (WPT)
+
+
 * [Docs - WebpageTest (WPT)](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/quick-start-quide) and tools built on top of it
-* Some tools support both WPT and LH:
+* Some tools were originally built on WPT (and now support LH as well):
     * [Tool - SpeedCurve](https://speedcurve.com/)
     * [Tool - Calibre](https://calibreapp.com)
 
-### Field data (Real User Monitoring - RUM)
+### Sitespeed.io
+
+Sitespeed.io is a set of Open Source tools that makes it easy to monitor and measure the performance of your web site.
+
+* [Tool - Sitespeed.io](https://www.sitespeed.io/)
+
+---
+
+## Field data (Real User Monitoring - RUM)
 
 Collect performance data from real users visiting your page.
 
