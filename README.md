@@ -17,14 +17,23 @@
 - [Is it usable?](#is-it-usable)
   * [User Timing marks](#user-timing-marks)
   * [First CPU Idle](#first-cpu-idle)
-  * [Time to Interactive (TTI)](#time-to-interactive-tti)
+  * [Time to Interactive (TTI, Consistently Interactive)](#time-to-interactive-tti-consistently-interactive)
   * [First Interactive](#first-interactive)
   * [Estimated Input Latency](#estimated-input-latency)
   * [First Input Delay (FID)](#first-input-delay-fid)
 - [Is it delightful/smooth?](#is-it-delightfulsmooth)
   * [Frame rate](#frame-rate)
-- [load abandonment](#load-abandonment)
-- ['classic' browser metrics](#classic-browser-metrics)
+- [Page lifecycle](#page-lifecycle)
+  * [DOMContentLoaded](#domcontentloaded)
+  * [window.load](#windowload)
+  * [Load abandonment](#load-abandonment)
+- [Network timing](#network-timing)
+  * [Navigation timing](#navigation-timing)
+  * [Resource timing](#resource-timing)
+- [Resource byte weights](#resource-byte-weights)
+  * [Initial HTML](#initial-html)
+  * [First-party JS](#first-party-js)
+  * [Third-party JS](#third-party-js)
 
 ## Lab data or Field data
 
@@ -79,6 +88,7 @@ First Contentful Paint marks the time at which the first text or image is painte
 * [Docs - FCP - LH](https://developers.google.com/web/tools/lighthouse/audits/first-contentful-paint)
 * [Spec - FCP - W3C](https://w3c.github.io/paint-timing/)
 
+---
 
 ## Is it useful/meaningful?	
 * Has enough content rendered that users can engage with it?
@@ -118,6 +128,7 @@ Speed Index shows how quickly the contents of a page are visibly populated.
 * [Spec - Hero Text Element Timing](https://docs.google.com/document/d/1sBM5lzDPws2mg1wRKiwM0TGFv9WqI6gEdF7vYhBYqUg/edit#heading=h.eny79fwwx642)
 * [Spec - Hero Text Element Timestamps](https://docs.google.com/document/d/1co1yefZWQ4QvG_2WT0nCrqxcAgjU08um9Boe_JzHkdE/edit#heading=h.zwg1kfkhqmx)
 
+---
 
 ## Is it usable?
 * Can users interact with the page, or is it still busy loading?
@@ -138,7 +149,7 @@ componentDidMount() {
 
 First CPU Idle marks the first time at which the page's main thread is quiet enough to handle input.
 
-### Time to Interactive (TTI)
+### Time to Interactive (TTI, Consistently Interactive)
 
 Time to interactive is the amount of time it takes for the page to become fully interactive.
 
@@ -167,6 +178,8 @@ Estimated Input Latency is an estimate of how long your app takes to respond to 
 * Browser support: IE9+ (with polyfill - 0.4KB)
 * [Polyfill - First Input Delay](https://github.com/GoogleChromeLabs/first-input-delay)
 
+---
+
 ## Is it delightful/smooth?	
 * Are the interactions smooth and natural, free of lag and jank?
 
@@ -178,20 +191,38 @@ Estimated Input Latency is an estimate of how long your app takes to respond to 
 
 ---
 
-## load abandonment
+## Page lifecycle
+
+### DOMContentLoaded
+
+[Docs - `DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded)
+
+### window.load
+
+[Docs - `load`](https://developer.mozilla.org/en-US/docs/Web/Events/load) or more specifically `window.load`
+
+### Load abandonment
 
 [Example - tracking `visibilitychange`](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics#load_abandonment)
 
 [Spec - Page Visibility](https://www.w3.org/TR/page-visibility-2/)
 
-## 'classic' browser metrics
+## Network timing
 
-[Docs - `DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded)
+[Blogpost - Navigation and Resource Timing](https://developers.google.com/web/fundamentals/performance/navigation-and-resource-timing/)
 
-[Docs - `load`](https://developer.mozilla.org/en-US/docs/Web/Events/load) or more specifically `window.load`
+### Navigation timing
 
 [Spec - Navigation Timing](https://www.w3.org/TR/navigation-timing-2/)
 
+### Resource timing
+
 [Spec - Resource Timing](https://www.w3.org/TR/resource-timing-2/)
 
-[Blogpost - Navigation and Resource Timing](https://developers.google.com/web/fundamentals/performance/navigation-and-resource-timing/)
+## Resource byte weights
+
+### Initial HTML
+
+### First-party JS
+
+### Third-party JS
