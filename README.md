@@ -52,22 +52,22 @@ Lighthouse is a tool built on Chrome to audit web pages. You can run it from Chr
 
 * [Docs - Lighthouse](https://developers.google.com/web/tools/lighthouse/#devtools)
 * Tools built on LH:
-    * [Tool - Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
-    * [Tool - web.dev/measure](https://web.dev/measure)
+    * [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
+    * [web.dev/measure](https://web.dev/measure)
 
 ### WebpageTest (WPT)
 
 
 * [Docs - WebpageTest (WPT)](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/quick-start-quide) and tools built on top of it
 * Some tools were originally built on WPT (and now support LH as well):
-    * [Tool - SpeedCurve](https://speedcurve.com/)
-    * [Tool - Calibre](https://calibreapp.com)
+    * [SpeedCurve](https://speedcurve.com/)
+    * [Calibre](https://calibreapp.com)
 
 ### Sitespeed.io
 
 Sitespeed.io is a set of Open Source tools that makes it easy to monitor and measure the performance of your web site.
 
-* [Tool - Sitespeed.io](https://www.sitespeed.io/)
+* [Sitespeed.io](https://www.sitespeed.io/)
 
 ---
 
