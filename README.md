@@ -12,6 +12,7 @@
 - [User-centric metrics](#user-centric-metrics)
 - [Is it happening?](#is-it-happening)
   * [Start render](#start-render)
+  * [First Paint (FP)](#first-paint-fp)
   * [First Contentful Paint (FCP)](#first-contentful-paint-fcp)
 - [Is it useful/meaningful?](#is-it-usefulmeaningful)
   * [Visually Complete](#visually-complete)
