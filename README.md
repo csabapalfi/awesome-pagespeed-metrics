@@ -31,9 +31,8 @@
   * [Navigation timing](#navigation-timing)
   * [Resource timing](#resource-timing)
 - [Resource byte weights](#resource-byte-weights)
-  * [Initial HTML](#initial-html)
-  * [First-party JS](#first-party-js)
-  * [Third-party JS](#third-party-js)
+  * [Initial HTML weight](#initial-html-weight)
+  * [JavaScript weight](#javascript-weight)
 
 ## Lab data or Field data
 
@@ -225,8 +224,6 @@ Estimated Input Latency is an estimate of how long your app takes to respond to 
 
 ## Resource byte weights
 
-### Initial HTML
+### Initial HTML weight
 
-### First-party JS
-
-### Third-party JS
+### JavaScript weight
