@@ -2,21 +2,45 @@
 
 # Awesome Web Performance Metrics
 
+- [Lab data or Field data](#lab-data-or-field-data)
+  * [Lab data (Synthetic measurements)](#lab-data-synthetic-measurements)
+  * [Field data (Real User Monitoring - RUM)](#field-data-real-user-monitoring---rum)
+- [User-centric metrics](#user-centric-metrics)
+- [Is it happening?](#is-it-happening)
+  * [Start render](#start-render)
+  * [First Contentful Paint (FCP)](#first-contentful-paint-fcp)
+- [Is it useful/meaningful?](#is-it-usefulmeaningful)
+  * [Visually Complete](#visually-complete)
+  * [First Meaningful Paint (FMP)](#first-meaningful-paint-fmp)
+  * [Speed Index](#speed-index)
+  * [Hero Element Timing](#hero-element-timing)
+- [Is it usable?](#is-it-usable)
+  * [User Timing marks](#user-timing-marks)
+  * [First CPU Idle](#first-cpu-idle)
+  * [Time to Interactive (TTI)](#time-to-interactive-tti)
+  * [First Interactive](#first-interactive)
+  * [Estimated Input Latency](#estimated-input-latency)
+  * [First Input Delay (FID)](#first-input-delay-fid)
+- [Is it delightful/smooth?](#is-it-delightfulsmooth)
+  * [Frame rate](#frame-rate)
+- [load abandonment](#load-abandonment)
+- ['classic' browser metrics](#classic-browser-metrics)
+
 ## Lab data or Field data
 
 ### Lab data (Synthetic measurements)
 
-Make a request to your page with a tool and evaluate performance:
+Make a request to your page with a tool and evaluate performance.
 
-* [Docs - Lighthouse](https://developers.google.com/web/tools/lighthouse/#devtools)
-* [Docs - WebpageTest](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/quick-start-quide)
+* [Docs - Lighthouse (LH)](https://developers.google.com/web/tools/lighthouse/#devtools)
+* [Docs - WebpageTest (WPT)](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/quick-start-quide)
 
 ### Field data (Real User Monitoring - RUM)
 
 Collect performance data from real users visiting your page.
 
-* [Docs - Chrome User Experience Report](https://developers.google.com/web/tools/chrome-user-experience-report/)
-* [Blogpost - Performance tracking Google Analytics](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#performance-tracking)
+* [Docs - Chrome User Experience Report (CrUX)](https://developers.google.com/web/tools/chrome-user-experience-report/)
+* [Blogpost - Performance tracking Google Analytics (GA)](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#performance-tracking)
 * Your own analytics
 
 ---
@@ -27,64 +51,78 @@ Collect performance data from real users visiting your page.
 
 Use the questions below to organize/prioritize your metrics from the user's perspective.
 
-### Is it happening?
-* Did the navigation start successfully? 
-* Has the server responded?
-
-
-### Is it useful/meaningful?	
-* Has enough content rendered that users can engage with it?
-
-### Is it usable?
-* Can users interact with the page, or is it still busy loading?
-
-
-### Is it delightful/smooth?	
-* Are the interactions smooth and natural, free of lag and jank?
+* Is it happening?
+* Is it useful/meaningful?
+* Is it usable/interactive?
+* Is it delightful/smooth?
 
 ---
 
-content below is being updated to match latest metrics...
+## Is it happening?
 
-## 🔜 happening? - first pixel on the screen?
+* Did the navigation start successfully? 
+* Has the server responded?
 
-[Definition - Start Render - webpagetest](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics)
+### Start render
 
-[Spec - Paint Timing](https://w3c.github.io/paint-timing/)
+The Start Render time is measured as the time from the start of the initial navigation until the first non-white content is painted to the browser display.
 
-## 🤔 meaningful? - above the fold rendered?
+* Browser support: N/A
+* [Docs - Start Render - WPT](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics)
 
-[Definition - Visually Complete - webpagetest](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index) - this is on the Speed Index page of the docs
 
-[Definition - First Meaningful Paint](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint)
+### First Contentful Paint (FCP)
 
-[Spec - First Meaningful Paint](https://docs.google.com/document/d/1BR94tJdZLsin5poeet0XoTW60M0SjvOJQttKT-JK8HI/view)
+First Contentful Paint marks the time at which the first text or image is painted.
 
-## 🤔 meaningful? - speed index
+* Browser support: Chrome 60+, Opera 47+
+* [Docs - FCP - LH](https://developers.google.com/web/tools/lighthouse/audits/first-contentful-paint)
+* [Spec - FCP - W3C](https://w3c.github.io/paint-timing/)
 
-[Definition - Perceptual Speed Index - Lighthouse](https://developers.google.com/web/tools/lighthouse/audits/speed-index)
 
-[Definition - Speed Index - webpagetest](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index)
+## Is it useful/meaningful?	
+* Has enough content rendered that users can engage with it?
 
-[Talk - Speed Perception and Lighthouse](https://ldnwebperf.org/events/speed-perception-and-lighthouse/) by @estelle - LdnWebPerf talk about Speed index
+### Visually Complete
 
-## 🤔 meaningful? - hero element timing
+* Browser support: N/A
+* [Docs - Visually Complete - WPT](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index)
 
-[W3C github issue - Element Timing API](https://github.com/w3c/charter-webperf/issues/30)
 
-[Spec - Hero Element Timing](https://docs.google.com/document/d/1yRYfYR1DnHtgwC4HRR04ipVVhT1h5gkI6yPmKCgJkyQ/edit#)
+### First Meaningful Paint (FMP)
 
-[Blogpost - Hero Element Timing - SpeedCurve](https://speedcurve.com/blog/web-performance-monitoring-hero-times/)
+First Meaningful Paint measures when the primary content of a page is visible. It's essentially the paint after which the biggest above-the-fold layout change has happened, and web fonts have loaded.
 
-[Polyfill - Hero Element Timing](https://github.com/tdresser/hero-element-polyfill) - see also the [announcement here](https://groups.google.com/a/chromium.org/forum/m/#!topic/progressive-web-metrics/ND6JVZRWqqg)
+* Browser support: N/A
+* [Docs - FMP - LH](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint)
+* [Spec - First Meaningful Paint](https://docs.google.com/document/d/1BR94tJdZLsin5poeet0XoTW60M0SjvOJQttKT-JK8HI/view)
 
-[Blogpost - Last Painted Hero coming to WebpageTest](https://speedcurve.com/blog/last-painted-hero/)
+### Speed Index
 
-[Spec - Hero Text Element Timing](https://docs.google.com/document/d/1sBM5lzDPws2mg1wRKiwM0TGFv9WqI6gEdF7vYhBYqUg/edit#heading=h.eny79fwwx642)
+Speed Index shows how quickly the contents of a page are visibly populated.
 
-[Spec - Hero Text Element Timestamps](https://docs.google.com/document/d/1co1yefZWQ4QvG_2WT0nCrqxcAgjU08um9Boe_JzHkdE/edit#heading=h.zwg1kfkhqmx)
+* Browser support: N/A
+* [Docs - Speed Index - LH](https://developers.google.com/web/tools/lighthouse/audits/speed-index)
+* [Docs - Speed Index - WPT](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index)
+* [Talk - Speed Perception and Lighthouse](https://ldnwebperf.org/events/speed-perception-and-lighthouse/)
 
-## 👆 usable? - JS loaded?
+### Hero Element Timing
+
+> TODO: summary + cleanup links
+
+* [W3C github issue - Element Timing API](https://github.com/w3c/charter-webperf/issues/30)
+* [Spec - Hero Element Timing](https://docs.google.com/document/d/1yRYfYR1DnHtgwC4HRR04ipVVhT1h5gkI6yPmKCgJkyQ/edit#)
+* [Blogpost - Hero Element Timing - SpeedCurve](https://speedcurve.com/blog/web-performance-monitoring-hero-times/)
+* [Polyfill - Hero Element Timing](https://github.com/tdresser/hero-element-polyfill) - see also the [announcement here](https://groups.google.com/a/chromium.org/forum/m/#!topic/progressive-web-metrics/ND6JVZRWqqg)
+* [Blogpost - Last Painted Hero coming to WebpageTest](https://speedcurve.com/blog/last-painted-hero/)
+* [Spec - Hero Text Element Timing](https://docs.google.com/document/d/1sBM5lzDPws2mg1wRKiwM0TGFv9WqI6gEdF7vYhBYqUg/edit#heading=h.eny79fwwx642)
+* [Spec - Hero Text Element Timestamps](https://docs.google.com/document/d/1co1yefZWQ4QvG_2WT0nCrqxcAgjU08um9Boe_JzHkdE/edit#heading=h.zwg1kfkhqmx)
+
+
+## Is it usable?
+* Can users interact with the page, or is it still busy loading?
+
+### User Timing marks
 
 [Spec - User Timing](https://www.w3.org/TR/user-timing/)
 
@@ -94,7 +132,19 @@ componentDidMount() {
 }
 ```
 
-## 👆 usable? - first interactive (time to interactive)
+### First CPU Idle
+
+> TODO cleanup/reorg all TTI links
+
+First CPU Idle marks the first time at which the page's main thread is quiet enough to handle input.
+
+### Time to Interactive (TTI)
+
+Time to interactive is the amount of time it takes for the page to become fully interactive.
+
+a.k.a Consistently Interactive
+
+### First Interactive
 
 [Definition - Time to Interactie - webpagetest](https://github.com/WPO-Foundation/webpagetest/blob/master/docs/Metrics/TimeToInteractive.md)
 
@@ -106,25 +156,35 @@ componentDidMount() {
 
 [Polyfill - First Interactive](https://github.com/GoogleChromeLabs/tti-polyfill)
 
-## 👆 usable? - input delay
+### Estimated Input Latency
 
-[Definition - Estimated Input Latency - Lighthouse](https://developers.google.com/web/tools/lighthouse/audits/estimated-input-latency)
+Estimated Input Latency is an estimate of how long your app takes to respond to user input, in milliseconds, during the busiest 5s window of page load. If your latency is higher than 50 ms, users may perceive your app as laggy. 
 
-[Polyfill - First Input Delay](https://github.com/GoogleChromeLabs/first-input-delay)
+* [Docs - Estimated Input Latency - LH](https://developers.google.com/web/tools/lighthouse/audits/estimated-input-latency)
 
-## 🥃 smooth? - frame rate
+### First Input Delay (FID)
+
+* Browser support: IE9+ (with polyfill - 0.4KB)
+* [Polyfill - First Input Delay](https://github.com/GoogleChromeLabs/first-input-delay)
+
+## Is it delightful/smooth?	
+* Are the interactions smooth and natural, free of lag and jank?
+
+### Frame rate
 
 [Docs - Chrome Devtools - FPS](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/#analyze_frames_per_second)
 
 [Docs - Firefox Developer Tools - Frame rate](https://developer.mozilla.org/en-US/docs/Tools/Performance/Frame_rate)
 
-## 😵 load abandonment
+---
+
+## load abandonment
 
 [Example - tracking `visibilitychange`](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics#load_abandonment)
 
 [Spec - Page Visibility](https://www.w3.org/TR/page-visibility-2/)
 
-## ☎️ 'classic' browser metrics
+## 'classic' browser metrics
 
 [Docs - `DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded)
 
