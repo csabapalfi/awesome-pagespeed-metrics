@@ -28,11 +28,15 @@
   * [window.load](#windowload)
   * [Load abandonment](#load-abandonment)
 - [Network timing](#network-timing)
-  * [Navigation timing](#navigation-timing)
-  * [Resource timing](#resource-timing)
-- [Resource byte weights](#resource-byte-weights)
+  * [Navigation Timing](#navigation-timing)
+  * [Resource Timing](#resource-timing)
+  * [Server Timing](#server-timing)
+- [Resource byte weights (TODO)](#resource-byte-weights-todo)
   * [Initial HTML weight](#initial-html-weight)
   * [JavaScript weight](#javascript-weight)
+- [Concepts (TODO)](#concepts-todo)
+  * [Critical rendering path](#critical-rendering-path)
+  * [The Main Thread and Long tasks](#the-main-thread-and-long-tasks)
 
 ## Lab data or Field data
 
@@ -40,8 +44,13 @@
 
 Make a request to your page with a tool and evaluate performance.
 
-* [Docs - Lighthouse (LH)](https://developers.google.com/web/tools/lighthouse/#devtools)
-* [Docs - WebpageTest (WPT)](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/quick-start-quide)
+* [Docs - Lighthouse (LH)](https://developers.google.com/web/tools/lighthouse/#devtools) and tools built on top of it
+    * [Tool - Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
+    * [Tool - web.dev/measure](https://web.dev/measure)
+* [Docs - WebpageTest (WPT)](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/quick-start-quide) and tools built on top of it
+* Some tools support both WPT and LH:
+    * [Tool - SpeedCurve](https://speedcurve.com/)
+    * [Tool - Calibre](https://calibreapp.com)
 
 ### Field data (Real User Monitoring - RUM)
 
@@ -212,18 +221,32 @@ Estimated Input Latency is an estimate of how long your app takes to respond to 
 
 [Blogpost - Navigation and Resource Timing](https://developers.google.com/web/fundamentals/performance/navigation-and-resource-timing/)
 
-### Navigation timing
+### Navigation Timing
 
 [Spec - Navigation Timing](https://www.w3.org/TR/navigation-timing-2/)
 
-### Resource timing
+### Resource Timing
 
 [Spec - Resource Timing](https://www.w3.org/TR/resource-timing-2/)
 
+### Server Timing
+
+Surface any backend server timing metrics (e.g. database latency, etc.) in the developer tools in the user's browser or in the PerformanceServerTiming interface.
+
+[Docs - Server Timing](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server-Timing)
+
 ---
 
-## Resource byte weights
+## Resource byte weights (TODO)
 
 ### Initial HTML weight
 
 ### JavaScript weight
+
+---
+
+## Concepts (TODO)
+
+### Critical rendering path
+
+### The Main Thread and Long tasks
