@@ -24,7 +24,7 @@ Collect performance data from real users visiting your page.
 
 See [Leveraging the Performance Metrics that Most Affect User Experience](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics) by @philipwalton / Google
 
-Use the questions below to organize/prioritize your metrics:
+Use the questions below to organize/prioritize your metrics from the user's perspective.
 
 ### Is it happening?
 * Did the navigation start successfully? 
