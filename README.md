@@ -2,45 +2,43 @@
 
 # Awesome Web Performance Metrics
 
-## 🤖 synthetic/lab testing tools
+## Lab data or Field data
 
-[WebpageTest.org](https://www.webpagetest.org/)
-(also [WPO-Foundation/webpagetest](https://github.com/WPO-Foundation/webpagetest) on GitHub)
+### Lab data (Synthetic measurements)
 
-[Lighthouse](https://developers.google.com/web/tools/lighthouse/)
-(also [GoogleChrome/lighthouse](https://github.com/GoogleChrome/lighthouse) on GitHub)
+Make a request to your page with a tool and evaluate performance:
 
-## 🍹 real user monitoring (RUM)
+* [Lighthouse](https://developers.google.com/web/tools/lighthouse/)
+* [WebpageTest.org](https://www.webpagetest.org/)
 
-Web APIs/polyfills in the browser
+### Field data (Real User Monitoring - RUM)
 
-## ☎️ 'classic' browser metrics
+Collect performance data from real users visiting your page.
 
-[Docs - `DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded)
-
-[Docs - `load`](https://developer.mozilla.org/en-US/docs/Web/Events/load) or more specifically `window.load`
-
-[Spec - Navigation Timing](https://www.w3.org/TR/navigation-timing-2/)
-
-[Spec - Resource Timing](https://www.w3.org/TR/resource-timing-2/)
-
-[Blogpost - Navigation and Resource Timing](https://developers.google.com/web/fundamentals/performance/navigation-and-resource-timing/)
-
-no direct connection ux in itself 🙁
+* [Chrome User Experience Report](https://developers.google.com/web/tools/chrome-user-experience-report/)
+* Your own analytics (e.g. [Performance tracking Google Analytics](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#performance-tracking))
 
 ## 👫 user-centric metrics
 
-the idea from [Leveraging the Performance Metrics that Most Affect User Experience](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics) by @philipwalton / Google
+See [Leveraging the Performance Metrics that Most Affect User Experience](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics) by @philipwalton / Google
 
-🔜 is it happening?
+Use the questions below to organize/prioritize your metrics:
 
-🤔 is it meaningful? (useful)
+🔜 Is it happening?
+* Did the navigation start successfully? 
+* Has the server responded?
 
-👆 is it usable?
 
-🥃 is it smooth? (delightful)
+🤔 Is it useful/meaningful?	
+* Has enough content rendered that users can engage with it?
 
-use these to organize/prioritize your metrics
+👆 Is it usable?
+* Can users interact with the page, or is it still busy loading?
+
+
+🥃 Is it delightful/smooth?	
+* Are the interactions smooth and natural, free of lag and jank?
+
 
 ## 🔜 happening? - first pixel on the screen?
 
@@ -119,3 +117,15 @@ componentDidMount() {
 [Example - tracking `visibilitychange`](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics#load_abandonment)
 
 [Spec - Page Visibility](https://www.w3.org/TR/page-visibility-2/)
+
+## ☎️ 'classic' browser metrics
+
+[Docs - `DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded)
+
+[Docs - `load`](https://developer.mozilla.org/en-US/docs/Web/Events/load) or more specifically `window.load`
+
+[Spec - Navigation Timing](https://www.w3.org/TR/navigation-timing-2/)
+
+[Spec - Resource Timing](https://www.w3.org/TR/resource-timing-2/)
+
+[Blogpost - Navigation and Resource Timing](https://developers.google.com/web/fundamentals/performance/navigation-and-resource-timing/)
