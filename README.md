@@ -109,15 +109,28 @@ Use the questions below to organize/prioritize your metrics from the user's pers
 
 The Start Render time is measured as the time from the start of the initial navigation until the first non-white content is painted to the browser display.
 
-* Browser support: N/A
+* Lab: WPT
+* Field: N/A but similar to [First Paint (FP)](#first-paint-fp)
 * [Docs - Start Render - WPT](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics)
+
+
+### First Paint (FP)
+
+First Paint reports the time when the browser first rendered after navigation. This excludes the default background paint, but includes non-default background paint. This is the first key moment developers care about in page load – when the browser has started to render the page.
+
+* Lab: N/A but similar to [Start render](#start-render) in WPT
+* Field: Chrome 60+, Opera 47+, CrUX
+* [Spec - FP - W3C](https://w3c.github.io/paint-timing/)
 
 
 ### First Contentful Paint (FCP)
 
 First Contentful Paint marks the time at which the first text or image is painted.
 
-* Browser support: Chrome 60+, Opera 47+
+FCP reports the time when the browser first rendered any text, image (including background images), non-white canvas or SVG. This includes text with pending webfonts. This is the first time users could start consuming page content.
+
+* Lab: Lighthouse
+* Field: Chrome 60+, Opera 47+, CrUX
 * [Docs - FCP - LH](https://developers.google.com/web/tools/lighthouse/audits/first-contentful-paint)
 * [Spec - FCP - W3C](https://w3c.github.io/paint-timing/)
 
@@ -128,7 +141,8 @@ First Contentful Paint marks the time at which the first text or image is painte
 
 ### Visually Complete
 
-* Browser support: N/A
+* Lab: WPT
+* Field: N/A
 * [Docs - Visually Complete - WPT](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index)
 
 
@@ -136,7 +150,8 @@ First Contentful Paint marks the time at which the first text or image is painte
 
 First Meaningful Paint measures when the primary content of a page is visible. It's essentially the paint after which the biggest above-the-fold layout change has happened, and web fonts have loaded.
 
-* Browser support: N/A
+* Lab: Lighthouse
+* Field: N/A
 * [Docs - FMP - LH](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint)
 * [Spec - First Meaningful Paint](https://docs.google.com/document/d/1BR94tJdZLsin5poeet0XoTW60M0SjvOJQttKT-JK8HI/view)
 
@@ -144,7 +159,8 @@ First Meaningful Paint measures when the primary content of a page is visible. I
 
 Speed Index shows how quickly the contents of a page are visibly populated.
 
-* Browser support: N/A
+* Lab: Lighthouse, WPT (but slightly different spec)
+* Field: N/A
 * [Docs - Speed Index - LH](https://developers.google.com/web/tools/lighthouse/audits/speed-index)
 * [Docs - Speed Index - WPT](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index)
 * [Talk - Speed Perception and Lighthouse](https://ldnwebperf.org/events/speed-perception-and-lighthouse/)
