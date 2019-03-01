@@ -16,7 +16,7 @@ Make a request to your page with a tool and evaluate performance:
 Collect performance data from real users visiting your page.
 
 * [Docs - Chrome User Experience Report](https://developers.google.com/web/tools/chrome-user-experience-report/)
-* [Blogpost - Performance tracking Google Analytics](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#performance-tracking))
+* [Blogpost - Performance tracking Google Analytics](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#performance-tracking)
 * Your own analytics
 
 ---
