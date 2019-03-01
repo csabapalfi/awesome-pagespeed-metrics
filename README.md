@@ -18,6 +18,8 @@ Collect performance data from real users visiting your page.
 * [Chrome User Experience Report](https://developers.google.com/web/tools/chrome-user-experience-report/)
 * Your own analytics (e.g. [Performance tracking Google Analytics](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#performance-tracking))
 
+---
+
 ## 👫 user-centric metrics
 
 See [Leveraging the Performance Metrics that Most Affect User Experience](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics) by @philipwalton / Google
