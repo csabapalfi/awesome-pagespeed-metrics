@@ -7,6 +7,8 @@
   * [WebpageTest (WPT)](#webpagetest-wpt)
   * [Sitespeed.io](#sitespeedio)
 - [Field data (Real User Monitoring - RUM)](#field-data-real-user-monitoring---rum)
+  * [Chrome User Experience Report (CrUX)](#chrome-user-experience-report-crux)
+  * [Your web analytics](#your-web-analytics)
 - [User-centric metrics](#user-centric-metrics)
 - [Is it happening?](#is-it-happening)
   * [Start render](#start-render)
@@ -73,9 +75,15 @@ Sitespeed.io is a set of Open Source tools that makes it easy to monitor and mea
 
 Collect performance data from real users visiting your page.
 
-* [Docs - Chrome User Experience Report (CrUX)](https://developers.google.com/web/tools/chrome-user-experience-report/)
+
+### Chrome User Experience Report (CrUX)
+
+* [Docs - CrUX](https://developers.google.com/web/tools/chrome-user-experience-report/)
+
+### Your web analytics
+
+* Web analytics tracking can also be used to track performance
 * [Blogpost - Performance tracking Google Analytics (GA)](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#performance-tracking)
-* Your own analytics
 
 ---
 
