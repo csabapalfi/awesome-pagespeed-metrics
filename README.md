@@ -20,25 +20,25 @@ Collect performance data from real users visiting your page.
 
 ---
 
-## 👫 user-centric metrics
+## User-centric metrics
 
 See [Leveraging the Performance Metrics that Most Affect User Experience](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics) by @philipwalton / Google
 
 Use the questions below to organize/prioritize your metrics:
 
-### 🔜 Is it happening?
+### Is it happening?
 * Did the navigation start successfully? 
 * Has the server responded?
 
 
-### 🤔 Is it useful/meaningful?	
+### Is it useful/meaningful?	
 * Has enough content rendered that users can engage with it?
 
-### 👆 Is it usable?
+### Is it usable?
 * Can users interact with the page, or is it still busy loading?
 
 
-### 🥃 Is it delightful/smooth?	
+### Is it delightful/smooth?	
 * Are the interactions smooth and natural, free of lag and jank?
 
 ---
