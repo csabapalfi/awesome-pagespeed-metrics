@@ -60,10 +60,10 @@ Collect performance data from real users visiting your page.
 
 Use the questions below to organize/prioritize your metrics from the user's perspective.
 
-* Is it happening?
-* Is it useful/meaningful?
-* Is it usable/interactive?
-* Is it delightful/smooth?
+* [Is it happening?](#is-it-happening)
+* [Is it useful/meaningful?](#is-it-usefulmeaningful)
+* [Is it usable?](#is-it-usable)
+* [Is it delightful/smooth?](#is-it-delightfulsmooth)
 
 ---
 
@@ -207,6 +207,8 @@ Estimated Input Latency is an estimate of how long your app takes to respond to 
 
 [Spec - Page Visibility](https://www.w3.org/TR/page-visibility-2/)
 
+---
+
 ## Network timing
 
 [Blogpost - Navigation and Resource Timing](https://developers.google.com/web/fundamentals/performance/navigation-and-resource-timing/)
@@ -218,6 +220,8 @@ Estimated Input Latency is an estimate of how long your app takes to respond to 
 ### Resource timing
 
 [Spec - Resource Timing](https://www.w3.org/TR/resource-timing-2/)
+
+---
 
 ## Resource byte weights
 
