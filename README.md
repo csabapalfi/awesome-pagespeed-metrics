@@ -8,22 +8,22 @@
 
 Make a request to your page with a tool and evaluate performance:
 
-* Docs - [Lighthouse](https://developers.google.com/web/tools/lighthouse/#devtools)
-* Docs - [WebpageTest](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/quick-start-quide)
+* [Docs - Lighthouse](https://developers.google.com/web/tools/lighthouse/#devtools)
+* [Docs - WebpageTest](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/quick-start-quide)
 
 ### Field data (Real User Monitoring - RUM)
 
 Collect performance data from real users visiting your page.
 
-* Docs - [Chrome User Experience Report](https://developers.google.com/web/tools/chrome-user-experience-report/)
+* [Docs - Chrome User Experience Report](https://developers.google.com/web/tools/chrome-user-experience-report/)
+* [Blogpost - Performance tracking Google Analytics](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#performance-tracking))
 * Your own analytics
-* Blogpost -  [Performance tracking Google Analytics](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#performance-tracking))
 
 ---
 
 ## User-centric metrics
 
-Blogpost - [Leveraging the Performance Metrics that Most Affect User Experience](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics)
+[Blogpost - User-centric Performance Metrics](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics)
 
 Use the questions below to organize/prioritize your metrics from the user's perspective.
 
@@ -43,6 +43,8 @@ Use the questions below to organize/prioritize your metrics from the user's pers
 * Are the interactions smooth and natural, free of lag and jank?
 
 ---
+
+content below is being updated to match latest metrics...
 
 ## 🔜 happening? - first pixel on the screen?
 
