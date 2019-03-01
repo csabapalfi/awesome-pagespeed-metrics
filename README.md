@@ -24,21 +24,22 @@ See [Leveraging the Performance Metrics that Most Affect User Experience](https:
 
 Use the questions below to organize/prioritize your metrics:
 
-🔜 Is it happening?
+### 🔜 Is it happening?
 * Did the navigation start successfully? 
 * Has the server responded?
 
 
-🤔 Is it useful/meaningful?	
+### 🤔 Is it useful/meaningful?	
 * Has enough content rendered that users can engage with it?
 
-👆 Is it usable?
+### 👆 Is it usable?
 * Can users interact with the page, or is it still busy loading?
 
 
-🥃 Is it delightful/smooth?	
+### 🥃 Is it delightful/smooth?	
 * Are the interactions smooth and natural, free of lag and jank?
 
+---
 
 ## 🔜 happening? - first pixel on the screen?
 
