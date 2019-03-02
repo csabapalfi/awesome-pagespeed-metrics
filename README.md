@@ -48,7 +48,7 @@ Make a request to your page with a tool and evaluate performance.
 
 ### Google Lighthouse (LH)
 
-Lighthouse is a tool built on Google Chrome to audit web pages. You can run it from Chrome DevTools, a Chrome Extension or from the command line (even with headless Chrome).
+Lighthouse is a tool **built on Google Chrome** to audit web pages. You can run it from Chrome DevTools, a Chrome Extension or from the command line (even with headless Chrome).
 
 * [Docs - Lighthouse](https://developers.google.com/web/tools/lighthouse/#devtools)
 * Tools built on LH:
@@ -57,7 +57,7 @@ Lighthouse is a tool built on Google Chrome to audit web pages. You can run it f
 
 ### WebpageTest (WPT)
 
-WebpageTest is an open source project to test web page performance. It works across multiple browsers and has a free hosted version at [webpagetest.org](https://www.webpagetest.org/)
+WebpageTest is an open source project to test web page performance. It **supports multiple browsers**, testing on real devices and has a free hosted version at [webpagetest.org](https://www.webpagetest.org/)
 
 
 * [Docs - WebpageTest (WPT)](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/quick-start-quide) and tools built on top of it
