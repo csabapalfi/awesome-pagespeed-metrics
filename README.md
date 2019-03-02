@@ -60,7 +60,7 @@ Lighthouse is a tool **built on Google Chrome** to audit web pages. You can run 
 WebpageTest is an open source project to test web page performance. It **supports multiple browsers**, testing on real devices and has a free hosted version at [webpagetest.org](https://www.webpagetest.org/)
 
 
-* [Docs - WebpageTest (WPT)](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/quick-start-quide) and tools built on top of it
+* [Docs - WebpageTest (WPT)](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/quick-start-quide)
 * Some tools were originally built on WPT (and now support LH as well):
     * [SpeedCurve](https://speedcurve.com/)
     * [Calibre](https://calibreapp.com)
@@ -79,6 +79,8 @@ Collect performance data from real users visiting your page.
 
 
 ### Chrome User Experience Report (CrUX)
+
+The Chrome User Experience Report provides user experience metrics for how real-world Chrome users experience popular destinations on the web. Available as a Google BigQuery dataset.
 
 * [Docs - CrUX](https://developers.google.com/web/tools/chrome-user-experience-report/)
 
@@ -109,7 +111,7 @@ Use the questions below to organize/prioritize your metrics from the user's pers
 
 ### Start render
 
-The Start Render time is measured as the time from the start of the initial navigation until the first non-white content is painted to the browser display.
+The Start Render is the time from the start of the initial navigation until the **first non-white content is painted** to the browser display.
 
 * Lab: WPT
 * Field: N/A but similar to [First Paint (FP)](#first-paint-fp)
@@ -118,18 +120,16 @@ The Start Render time is measured as the time from the start of the initial navi
 
 ### First Paint (FP)
 
-First Paint reports the time when the browser first rendered after navigation. This excludes the default background paint, but includes non-default background paint. This is the first key moment developers care about in page load – when the browser has started to render the page.
+First Paint reports the time when **the browser first rendered after navigation**. This excludes the default background paint, but includes non-default background paint. This is the first key moment developers care about in page load – when the browser has started to render the page.
 
-* Lab: N/A but similar to [Start render](#start-render) in WPT
+* Lab: LightHouse JSON report includes it but not the HTML report, also similar to [Start render](#start-render) in WPT
 * Field: Chrome 60+, Opera 47+, CrUX
 * [Spec - FP - W3C](https://w3c.github.io/paint-timing/)
 
 
 ### First Contentful Paint (FCP)
 
-First Contentful Paint marks the time at which the first text or image is painted.
-
-FCP reports the time when the browser first rendered any text, image (including background images), non-white canvas or SVG. This includes text with pending webfonts. This is the first time users could start consuming page content.
+First Contentful Paint marks the time at which the **first text or image is painted** (including background images), non-white canvas or SVG. This includes text with pending webfonts. This is the first time users could start consuming page content.
 
 * Lab: Lighthouse
 * Field: Chrome 60+, Opera 47+, CrUX
@@ -142,6 +142,8 @@ FCP reports the time when the browser first rendered any text, image (including 
 * Has enough content rendered that users can engage with it?
 
 ### Visually Complete
+
+The Visually Complete is the time from the start of the initial navigation until the **visible (above the fold) part of your page is no longer changing**. (Measured using a color histogram based on video/screenshots recording).
 
 * Lab: WPT
 * Field: N/A
@@ -159,7 +161,7 @@ First Meaningful Paint measures when the primary content of a page is visible. I
 
 ### Speed Index
 
-Speed Index shows how quickly the contents of a page are visibly populated.
+Speed Index shows **how quickly the contents of a page are visibly populated** (lower numbers are better). This is done by frequently measuring visual completeness during loading. The quicker the page is more visually complete the lower the value.
 
 * Lab: Lighthouse, WPT (but slightly different spec)
 * Field: N/A
