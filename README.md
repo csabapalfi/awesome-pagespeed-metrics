@@ -21,17 +21,19 @@
   * [Hero Element Timing](#hero-element-timing)
 - [Is it usable?](#is-it-usable)
   * [User Timing marks](#user-timing-marks)
+  * [First Interactive](#first-interactive)
   * [First CPU Idle](#first-cpu-idle)
+  * [Consistently Interactive](#consistently-interactive)
   * [Time to Interactive (TTI)](#time-to-interactive-tti)
   * [Estimated Input Latency](#estimated-input-latency)
   * [First Input Delay (FID)](#first-input-delay-fid)
 - [Is it delightful/smooth?](#is-it-delightfulsmooth)
   * [Frame rate](#frame-rate)
-- [Page lifecycle](#page-lifecycle)
+- [Page lifecycle (TODO)](#page-lifecycle-todo)
   * [DOMContentLoaded](#domcontentloaded)
   * [window.load](#windowload)
   * [Load abandonment](#load-abandonment)
-- [Network timing](#network-timing)
+- [Network timing (TODO)](#network-timing-todo)
   * [Navigation Timing](#navigation-timing)
   * [Resource Timing](#resource-timing)
   * [Server Timing](#server-timing)
@@ -171,15 +173,20 @@ Speed Index shows **how quickly the contents of a page are visibly populated** (
 
 ### Hero Element Timing
 
-> TODO: summary + cleanup links
+Hero Element Timing captures **when specific elements are painted** by the browser (e.g. your `h1` or your hero image, etc).
 
+> TODO better explanation, explore polyfills
+
+* Lab: WPT
+* Field:
 * [W3C github issue - Element Timing API](https://github.com/w3c/charter-webperf/issues/30)
 * [Spec - Hero Element Timing](https://docs.google.com/document/d/1yRYfYR1DnHtgwC4HRR04ipVVhT1h5gkI6yPmKCgJkyQ/edit#)
 * [Blogpost - Hero Element Timing - SpeedCurve](https://speedcurve.com/blog/web-performance-monitoring-hero-times/)
 * [Polyfill - Hero Element Timing](https://github.com/tdresser/hero-element-polyfill) - see also the [announcement here](https://groups.google.com/a/chromium.org/forum/m/#!topic/progressive-web-metrics/ND6JVZRWqqg)
+* [Blogpost - User Timing for Element Timing - SpeedCurve](https://speedcurve.com/blog/user-timing-and-custom-metrics/)
 * [Blogpost - Last Painted Hero coming to WebpageTest](https://speedcurve.com/blog/last-painted-hero/)
-* [Spec - Hero Text Element Timing](https://docs.google.com/document/d/1sBM5lzDPws2mg1wRKiwM0TGFv9WqI6gEdF7vYhBYqUg/edit#heading=h.eny79fwwx642)
-* [Spec - Hero Text Element Timestamps](https://docs.google.com/document/d/1co1yefZWQ4QvG_2WT0nCrqxcAgjU08um9Boe_JzHkdE/edit#heading=h.zwg1kfkhqmx)
+* [Docs - Element Timing Explainer](https://docs.google.com/document/d/1blFeMVdqxB0V3BAJh60ptOBFY7cJSXnf7VyW3wspbZ8/edit#heading=h.eny79fwwx642)
+* [Docs - Hero Text Element Timestamps](https://docs.google.com/document/d/1co1yefZWQ4QvG_2WT0nCrqxcAgjU08um9Boe_JzHkdE/edit#heading=h.zwg1kfkhqmx)
 
 ---
 
@@ -187,6 +194,8 @@ Speed Index shows **how quickly the contents of a page are visibly populated** (
 * Can users interact with the page, or is it still busy loading?
 
 ### User Timing marks
+
+> TODO description/explanation
 
 [Spec - User Timing](https://www.w3.org/TR/user-timing/)
 
@@ -196,36 +205,47 @@ componentDidMount() {
 }
 ```
 
+### First Interactive
+
+See [First CPU Idle](#first-cpu-idle). WPT still calls it First Interactive but Google/Lighthouse renamed to First CPU Idle to avoid confusing this with [Time to Interactive (TTI)](#time-to-interactive-tti)
+
 ### First CPU Idle
 
-First CPU Idle marks the first time at which the page's main thread is quiet enough to handle input.
+First CPU Idle marks the **first time at which the page's main thread is quiet enough to handle input**.
 
 * Lab: Lighthouse, WPT (but it's called **First interactive** in WPT)
 * [Docs - First Interactive - WPT](https://github.com/WPO-Foundation/webpagetest/blob/master/docs/Metrics/TimeToInteractive.md)
 * [Docs - First CPU Idle - Lighthouse](https://developers.google.com/web/tools/lighthouse/audits/first-cpu-idle)
 
+### Consistently Interactive
+
+See [Time to Interactive (TTI)](#time-to-interactive-tti). WPT still refers to TTI as Consistently Interactive but it's only available for Chrome and not surfaced on the UI (only in raw results XML/JSON).
 
 ### Time to Interactive (TTI)
 
-Time to interactive is the amount of time it takes for the page to become fully interactive.
+Time to interactive is **the time it takes for the page to become fully interactive.** Not to confuse with First Interactive or First CPU Idle.
 
-Easy to confuse with First Interactive or First CPU Idle.
-
-* Lab: Lighthouse, WPT (but it's called Consistently interactive in WPT)
+* Lab: Lighthouse, WPT (it's called Consistently interactive in WPT, also only in Chrome even in WPT and not shown on the UI at all)
 * Field: Chrome 58+ with polyfill
 * [Polyfill - TTI](https://github.com/GoogleChromeLabs/tti-polyfill)
 * [Spec - TTI - LH](https://docs.google.com/document/d/1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c/edit)
 
 ### Estimated Input Latency
 
-Estimated Input Latency is an estimate of how long your app takes to respond to user input, in milliseconds, during the busiest 5s window of page load. If your latency is higher than 50 ms, users may perceive your app as laggy. 
+Estimated Input Latency is **an estimate of how long your app takes to respond to user input**, in milliseconds, during the busiest 5s window of page load. If your latency is higher than 50 ms, users may perceive your app as laggy. 
 
+* Lab: LH
+* Field: N/A
 * [Docs - Estimated Input Latency - LH](https://developers.google.com/web/tools/lighthouse/audits/estimated-input-latency)
 
 ### First Input Delay (FID)
 
-* Browser support: IE9+ (with polyfill - 0.4KB)
-* [Polyfill - First Input Delay](https://github.com/GoogleChromeLabs/first-input-delay)
+First Input Delay (FID) measures **the time from when a user first interacts with your site to the time when the browser is actually able to respond** to that interaction. An interaction can be when users click a link, tap on a button, or use a custom, JavaScript-powered control.
+
+* Lab: N/A (as it requires the user to interact with the page)
+* Field: IE9+ (with polyfill - 0.4KB)
+* [Docs - FID](https://developers.google.com/web/updates/2018/05/first-input-delay)
+* [Polyfill - FID](https://github.com/GoogleChromeLabs/first-input-delay)
 
 ---
 
@@ -234,31 +254,34 @@ Estimated Input Latency is an estimate of how long your app takes to respond to 
 
 ### Frame rate
 
-[Docs - Chrome Devtools - FPS](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/#analyze_frames_per_second)
+ The frame rate is the **frequency at which the browser can display frames**. A frame represents the amount of work a browser does in one event loop iteration such as processing DOM events, resizing, scrolling, rendering, CSS animations, etc. A frame rate of 60 fps (frames per second) is a common target for a good responsive user experience. This means the browser should process a frame in about 16.7 ms.
 
-[Docs - Firefox Developer Tools - Frame rate](https://developer.mozilla.org/en-US/docs/Tools/Performance/Frame_rate)
+* Lab: N/A
+* Field: No browser implements the Frame Timing API yet
+* [Docs - Frame Timing API](https://developer.mozilla.org/en-US/docs/Web/API/Frame_Timing_API)
+* [Docs - Chrome Devtools - FPS](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/#analyze_frames_per_second)
+* [Docs - Firefox Developer Tools - Frame rate](https://developer.mozilla.org/en-US/docs/Tools/Performance/Frame_rate)
 
 ---
 
-## Page lifecycle
+## Page lifecycle (TODO)
 
 ### DOMContentLoaded
 
-[Docs - `DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded)
+* [Docs - `DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded)
 
 ### window.load
 
-[Docs - `load`](https://developer.mozilla.org/en-US/docs/Web/Events/load) or more specifically `window.load`
+* [Docs - `load`](https://developer.mozilla.org/en-US/docs/Web/Events/load) or more specifically `window.load`
 
 ### Load abandonment
 
-[Example - tracking `visibilitychange`](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics#load_abandonment)
-
-[Spec - Page Visibility](https://www.w3.org/TR/page-visibility-2/)
+* [Example - tracking `visibilitychange`](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics#load_abandonment)
+* [Spec - Page Visibility](https://www.w3.org/TR/page-visibility-2/)
 
 ---
 
-## Network timing
+## Network timing (TODO)
 
 [Blogpost - Navigation and Resource Timing](https://developers.google.com/web/fundamentals/performance/navigation-and-resource-timing/)
 
