@@ -175,10 +175,8 @@ Speed Index shows **how quickly the contents of a page are visibly populated** (
 
 Hero Element Timing captures **when specific elements are painted** by the browser (e.g. your `h1` or your hero image, etc).
 
-> TODO better explanation, explore polyfills
-
 * Lab: WPT
-* Field:
+* Field: N/A but see unmantained polyfill below
 * [W3C github issue - Element Timing API](https://github.com/w3c/charter-webperf/issues/30)
 * [Spec - Hero Element Timing](https://docs.google.com/document/d/1yRYfYR1DnHtgwC4HRR04ipVVhT1h5gkI6yPmKCgJkyQ/edit#)
 * [Blogpost - Hero Element Timing - SpeedCurve](https://speedcurve.com/blog/web-performance-monitoring-hero-times/)
@@ -195,9 +193,11 @@ Hero Element Timing captures **when specific elements are painted** by the brows
 
 ### User Timing marks
 
-> TODO description/explanation
+The User Timing API allows the developer to create application specific timestamps that are part of the browser's performance timeline. You can **create a user timing mark to measure when your JS has loaded** (e.g. for a specific component).
 
-[Spec - User Timing](https://www.w3.org/TR/user-timing/)
+* Lab: LH, WPT
+* Field: IE 10+, Safari 11+ (and Chrome, Firefox of course)
+* [Spec - User Timing](https://www.w3.org/TR/user-timing/)
 
 ```js
 componentDidMount() {
@@ -243,7 +243,7 @@ Estimated Input Latency is **an estimate of how long your app takes to respond t
 First Input Delay (FID) measures **the time from when a user first interacts with your site to the time when the browser is actually able to respond** to that interaction. An interaction can be when users click a link, tap on a button, or use a custom, JavaScript-powered control.
 
 * Lab: N/A (as it requires the user to interact with the page)
-* Field: IE9+ (with polyfill - 0.4KB)
+* Field: IE9+ (and Safari, Chrome, Firefox) (with polyfill - 0.4KB)
 * [Docs - FID](https://developers.google.com/web/updates/2018/05/first-input-delay)
 * [Polyfill - FID](https://github.com/GoogleChromeLabs/first-input-delay)
 
@@ -287,17 +287,17 @@ First Input Delay (FID) measures **the time from when a user first interacts wit
 
 ### Navigation Timing
 
-[Spec - Navigation Timing](https://www.w3.org/TR/navigation-timing-2/)
+* [Spec - Navigation Timing](https://www.w3.org/TR/navigation-timing-2/)
 
 ### Resource Timing
 
-[Spec - Resource Timing](https://www.w3.org/TR/resource-timing-2/)
+* [Spec - Resource Timing](https://www.w3.org/TR/resource-timing-2/)
 
 ### Server Timing
 
 Surface any backend server timing metrics (e.g. database latency, etc.) in the developer tools in the user's browser or in the PerformanceServerTiming interface.
 
-[Docs - Server Timing](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server-Timing)
+* [Docs - Server Timing](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server-Timing)
 
 ---
 
