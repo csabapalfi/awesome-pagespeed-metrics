@@ -152,7 +152,7 @@ The Visually Complete is the time from the start of the initial navigation until
 
 ### First Meaningful Paint (FMP)
 
-First Meaningful Paint measures when the primary content of a page is visible. It's essentially the paint after which the biggest above-the-fold layout change has happened, and web fonts have loaded.
+First Meaningful Paint measures **when the primary content of a page is visible**. It's essentially the paint after which the biggest above-the-fold layout change has happened, and web fonts have loaded.
 
 * Lab: Lighthouse
 * Field: N/A
