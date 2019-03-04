@@ -13,20 +13,20 @@
 - [Is it happening?](#is-it-happening)
   * [Start render](#start-render)
   * [First Paint (FP)](#first-paint-fp)
-  * [First Contentful Paint (FCP)](#first-contentful-paint-fcp)
+  * [First Contentful Paint (FCP) ⭐](#first-contentful-paint-fcp-%E2%AD%90)
 - [Is it useful/meaningful?](#is-it-usefulmeaningful)
   * [Visually Complete](#visually-complete)
   * [First Meaningful Paint (FMP)](#first-meaningful-paint-fmp)
-  * [Speed Index](#speed-index)
-  * [Hero Element Timing](#hero-element-timing)
+  * [Speed Index ⭐](#speed-index-%E2%AD%90)
+  * [Hero Element Timing ⭐](#hero-element-timing-%E2%AD%90)
 - [Is it usable?](#is-it-usable)
   * [User Timing marks](#user-timing-marks)
   * [First Interactive](#first-interactive)
-  * [First CPU Idle](#first-cpu-idle)
+  * [First CPU Idle ⭐](#first-cpu-idle-%E2%AD%90)
   * [Consistently Interactive](#consistently-interactive)
-  * [Time to Interactive (TTI)](#time-to-interactive-tti)
+  * [Time to Interactive (TTI) ⭐](#time-to-interactive-tti-%E2%AD%90)
   * [Estimated Input Latency](#estimated-input-latency)
-  * [First Input Delay (FID)](#first-input-delay-fid)
+  * [First Input Delay (FID) ⭐](#first-input-delay-fid-%E2%AD%90)
 - [Is it delightful/smooth?](#is-it-delightfulsmooth)
   * [Frame rate](#frame-rate)
 - [Page lifecycle (TODO)](#page-lifecycle-todo)
@@ -129,7 +129,7 @@ First Paint reports the time when **the browser first rendered after navigation*
 * [Spec - FP - W3C](https://w3c.github.io/paint-timing/)
 
 
-### First Contentful Paint (FCP)
+### First Contentful Paint (FCP) ⭐
 
 First Contentful Paint marks the time at which the **first text or image is painted** (including background images), non-white canvas or SVG. This includes text with pending webfonts. This is the first time users could start consuming page content.
 
@@ -161,7 +161,7 @@ First Meaningful Paint measures **when the primary content of a page is visible*
 * [Docs - FMP - LH](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint)
 * [Spec - First Meaningful Paint](https://docs.google.com/document/d/1BR94tJdZLsin5poeet0XoTW60M0SjvOJQttKT-JK8HI/view)
 
-### Speed Index
+### Speed Index ⭐
 
 Speed Index shows **how quickly the contents of a page are visibly populated** (lower numbers are better). This is done by frequently measuring visual completeness during loading. The quicker the page is more visually complete the lower the value.
 
@@ -171,7 +171,7 @@ Speed Index shows **how quickly the contents of a page are visibly populated** (
 * [Docs - Speed Index - WPT](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index)
 * [Talk - Speed Perception and Lighthouse](https://ldnwebperf.org/events/speed-perception-and-lighthouse/)
 
-### Hero Element Timing
+### Hero Element Timing ⭐
 
 Hero Element Timing captures **when specific elements are painted** by the browser (e.g. your `h1` or your hero image, etc).
 
@@ -209,7 +209,7 @@ componentDidMount() {
 
 See [First CPU Idle](#first-cpu-idle). WPT still calls it First Interactive but Google/Lighthouse renamed to First CPU Idle to avoid confusing this with [Time to Interactive (TTI)](#time-to-interactive-tti)
 
-### First CPU Idle
+### First CPU Idle ⭐
 
 First CPU Idle marks the **first time at which the page's main thread is quiet enough to handle input**.
 
@@ -221,7 +221,7 @@ First CPU Idle marks the **first time at which the page's main thread is quiet e
 
 See [Time to Interactive (TTI)](#time-to-interactive-tti). WPT still refers to TTI as Consistently Interactive but it's only available for Chrome and not surfaced on the UI (only in raw results XML/JSON).
 
-### Time to Interactive (TTI)
+### Time to Interactive (TTI) ⭐
 
 Time to interactive is **the time it takes for the page to become fully interactive.** Not to confuse with First Interactive or First CPU Idle.
 
@@ -238,7 +238,7 @@ Estimated Input Latency is **an estimate of how long your app takes to respond t
 * Field: N/A
 * [Docs - Estimated Input Latency - LH](https://developers.google.com/web/tools/lighthouse/audits/estimated-input-latency)
 
-### First Input Delay (FID)
+### First Input Delay (FID) ⭐
 
 First Input Delay (FID) measures **the time from when a user first interacts with your site to the time when the browser is actually able to respond** to that interaction. An interaction can be when users click a link, tap on a button, or use a custom, JavaScript-powered control.
 
