@@ -278,11 +278,9 @@ You can measure the byte weight of your assets with a number of tools. These can
 
 ### JavaScript weight (incl third-parties)
 
-Measure and keep track of the compressed (and uncompressed) byte weight of your own JS bundles and all thirdparty JS loaded on your page.
+Measure and keep track of the compressed (and uncompressed) byte weight of your own JS bundles and all thirdparty JS loaded on your page. Third parties can usually be analytics,marketing tags, customer support chat widget, etc.
 
 Loading lots of JavaScript is usually the root cause of high [TTI](#time-to-interactive-tti-) or [FID](#first-input-delay-fid-) values.
-
-Also keep in mind that third-party JavaScript (e.g. analytics,marketing tags, customer support chat widget) can hurt TTI and FID the same way.
 
 * [Can You Afford It?: Real-world Web Performance Budgets](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/)
 * [Which third party scripts are most excessive](https://github.com/patrickhulce/third-party-web)
