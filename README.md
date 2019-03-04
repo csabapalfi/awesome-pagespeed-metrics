@@ -269,6 +269,8 @@ First Input Delay (FID) measures **the time from when a user first interacts wit
 
 You can measure the byte weight of your assets with a number of tools. These can be tracked Lab only as the numbers are usually the same in the Field (but be mindful of device type or geographical location specific pages).
 
+* Lab: LH (custom audit), Sitespeed.io, custom tools
+* Field: N/A - but numbers usually the same as in Lab
 * [Sitespeed.io PageXray](https://www.sitespeed.io/documentation/pagexray/)
 * [page-weight cli](https://www.sitespeed.io/documentation/pagexray/) - splits first-party and third-party
 * [byte-weight-breakdown - LH custom audit](https://github.com/csabapalfi/byte-weight-breakdown)
@@ -282,8 +284,6 @@ Loading lots of JavaScript is usually the root cause of high [TTI](#time-to-inte
 
 Also keep in mind that third-party JavaScript (e.g. analytics,marketing tags, customer support chat widget) can hurt TTI and FID the same way.
 
-* Lab: LH (custom audit), Sitespeed.io, custom tools
-* Field: N/A - but numbers usually the same as in Lab
 * [Can You Afford It?: Real-world Web Performance Budgets](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/)
 * [Which third party scripts are most excessive](https://github.com/patrickhulce/third-party-web)
 
