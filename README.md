@@ -29,6 +29,9 @@
   * [First Input Delay (FID) ⭐](#first-input-delay-fid-)
 - [Is it delightful/smooth?](#is-it-delightfulsmooth)
   * [Frame rate](#frame-rate)
+- [Resource byte weights](#resource-byte-weights)
+  * [JavaScript weight (incl third-parties)](#javascript-weight-incl-third-parties)
+  * [HTML weight](#html-weight)
 - [Page lifecycle (TODO)](#page-lifecycle-todo)
   * [DOMContentLoaded](#domcontentloaded)
   * [window.load](#windowload)
@@ -37,9 +40,6 @@
   * [Navigation Timing](#navigation-timing)
   * [Resource Timing](#resource-timing)
   * [Server Timing](#server-timing)
-- [Resource byte weights (TODO)](#resource-byte-weights-todo)
-  * [Initial HTML weight](#initial-html-weight)
-  * [JavaScript weight](#javascript-weight)
 - [Concepts (TODO)](#concepts-todo)
   * [Critical rendering path](#critical-rendering-path)
   * [The Main Thread and Long tasks](#the-main-thread-and-long-tasks)
@@ -265,6 +265,36 @@ First Input Delay (FID) measures **the time from when a user first interacts wit
 
 ---
 
+## Resource byte weights
+
+You can measure the byte weight of your assets with a number of tools. These can be tracked Lab only as the numbers are usually the same in the Field (but be mindful of device type or geographical location specific pages).
+
+* [Sitespeed.io PageXray](https://www.sitespeed.io/documentation/pagexray/)
+* [page-weight cli](https://www.sitespeed.io/documentation/pagexray/) - splits first-party and third-party
+* [byte-weight-breakdown - LH custom audit](https://github.com/csabapalfi/byte-weight-breakdown)
+* manually look at Chrome DevTools Network Tab
+
+### JavaScript weight (incl third-parties)
+
+Measure and keep track of the compressed (and uncompressed) byte weight of your own JS bundles and all thirdparty JS loaded on your page.
+
+Loading lots of JavaScript is usually the root cause of high [TTI](#time-to-interactive-tti-) or [FID](#first-input-delay-fid-) values.
+
+Also keep in mind that third-party JavaScript (e.g. analytics,marketing tags, customer support chat widget) can hurt TTI and FID the same way.
+
+* Lab: LH (custom audit), Sitespeed.io, custom tools
+* Field: N/A - but numbers usually the same as in Lab
+* [Can You Afford It?: Real-world Web Performance Budgets](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/)
+* [Which third party scripts are most excessive](https://github.com/patrickhulce/third-party-web)
+
+
+### HTML weight
+
+Your initial HTML document is alway number one on your critical rendering path. Be sure not excessively embed resources like SVGs or large amount JS or CSS. (Some critical CSS or JS is ok, the key here is how much).
+
+* [Is your HTML bloated? A flamegraph can tell you why](https://medium.com/@csabapalfi/is-your-html-bloated-a-flamegraph-can-tell-you-why-e60e4313583c)
+
+---
 ## Page lifecycle (TODO)
 
 ### DOMContentLoaded
@@ -299,14 +329,6 @@ First Input Delay (FID) measures **the time from when a user first interacts wit
 Surface any backend server timing metrics (e.g. database latency, etc.) in the developer tools in the user's browser or in the PerformanceServerTiming interface.
 
 * [Docs - Server Timing](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server-Timing)
-
----
-
-## Resource byte weights (TODO)
-
-### Initial HTML weight
-
-### JavaScript weight
 
 ---
 
