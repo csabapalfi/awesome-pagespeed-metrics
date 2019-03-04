@@ -313,6 +313,9 @@ Surface any backend server timing metrics (e.g. database latency, etc.) in the d
 
 ### Critical rendering path
 
+* [Critical rendering path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/)
+
 ### The Main Thread and Long tasks
 
 * [Spec - Long Tasks](https://w3c.github.io/longtasks/)
+* [Blogpost - Tracking CPU with Long Tasks API](https://calendar.perfplanet.com/2017/tracking-cpu-with-long-tasks-api/)
