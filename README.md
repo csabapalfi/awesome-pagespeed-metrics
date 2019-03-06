@@ -114,12 +114,12 @@ Use the questions below to organize/prioritize your metrics from the user's pers
 
 ---
 
-### Is it happening?
+## Is it happening?
 
 * Did the navigation start successfully? 
 * Has the server responded?
 
-#### First Contentful Paint (FCP)
+### First Contentful Paint (FCP)
 
 First Contentful Paint marks the time at which the **first text or image is painted** (including background images), non-white canvas or SVG. This includes text with pending webfonts. This is the first time users could start consuming page content.
 
@@ -130,10 +130,10 @@ First Contentful Paint marks the time at which the **first text or image is pain
 
 ---
 
-### Is it useful/meaningful?	
+## Is it useful/meaningful?	
 * Has enough content rendered that users can engage with it?
 
-#### First Meaningful Paint (FMP)
+### First Meaningful Paint (FMP)
 
 First Meaningful Paint measures **when the primary content of a page is visible**. It's essentially the paint after which the biggest above-the-fold layout change has happened, and web fonts have loaded.
 
@@ -142,7 +142,7 @@ First Meaningful Paint measures **when the primary content of a page is visible*
 * [Docs - FMP - LH](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint)
 * [Spec - First Meaningful Paint](https://docs.google.com/document/d/1BR94tJdZLsin5poeet0XoTW60M0SjvOJQttKT-JK8HI/view)
 
-#### Speed Index
+### Speed Index
 
 Speed Index shows **how quickly the contents of a page are visibly populated** (lower numbers are better). This is done by frequently measuring visual completeness during loading. The quicker the page is more visually complete the lower the value.
 
@@ -152,7 +152,7 @@ Speed Index shows **how quickly the contents of a page are visibly populated** (
 * [Docs - Speed Index - WPT](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index)
 * [Talk - Speed Perception and Lighthouse](https://ldnwebperf.org/events/speed-perception-and-lighthouse/)
 
-#### Hero Element Timing
+### Hero Element Timing
 
 Hero Element Timing captures **when specific elements are painted** by the browser (e.g. your `h1` or your hero image, etc).
 
@@ -169,10 +169,10 @@ Hero Element Timing captures **when specific elements are painted** by the brows
 
 ---
 
-### Is it usable?
+## Is it usable?
 * Can users interact with the page, or is it still busy loading?
 
-#### User Timing marks
+### User Timing marks
 
 The User Timing API allows the developer to create application specific timestamps that are part of the browser's performance timeline. You can **create a user timing mark to measure when your JS has loaded** (e.g. for a specific component).
 
@@ -186,7 +186,7 @@ componentDidMount() {
 }
 ```
 
-#### First CPU Idle
+### First CPU Idle
 
 First CPU Idle marks the **first time at which the page's main thread is quiet enough to handle input**.
 
@@ -194,7 +194,7 @@ First CPU Idle marks the **first time at which the page's main thread is quiet e
 * [Docs - First Interactive - WPT](https://github.com/WPO-Foundation/webpagetest/blob/master/docs/Metrics/TimeToInteractive.md)
 * [Docs - First CPU Idle - Lighthouse](https://developers.google.com/web/tools/lighthouse/audits/first-cpu-idle)
 
-#### Time to Interactive (TTI)
+### Time to Interactive (TTI)
 
 Time to interactive is **the time it takes for the page to become fully interactive.** Not to confuse with First Interactive or First CPU Idle.
 
@@ -203,7 +203,7 @@ Time to interactive is **the time it takes for the page to become fully interact
 * [Polyfill - TTI](https://github.com/GoogleChromeLabs/tti-polyfill)
 * [Spec - TTI - LH](https://docs.google.com/document/d/1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c/edit)
 
-#### Estimated Input Latency
+### Estimated Input Latency
 
 Estimated Input Latency is **an estimate of how long your app takes to respond to user input**, in milliseconds, during the busiest 5s window of page load. If your latency is higher than 50 ms, users may perceive your app as laggy. 
 
@@ -211,7 +211,7 @@ Estimated Input Latency is **an estimate of how long your app takes to respond t
 * Field: N/A
 * [Docs - Estimated Input Latency - LH](https://developers.google.com/web/tools/lighthouse/audits/estimated-input-latency)
 
-#### First Input Delay (FID)
+### First Input Delay (FID)
 
 First Input Delay (FID) measures **the time from when a user first interacts with your site to the time when the browser is actually able to respond** to that interaction. An interaction can be when users click a link, tap on a button, or use a custom, JavaScript-powered control.
 
@@ -222,10 +222,10 @@ First Input Delay (FID) measures **the time from when a user first interacts wit
 
 ---
 
-### Is it delightful/smooth?	
+## Is it delightful/smooth?	
 * Are the interactions smooth and natural, free of lag and jank?
 
-#### Frame rate
+### Frame rate
 
  The frame rate is the **frequency at which the browser can display frames**. A frame represents the amount of work a browser does in one event loop iteration such as processing DOM events, resizing, scrolling, rendering, CSS animations, etc. A frame rate of 60 fps (frames per second) is a common target for a good responsive user experience. This means the browser should process a frame in about 16.7 ms.
 
@@ -236,44 +236,6 @@ First Input Delay (FID) measures **the time from when a user first interacts wit
 * [Docs - Firefox Developer Tools - Frame rate](https://developer.mozilla.org/en-US/docs/Tools/Performance/Frame_rate)
 
 ---
-
-### Additional user-centric metrics
-
-These metrics can also be assigned to the relevant questions from [User-centric metrics](#user-centric-metrics) (or some of them are simply a different name for the ones above).
-
-#### Start render
-
-The Start Render is the time from the start of the initial navigation until the **first non-white content is painted** to the browser display.
-
-* Lab: WPT
-* Field: N/A but similar to [First Paint (FP)](#first-paint-fp)
-* [Docs - Start Render - WPT](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics)
-
-
-#### First Paint (FP)
-
-First Paint reports the time when **the browser first rendered after navigation**. This excludes the default background paint, but includes non-default background paint. This is the first key moment developers care about in page load – when the browser has started to render the page.
-
-* Lab: LightHouse JSON report includes it but not the HTML report, also similar to [Start render](#start-render) in WPT
-* Field: Chrome 60+, Opera 47+, CrUX
-* [Spec - FP - W3C](https://w3c.github.io/paint-timing/)
-
-#### Visually Complete
-
-The Visually Complete is the time from the start of the initial navigation until the **visible (above the fold) part of your page is no longer changing**. (Measured using a color histogram based on video/screenshots recording).
-
-* Lab: WPT
-* Field: N/A
-* [Docs - Visually Complete - WPT](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index)
-
-#### First Interactive
-
-See [First CPU Idle](#first-cpu-idle). WPT still calls it First Interactive but Google/Lighthouse renamed to First CPU Idle to avoid confusing this with [Time to Interactive (TTI)](#time-to-interactive-tti)
-
-#### Consistently Interactive
-
-See [Time to Interactive (TTI)](#time-to-interactive-tti). WPT still refers to TTI as Consistently Interactive but it's only available for Chrome and not surfaced on the UI (only in raw results XML/JSON).
-
 
 ## Resource byte weights
 
@@ -303,17 +265,8 @@ Your initial HTML document is alway number one on your critical rendering path. 
 * [Is your HTML bloated? A flamegraph can tell you why](https://medium.com/@csabapalfi/is-your-html-bloated-a-flamegraph-can-tell-you-why-e60e4313583c)
 
 ---
-## Page lifecycle (TODO)
 
-### DOMContentLoaded
-
-* [Docs - `DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded)
-
-### window.load
-
-* [Docs - `load`](https://developer.mozilla.org/en-US/docs/Web/Events/load) or more specifically `window.load`
-
-### Load abandonment
+## Load abandonment (TODO)
 
 * [Example - tracking `visibilitychange`](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics#load_abandonment)
 * [Spec - Page Visibility](https://www.w3.org/TR/page-visibility-2/)
@@ -358,3 +311,49 @@ To optimize interactivity metrics like [Time to Interactive (TTI)](#time-to-inte
 
 * [Spec - Long Tasks](https://w3c.github.io/longtasks/)
 * [Blogpost - Tracking CPU with Long Tasks API](https://calendar.perfplanet.com/2017/tracking-cpu-with-long-tasks-api/)
+
+---
+
+## Other metrics
+
+### Start render
+
+The Start Render is the time from the start of the initial navigation until the **first non-white content is painted** to the browser display.
+
+* Lab: WPT
+* Field: N/A but similar to [First Paint (FP)](#first-paint-fp)
+* [Docs - Start Render - WPT](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics)
+
+
+### First Paint (FP)
+
+First Paint reports the time when **the browser first rendered after navigation**. This excludes the default background paint, but includes non-default background paint. This is the first key moment developers care about in page load – when the browser has started to render the page.
+
+* Lab: LightHouse JSON report includes it but not the HTML report, also similar to [Start render](#start-render) in WPT
+* Field: Chrome 60+, Opera 47+, CrUX
+* [Spec - FP - W3C](https://w3c.github.io/paint-timing/)
+
+### Visually Complete
+
+The Visually Complete is the time from the start of the initial navigation until the **visible (above the fold) part of your page is no longer changing**. (Measured using a color histogram based on video/screenshots recording).
+
+* Lab: WPT
+* Field: N/A
+* [Docs - Visually Complete - WPT](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index)
+
+### First Interactive
+
+See [First CPU Idle](#first-cpu-idle). WPT still calls it First Interactive but Google/Lighthouse renamed to First CPU Idle to avoid confusing this with [Time to Interactive (TTI)](#time-to-interactive-tti)
+
+### Consistently Interactive
+
+See [Time to Interactive (TTI)](#time-to-interactive-tti). WPT still refers to TTI as Consistently Interactive but it's only available for Chrome and not surfaced on the UI (only in raw results XML/JSON).
+
+### DOMContentLoaded
+
+* [Docs - `DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded)
+
+### window.load
+
+* [Docs - `load`](https://developer.mozilla.org/en-US/docs/Web/Events/load) or more specifically `window.load`
+
