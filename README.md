@@ -41,7 +41,7 @@
   * [Navigation Timing](#navigation-timing)
   * [Resource Timing](#resource-timing)
   * [Server Timing](#server-timing)
-- [Concepts (TODO)](#concepts-todo)
+- [Concepts](#concepts)
   * [Critical rendering path](#critical-rendering-path)
   * [The Main Thread and Long tasks](#the-main-thread-and-long-tasks)
 
@@ -340,13 +340,21 @@ Surface any backend server timing metrics (e.g. database latency, etc.) in the d
 
 ---
 
-## Concepts (TODO)
+## Concepts
 
 ### Critical rendering path
 
+The critical rendering path is **everything that happens between receiving network bytes and rendering something on the screen**. To optimize any rendering metrics like [First Contentful Paint (FCP)](#first-contentful-paint-fcp) or [Speed Index](#speed-index) you have to understand how the critical rendering path works.
+
 * [Critical rendering path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/)
 
-### The Main Thread and Long tasks
+### Long tasks
+
+The browser Main Thread that handles user input is also the one executing JavaScript (among many other things). Blocking the Main Thread for too long can make your page unresponsive.
+
+A user perceives any change within 100ms as instant. Any task blocking the Main Thread by **taking longer than 50ms is considered a long task** (as it might make the browser unresponsive to user input).
+
+To optimize interactivity metrics like [Time to Interactive (TTI)](#time-to-interactive-tti) and [First Input Delay (FID)](#first-input-delay-fid) you have to understand long tasks and how to avoid them as much as possible.
 
 * [Spec - Long Tasks](https://w3c.github.io/longtasks/)
 * [Blogpost - Tracking CPU with Long Tasks API](https://calendar.perfplanet.com/2017/tracking-cpu-with-long-tasks-api/)
