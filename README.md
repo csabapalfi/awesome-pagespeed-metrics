@@ -115,8 +115,7 @@ Use the questions below to organize/prioritize your metrics from the user's pers
 
 ## Is it happening?
 
-* Did the navigation start successfully? 
-* Has the server responded?
+> Did the navigation start successfully? Has the server responded?
 
 ### First Contentful Paint (FCP)
 
@@ -130,7 +129,7 @@ First Contentful Paint marks the time at which the **first text or image is pain
 ---
 
 ## Is it useful/meaningful?	
-* Has enough content rendered that users can engage with it?
+> Has enough content rendered that users can engage with it?
 
 ### First Meaningful Paint (FMP)
 
@@ -169,7 +168,7 @@ Hero Element Timing captures **when specific elements are painted** by the brows
 ---
 
 ## Is it usable?
-* Can users interact with the page, or is it still busy loading?
+> Can users interact with the page, or is it still busy loading?
 
 ### User Timing marks
 
@@ -222,7 +221,7 @@ First Input Delay (FID) measures **the time from when a user first interacts wit
 ---
 
 ## Is it delightful/smooth?	
-* Are the interactions smooth and natural, free of lag and jank?
+> Are the interactions smooth and natural, free of lag and jank?
 
 ### Frame rate
 
