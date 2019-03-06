@@ -43,7 +43,7 @@
   * [Server Timing](#server-timing)
 - [Concepts](#concepts)
   * [Critical rendering path](#critical-rendering-path)
-  * [The Main Thread and Long tasks](#the-main-thread-and-long-tasks)
+  * [Long tasks](#long-tasks)
 
 ## Lab data (Synthetic measurements)
 
