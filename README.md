@@ -22,13 +22,13 @@
     + [First Input Delay (FID)](#first-input-delay-fid)
     + [Estimated Input Latency](#estimated-input-latency)
     + [User Timing mark when JS loaded](#user-timing-mark-when-js-loaded)
+  * [Byte Weight](#byte-weight)
+    + [JavaScript bytes (incl third-parties)](#javascript-bytes-incl-third-parties)
+    + [HTML bytes](#html-bytes)
   * [Network Timing](#network-timing)
     + [DNS](#dns)
     + [TCP and TLS](#tcp-and-tls)
     + [TTFB](#ttfb)
-  * [Byte Weight](#byte-weight)
-    + [JavaScript bytes (incl third-parties)](#javascript-bytes-incl-third-parties)
-    + [HTML bytes](#html-bytes)
 - [Concepts](#concepts)
   * [Critical rendering path](#critical-rendering-path)
   * [Long tasks](#long-tasks)
@@ -207,6 +207,34 @@ componentDidMount() {
 
 ---
 
+### Byte Weight
+
+You can measure the byte weight of your assets with a number of tools. These can be tracked Lab only as the numbers are usually the same in the Field (but be mindful of device type or geographical location specific pages).
+
+* Lab: LH (custom audit), Sitespeed.io, custom tools
+* Field: N/A - but numbers usually the same as in Lab
+* [Sitespeed.io PageXray](https://www.sitespeed.io/documentation/pagexray/)
+* [page-weight cli](https://www.sitespeed.io/documentation/pagexray/) - splits first-party and third-party
+* [byte-weight-breakdown - LH custom audit](https://github.com/csabapalfi/byte-weight-breakdown)
+* manually look at Chrome DevTools Network Tab
+
+#### JavaScript bytes (incl third-parties)
+
+Measure and keep track of the compressed (and uncompressed) byte weight of your own JS bundles and all thirdparty JS loaded on your page. Third parties can be analytics, marketing tags, customer support chat widget, etc.
+
+Loading lots of JavaScript is usually the root cause of high [TTI](#time-to-interactive-tti-) or [FID](#first-input-delay-fid-) values.
+
+* [Can You Afford It?: Real-world Web Performance Budgets](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/)
+* [Which third party scripts are most excessive](https://github.com/patrickhulce/third-party-web)
+
+#### HTML bytes
+
+Your initial HTML document is alway number one on your critical rendering path. Be sure not excessively embed resources like SVGs or large amount JS or CSS. (Some critical CSS or JS is ok, the key here is how much).
+
+* [Is your HTML bloated? A flamegraph can tell you why](https://medium.com/@csabapalfi/is-your-html-bloated-a-flamegraph-can-tell-you-why-e60e4313583c)
+
+---
+
 ### Network Timing
 
 * [Blogpost - Navigation and Resource Timing](https://developers.google.com/web/fundamentals/performance/navigation-and-resource-timing/)
@@ -245,34 +273,6 @@ var ttfb = pageNav.responseStart - pageNav.requestEnd;
 
 ---
 
-### Byte Weight
-
-You can measure the byte weight of your assets with a number of tools. These can be tracked Lab only as the numbers are usually the same in the Field (but be mindful of device type or geographical location specific pages).
-
-* Lab: LH (custom audit), Sitespeed.io, custom tools
-* Field: N/A - but numbers usually the same as in Lab
-* [Sitespeed.io PageXray](https://www.sitespeed.io/documentation/pagexray/)
-* [page-weight cli](https://www.sitespeed.io/documentation/pagexray/) - splits first-party and third-party
-* [byte-weight-breakdown - LH custom audit](https://github.com/csabapalfi/byte-weight-breakdown)
-* manually look at Chrome DevTools Network Tab
-
-#### JavaScript bytes (incl third-parties)
-
-Measure and keep track of the compressed (and uncompressed) byte weight of your own JS bundles and all thirdparty JS loaded on your page. Third parties can be analytics, marketing tags, customer support chat widget, etc.
-
-Loading lots of JavaScript is usually the root cause of high [TTI](#time-to-interactive-tti-) or [FID](#first-input-delay-fid-) values.
-
-* [Can You Afford It?: Real-world Web Performance Budgets](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/)
-* [Which third party scripts are most excessive](https://github.com/patrickhulce/third-party-web)
-
-#### HTML bytes
-
-Your initial HTML document is alway number one on your critical rendering path. Be sure not excessively embed resources like SVGs or large amount JS or CSS. (Some critical CSS or JS is ok, the key here is how much).
-
-* [Is your HTML bloated? A flamegraph can tell you why](https://medium.com/@csabapalfi/is-your-html-bloated-a-flamegraph-can-tell-you-why-e60e4313583c)
-
----
-
 ## Concepts
 
 
@@ -286,7 +286,7 @@ The critical rendering path is **everything that happens between receiving netwo
 
 The browser Main Thread that handles user input is also the one executing JavaScript (among many other things). Blocking the Main Thread for too long can make your page unresponsive.
 
-A user perceives any change within 100ms as instant. Any task blocking the Main Thread by **taking longer than 50ms is considered a long task** (as it might make the browser unresponsive to user input).
+A user perceives any visual change within 100ms as instant. Any task blocking the Main Thread by **taking longer than 50ms is considered a long task** (as it might make the browser unresponsive to user input).
 
 To optimize interactivity metrics like [Time to Interactive (TTI)](#time-to-interactive-tti) and [First Input Delay (FID)](#first-input-delay-fid) you have to understand long tasks and how to avoid them as much as possible.
 
