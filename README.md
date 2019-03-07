@@ -22,7 +22,11 @@
     + [First Input Delay (FID)](#first-input-delay-fid)
     + [Estimated Input Latency](#estimated-input-latency)
     + [User Timing mark when JS loaded](#user-timing-mark-when-js-loaded)
-  * [Byte weight](#byte-weight)
+  * [Network Timing](#network-timing)
+    + [DNS](#dns)
+    + [TCP and TLS](#tcp-and-tls)
+    + [TTFB](#ttfb)
+  * [Byte Weight](#byte-weight)
     + [JavaScript bytes (incl third-parties)](#javascript-bytes-incl-third-parties)
     + [HTML bytes](#html-bytes)
 - [Concepts](#concepts)
@@ -42,8 +46,8 @@
   * [DOMContentLoaded](#domcontentloaded)
   * [window.load](#windowload)
   * [Frame rate](#frame-rate)
-  * [Navigation and Resource Timing](#navigation-and-resource-timing)
   * [Server Timing](#server-timing)
+  * [Effective Connection Type](#effective-connection-type)
 
 ## Collecting metrics
 
@@ -203,7 +207,45 @@ componentDidMount() {
 
 ---
 
-### Byte weight
+### Network Timing
+
+* [Blogpost - Navigation and Resource Timing](https://developers.google.com/web/fundamentals/performance/navigation-and-resource-timing/)
+* [Spec - Navigation Timing](https://www.w3.org/TR/navigation-timing-2/)
+* [Spec - Resource Timing](https://www.w3.org/TR/resource-timing-2/)
+
+#### DNS
+
+```js
+// Measuring DNS lookup time
+var pageNav = performance.getEntriesByType("navigation")[0];
+var dnsTime = pageNav.domainLookupEnd - pageNav.domainLookupStart;
+```
+
+#### TCP and TLS
+
+```js
+// Quantifying total connection time
+var pageNav = performance.getEntriesByType("navigation")[0];
+var connectionTime = pageNav.connectEnd - pageNav.connectStart;
+var tlsTime = 0; // <-- Assume 0 by default
+
+// Did any TLS stuff happen?
+if (pageNav.secureConnectionStart > 0) {
+  // Awesome! Calculate it!
+  tlsTime = pageNav.connectEnd - pageNav.secureConnectionStart;
+}
+```
+
+#### TTFB
+
+```js
+// Time to First Byte (TTFB)
+var ttfb = pageNav.responseStart - pageNav.requestEnd;
+```
+
+---
+
+### Byte Weight
 
 You can measure the byte weight of your assets with a number of tools. These can be tracked Lab only as the numbers are usually the same in the Field (but be mindful of device type or geographical location specific pages).
 
@@ -340,14 +382,13 @@ See [Time to Interactive (TTI)](#time-to-interactive-tti). WPT still refers to T
 * [Docs - Chrome Devtools - FPS](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/#analyze_frames_per_second)
 * [Docs - Firefox Developer Tools - Frame rate](https://developer.mozilla.org/en-US/docs/Tools/Performance/Frame_rate)
 
-### Navigation and Resource Timing
-
-* [Blogpost - Navigation and Resource Timing](https://developers.google.com/web/fundamentals/performance/navigation-and-resource-timing/)
-* [Spec - Navigation Timing](https://www.w3.org/TR/navigation-timing-2/)
-* [Spec - Resource Timing](https://www.w3.org/TR/resource-timing-2/)
-
 ### Server Timing
 
 Surface any backend server timing metrics (e.g. database latency, etc.) in the developer tools in the user's browser or in the PerformanceServerTiming interface.
 
 * [Docs - Server Timing](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server-Timing)
+
+
+### Effective Connection Type
+
+* [Network Information API](https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API)
