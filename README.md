@@ -153,20 +153,6 @@ Hero Element Timing captures **when specific elements are painted** by the brows
 
 ### Interactivity
 
-#### User Timing mark when JS loaded
-
-The User Timing API allows the developer to create application specific timestamps that are part of the browser's performance timeline. You can **create a user timing mark to measure when your JS has loaded** (e.g. for a specific component).
-
-* Lab: LH, WPT
-* Field: IE 10+, Safari 11+ (and Chrome, Firefox of course)
-* [Spec - User Timing](https://www.w3.org/TR/user-timing/)
-
-```js
-componentDidMount() {
-    performance.mark("yourcomponent.usable");
-}
-```
-
 #### First CPU Idle
 
 First CPU Idle marks the **first time at which the page's main thread is quiet enough to handle input**.
@@ -200,6 +186,22 @@ Estimated Input Latency is **an estimate of how long your app takes to respond t
 * Lab: LH
 * Field: N/A
 * [Docs - Estimated Input Latency - LH](https://developers.google.com/web/tools/lighthouse/audits/estimated-input-latency)
+
+#### User Timing mark when JS loaded
+
+The User Timing API allows the developer to create application specific timestamps that are part of the browser's performance timeline. You can **create a user timing mark to measure when your JS has loaded** (e.g. for a specific component).
+
+* Lab: LH, WPT
+* Field: IE 10+, Safari 11+ (and Chrome, Firefox of course)
+* [Spec - User Timing](https://www.w3.org/TR/user-timing/)
+
+```js
+componentDidMount() {
+    performance.mark("yourcomponent.usable");
+}
+```
+
+---
 
 ### Byte weight
 
