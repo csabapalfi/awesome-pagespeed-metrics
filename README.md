@@ -229,7 +229,7 @@ Loading lots of JavaScript is usually the root cause of high [TTI](#time-to-inte
 
 #### HTML bytes
 
-Your initial HTML document is alway number one on your critical rendering path. Be sure not excessively embed resources like SVGs or large amount JS or CSS. (Some critical CSS or JS is ok, the key here is how much).
+Your initial HTML document is alway number one on your critical rendering path. Be sure not to excessively embed resources like SVGs or large amount JS or CSS. (Some critical CSS or JS is ok, the key here is how much).
 
 * [Is your HTML bloated? A flamegraph can tell you why](https://medium.com/@csabapalfi/is-your-html-bloated-a-flamegraph-can-tell-you-why-e60e4313583c)
 
