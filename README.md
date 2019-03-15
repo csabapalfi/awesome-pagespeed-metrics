@@ -15,13 +15,10 @@
     + [First Contentful Paint (FCP)](#first-contentful-paint-fcp)
     + [First Meaningful Paint (FMP)](#first-meaningful-paint-fmp)
     + [Speed Index](#speed-index)
-    + [Hero Element Timing](#hero-element-timing)
   * [Interactivity](#interactivity)
     + [First CPU Idle](#first-cpu-idle)
     + [Time to Interactive (TTI)](#time-to-interactive-tti)
     + [First Input Delay (FID)](#first-input-delay-fid)
-    + [Estimated Input Latency](#estimated-input-latency)
-    + [User Timing mark when JS loaded](#user-timing-mark-when-js-loaded)
   * [Byte Weight](#byte-weight)
     + [JavaScript bytes (incl third-parties)](#javascript-bytes-incl-third-parties)
     + [HTML bytes](#html-bytes)
@@ -41,8 +38,11 @@
   * [Start render](#start-render)
   * [First Paint (FP)](#first-paint-fp)
   * [Visually Complete](#visually-complete)
+  * [Hero Element Timing](#hero-element-timing)
   * [First Interactive](#first-interactive)
   * [Consistently Interactive](#consistently-interactive)
+  * [Estimated Input Latency](#estimated-input-latency)
+  * [User Timing mark when JS loaded](#user-timing-mark-when-js-loaded)
   * [DOMContentLoaded](#domcontentloaded)
   * [window.load](#windowload)
   * [Frame rate](#frame-rate)
@@ -140,21 +140,6 @@ Speed Index shows **how quickly the contents of a page are visibly populated** (
 * [Docs - Speed Index - WPT](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index)
 * [Talk - Speed Perception and Lighthouse](https://ldnwebperf.org/events/speed-perception-and-lighthouse/)
 
-#### Hero Element Timing
-
-Hero Element Timing captures **when specific elements are painted** by the browser (e.g. your `h1` or your hero image, etc).
-
-* Lab: WPT
-* Field: N/A but see unmantained polyfill below
-* [W3C github issue - Element Timing API](https://github.com/w3c/charter-webperf/issues/30)
-* [Spec - Hero Element Timing](https://docs.google.com/document/d/1yRYfYR1DnHtgwC4HRR04ipVVhT1h5gkI6yPmKCgJkyQ/edit#)
-* [Blogpost - Hero Element Timing - SpeedCurve](https://speedcurve.com/blog/web-performance-monitoring-hero-times/)
-* [Polyfill - Hero Element Timing](https://github.com/tdresser/hero-element-polyfill) - see also the [announcement here](https://groups.google.com/a/chromium.org/forum/m/#!topic/progressive-web-metrics/ND6JVZRWqqg)
-* [Blogpost - User Timing for Element Timing - SpeedCurve](https://speedcurve.com/blog/user-timing-and-custom-metrics/)
-* [Blogpost - Last Painted Hero coming to WebpageTest](https://speedcurve.com/blog/last-painted-hero/)
-* [Docs - Element Timing Explainer](https://docs.google.com/document/d/1blFeMVdqxB0V3BAJh60ptOBFY7cJSXnf7VyW3wspbZ8/edit#heading=h.eny79fwwx642)
-* [Docs - Hero Text Element Timestamps](https://docs.google.com/document/d/1co1yefZWQ4QvG_2WT0nCrqxcAgjU08um9Boe_JzHkdE/edit#heading=h.zwg1kfkhqmx)
-
 ### Interactivity
 
 #### First CPU Idle
@@ -182,28 +167,6 @@ First Input Delay (FID) measures **the time from when a user first interacts wit
 * Field: IE9+ (and Safari, Chrome, Firefox) (with polyfill - 0.4KB)
 * [Docs - FID](https://developers.google.com/web/updates/2018/05/first-input-delay)
 * [Polyfill - FID](https://github.com/GoogleChromeLabs/first-input-delay)
-
-#### Estimated Input Latency
-
-Estimated Input Latency is **an estimate of how long your app takes to respond to user input**, in milliseconds, during the busiest 5s window of page load. If your latency is higher than 50 ms, users may perceive your app as laggy. 
-
-* Lab: LH
-* Field: N/A
-* [Docs - Estimated Input Latency - LH](https://developers.google.com/web/tools/lighthouse/audits/estimated-input-latency)
-
-#### User Timing mark when JS loaded
-
-The User Timing API allows the developer to create application specific timestamps that are part of the browser's performance timeline. You can **create a user timing mark to measure when your JS has loaded** (e.g. for a specific component).
-
-* Lab: LH, WPT
-* Field: IE 10+, Safari 11+ (and Chrome, Firefox of course)
-* [Spec - User Timing](https://www.w3.org/TR/user-timing/)
-
-```js
-componentDidMount() {
-    performance.mark("yourcomponent.usable");
-}
-```
 
 ---
 
@@ -356,6 +319,21 @@ The Visually Complete is the time from the start of the initial navigation until
 * Field: N/A
 * [Docs - Visually Complete - WPT](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index)
 
+### Hero Element Timing
+
+Hero Element Timing captures **when specific elements are painted** by the browser (e.g. your `h1` or your hero image, etc).
+
+* Lab: WPT
+* Field: N/A but see unmantained polyfill below
+* [W3C github issue - Element Timing API](https://github.com/w3c/charter-webperf/issues/30)
+* [Spec - Hero Element Timing](https://docs.google.com/document/d/1yRYfYR1DnHtgwC4HRR04ipVVhT1h5gkI6yPmKCgJkyQ/edit#)
+* [Blogpost - Hero Element Timing - SpeedCurve](https://speedcurve.com/blog/web-performance-monitoring-hero-times/)
+* [Polyfill - Hero Element Timing](https://github.com/tdresser/hero-element-polyfill) - see also the [announcement here](https://groups.google.com/a/chromium.org/forum/m/#!topic/progressive-web-metrics/ND6JVZRWqqg)
+* [Blogpost - User Timing for Element Timing - SpeedCurve](https://speedcurve.com/blog/user-timing-and-custom-metrics/)
+* [Blogpost - Last Painted Hero coming to WebpageTest](https://speedcurve.com/blog/last-painted-hero/)
+* [Docs - Element Timing Explainer](https://docs.google.com/document/d/1blFeMVdqxB0V3BAJh60ptOBFY7cJSXnf7VyW3wspbZ8/edit#heading=h.eny79fwwx642)
+* [Docs - Hero Text Element Timestamps](https://docs.google.com/document/d/1co1yefZWQ4QvG_2WT0nCrqxcAgjU08um9Boe_JzHkdE/edit#heading=h.zwg1kfkhqmx)
+
 ### First Interactive
 
 See [First CPU Idle](#first-cpu-idle). WPT still calls it First Interactive but Google/Lighthouse renamed to First CPU Idle to avoid confusing this with [Time to Interactive (TTI)](#time-to-interactive-tti)
@@ -363,6 +341,28 @@ See [First CPU Idle](#first-cpu-idle). WPT still calls it First Interactive but 
 ### Consistently Interactive
 
 See [Time to Interactive (TTI)](#time-to-interactive-tti). WPT still refers to TTI as Consistently Interactive but it's only available for Chrome and not surfaced on the UI (only in raw results XML/JSON).
+
+### Estimated Input Latency
+
+Estimated Input Latency is **an estimate of how long your app takes to respond to user input**, in milliseconds, during the busiest 5s window of page load. If your latency is higher than 50 ms, users may perceive your app as laggy. 
+
+* Lab: LH
+* Field: N/A
+* [Docs - Estimated Input Latency - LH](https://developers.google.com/web/tools/lighthouse/audits/estimated-input-latency)
+
+### User Timing mark when JS loaded
+
+The User Timing API allows the developer to create application specific timestamps that are part of the browser's performance timeline. You can **create a user timing mark to measure when your JS has loaded** (e.g. for a specific component).
+
+* Lab: LH, WPT
+* Field: IE 10+, Safari 11+ (and Chrome, Firefox of course)
+* [Spec - User Timing](https://www.w3.org/TR/user-timing/)
+
+```js
+componentDidMount() {
+    performance.mark("yourcomponent.usable");
+}
+```
 
 ### DOMContentLoaded
 
