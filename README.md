@@ -382,8 +382,8 @@ componentDidMount() {
 
  The frame rate is the **frequency at which the browser can display frames**. A frame represents the amount of work a browser does in one event loop iteration such as processing DOM events, resizing, scrolling, rendering, CSS animations, etc. A frame rate of 60 fps (frames per second) is a common target for a good responsive user experience. This means the browser should process a frame in about 16.7 ms.
 
-* Lab: N/A
-* Field: No browser implements the Frame Timing API yet
+* Lab: Chrome and FF Devtools
+* Field: No browser implements the Frame Timing API yet but you can roll your own fps meter using `requestAnimationFrame`
 * [Docs - Frame Timing API](https://developer.mozilla.org/en-US/docs/Web/API/Frame_Timing_API)
 * [Docs - Chrome Devtools - FPS](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/#analyze_frames_per_second)
 * [Docs - Firefox Developer Tools - Frame rate](https://developer.mozilla.org/en-US/docs/Tools/Performance/Frame_rate)
