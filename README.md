@@ -172,7 +172,7 @@ First Input Delay (FID) measures **the time from when a user first interacts wit
 
 ### Byte Weight
 
-You can measure the byte weight of your assets with a number of tools. These can be tracked Lab only as the numbers are usually the same in the Field (but be mindful of device type or geographical location specific pages).
+You can measure the byte weight of your assets with a number of tools. You would normally track these Lab only as the numbers are usually the same in the Field (but be mindful of device type or geographical location specific pages).
 
 * Lab: LH (custom audit), Sitespeed.io, custom tools
 * Field: N/A - but numbers usually the same as in Lab
@@ -200,6 +200,12 @@ Your initial HTML document is alway number one on your critical rendering path. 
 
 ### Network Timing
 
+When you try to optimize rendering metrics it's crucial to make sure that initial connection setup and your server response time is as fast as possible. 
+
+Network timing field data can uncover a non-optimized TLS setup, slow DNS lookups or server side processing and issues with CDN configuration.
+
+* Lab: e.g. Chrome Devtools but this is usually a Field metric
+* Field: IE9+, (TODO confirm Safari support as it's reported differently by MDN and caniuse.com)
 * [Blogpost - Navigation and Resource Timing](https://developers.google.com/web/fundamentals/performance/navigation-and-resource-timing/)
 * [Spec - Navigation Timing](https://www.w3.org/TR/navigation-timing-2/)
 * [Spec - Resource Timing](https://www.w3.org/TR/resource-timing-2/)
