@@ -103,7 +103,7 @@ The Chrome User Experience Report provides user experience metrics for how real-
 #### Your web analytics
 
 * Web analytics tracking can also be used to track performance
-* [Blogpost - Performance tracking Google Analytics (GA)](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#performance-tracking)
+* [Blogpost - Performance tracking with Google Analytics (GA)](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#performance-tracking)
 
 ---
 
@@ -144,7 +144,7 @@ Speed Index shows **how quickly the contents of a page are visibly populated** (
 
 #### First CPU Idle
 
-First CPU Idle marks the **first time at which the page's main thread is quiet enough to handle input**.
+First CPU Idle marks the **first time at which the page's main thread is quiet enough to handle user input**.
 
 * Lab: Lighthouse, WPT (but it's called **First interactive** in WPT)
 * [Docs - First Interactive - WPT](https://github.com/WPO-Foundation/webpagetest/blob/master/docs/Metrics/TimeToInteractive.md)
