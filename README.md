@@ -147,6 +147,7 @@ Speed Index shows **how quickly the contents of a page are visibly populated** (
 First CPU Idle marks the **first time at which the page's main thread is quiet enough to handle user input**.
 
 * Lab: Lighthouse, WPT (but it's called **First interactive** in WPT)
+* Field: N/A
 * [Docs - First Interactive - WPT](https://github.com/WPO-Foundation/webpagetest/blob/master/docs/Metrics/TimeToInteractive.md)
 * [Docs - First CPU Idle - Lighthouse](https://developers.google.com/web/tools/lighthouse/audits/first-cpu-idle)
 
@@ -155,7 +156,7 @@ First CPU Idle marks the **first time at which the page's main thread is quiet e
 Time to interactive is **the time it takes for the page to become fully interactive.** Not to confuse with First Interactive or First CPU Idle. (TODO better definition, this is the most often misunderstood metric - e.g. how 'interactive' is defined)
 
 * Lab: Lighthouse, WPT (it's called Consistently interactive in WPT, also only in Chrome even in WPT and not shown on the UI at all)
-* Field: Chrome 58+ with polyfill
+* Field: Chrome 58+ with polyfill (BUT note that users interacting with your page can skew field measurements of TTI)
 * [Polyfill - TTI](https://github.com/GoogleChromeLabs/tti-polyfill)
 * [Spec - TTI - LH](https://docs.google.com/document/d/1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c/edit)
 
