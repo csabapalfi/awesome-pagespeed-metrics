@@ -8,8 +8,8 @@
     + [WebpageTest (WPT)](#webpagetest-wpt)
     + [Sitespeed.io](#sitespeedio)
   * [Field data (Real User Monitoring - RUM)](#field-data-real-user-monitoring---rum)
-    + [Chrome User Experience Report (CrUX)](#chrome-user-experience-report-crux)
     + [Your web analytics](#your-web-analytics)
+    + [Chrome User Experience Report (CrUX)](#chrome-user-experience-report-crux)
 - [Recommended metrics](#recommended-metrics)
   * [Rendering](#rendering)
     + [First Contentful Paint (FCP)](#first-contentful-paint-fcp)
@@ -94,16 +94,16 @@ Collect performance data from real users visiting your page.
 * Consider **browser support** of more recent metrics (e.g. compared to your user-base)
 * Track load abandonment by [tracking `visibilitychange`](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics#load_abandonment) to account for survivorship bias
 
+#### Your web analytics
+
+* Web analytics tracking can also be used to track performance
+* [Blogpost - Performance tracking with Google Analytics (GA)](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#performance-tracking)
+
 #### Chrome User Experience Report (CrUX)
 
 The Chrome User Experience Report provides user experience metrics for how real-world Chrome users experience popular destinations on the web. Available as a Google BigQuery dataset.
 
 * [Docs - CrUX](https://developers.google.com/web/tools/chrome-user-experience-report/)
-
-#### Your web analytics
-
-* Web analytics tracking can also be used to track performance
-* [Blogpost - Performance tracking with Google Analytics (GA)](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#performance-tracking)
 
 ---
 
