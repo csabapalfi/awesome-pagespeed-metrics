@@ -65,9 +65,9 @@ Lighthouse is a tool **built on Google Chrome** to audit web pages. You can run 
 * [Docs - Lighthouse](https://developers.google.com/web/tools/lighthouse/#devtools)
 * Tools built on LH:
     * [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
-    * [web.dev/measure](https://web.dev/measure)
     * [Calibre](https://calibreapp.com)
     * [treo.sh](https://treo.sh/)
+    * and [lots more](https://github.com/GoogleChrome/lighthouse/#lighthouse-integrations)
 
 #### WebpageTest (WPT)
 
