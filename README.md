@@ -161,6 +161,7 @@ Time to interactive is **the time it takes for the page to become fully interact
 * Field: Chrome 58+ with polyfill (BUT note that users interacting with your page can skew field measurements of TTI)
 * [Polyfill - TTI](https://github.com/GoogleChromeLabs/tti-polyfill)
 * [Spec - TTI - LH](https://docs.google.com/document/d/1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c/edit)
+* [Blogpost - TTI](https://blog.dareboost.com/en/2019/05/measuring-interactivity-time-to-interactive/)
 
 #### First Input Delay (FID)
 
