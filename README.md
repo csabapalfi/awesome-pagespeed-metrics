@@ -21,7 +21,7 @@
     + [First Input Delay (FID)](#first-input-delay-fid)
   * [Byte Weight](#byte-weight)
     + [JavaScript bytes (incl third-parties)](#javascript-bytes-incl-third-parties)
-    + [HTML bytes](#html-bytes)
+    + [Initial document bytes](#initial-document-bytes)
   * [Network Timing](#network-timing)
     + [DNS](#dns)
     + [TCP and TLS](#tcp-and-tls)
@@ -193,7 +193,7 @@ Loading lots of JavaScript is usually the root cause of high [TTI](#time-to-inte
 * [Can You Afford It?: Real-world Web Performance Budgets](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/)
 * [Which third party scripts are most excessive](https://github.com/patrickhulce/third-party-web)
 
-#### HTML bytes
+#### Initial document bytes
 
 Your initial HTML document is alway number one on your critical rendering path. Be sure not to excessively embed resources like SVGs or large amount JS or CSS. (Some critical CSS or JS is ok, the key here is how much).
 
