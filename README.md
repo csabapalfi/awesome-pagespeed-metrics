@@ -49,7 +49,7 @@
   * [Server Timing](#server-timing)
   * [Effective Connection Type](#effective-connection-type)
   * [Layout Instability](#layout-instability)
-  * [Largest Conentful Paint](#largest-conentful-paint)
+  * [Largest Contentful Paint](#largest-contentful-paint)
 
 ## Collecting metrics
 
@@ -407,11 +407,12 @@ Surface any backend server timing metrics (e.g. database latency, etc.) in the d
 
 * Lab: N/A
 * Field: Chrome 73+ (origin trial)
-* [Docs - Layout Instability](https://github.com/ehanley324/layout-instability/blob/master/explainer.md)
+* [Spec - Layout Instability](https://github.com/WICG/layout-instability)
 * [Chrome - Origin Trial for Layout Stability API](https://developers.chrome.com/origintrials/#/view_trial/1215971899390033921)
 
-### Largest Conentful Paint
+### Largest Contentful Paint
 
 * Lab: N/A
 * Field N/A (Chrome: in development)
+* [Spec - Largest Contentful Paint](https://github.com/WICG/LargestContentfulPaint)
 * [Docs - Largest Contentful Paint](https://docs.google.com/document/d/1ySnglZJiCbOrOMX8PNgE0mRKmt9vglNDyggE8oYN8gQ/edit#heading=h.hjlf1s5m20ko)
