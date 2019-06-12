@@ -404,19 +404,14 @@ Surface any backend server timing metrics (e.g. database latency, etc.) in the d
 
 * [Network Information API](https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API)
 
-### Layout Instability
-
-* Lab: N/A
-* Field: Chrome 73+ (origin trial)
-* [Spec - Layout Instability](https://github.com/WICG/layout-instability)
-* [Chrome - Origin Trial for Layout Stability API](https://developers.chrome.com/origintrials/#/view_trial/1215971899390033921)
-
 ### Cumulative Layout Shift score (CLS)
 
 A metric derived from the Layout Instability API. The cumulative layout shift (CLS) score is determined by calculating the sum of all unexpected (not within 0.5s of a user interaction) layout shift scores from page load until the page's lifecycle state changes to hidden.
 
 * Lab: N/A
-* Field: CrUX
+* Field: CrUX + Chrome 73+ (origin trial)
+* [Spec - Layout Instability](https://github.com/WICG/layout-instability)
+* [Chrome - Origin Trial for Layout Stability API](https://developers.chrome.com/origintrials/#/view_trial/1215971899390033921)
 * [Blogpost - The Layout Instability API](https://web.dev/layout-instability-api/)
 
 ### Largest Contentful Paint
