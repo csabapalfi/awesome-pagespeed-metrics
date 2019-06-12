@@ -49,6 +49,7 @@
   * [Server Timing](#server-timing)
   * [Effective Connection Type](#effective-connection-type)
   * [Layout Instability](#layout-instability)
+  * [Cumulative Layout Shift score (CLS)](#cumulative-layout-shift-score-cls)
   * [Largest Contentful Paint](#largest-contentful-paint)
 
 ## Collecting metrics
@@ -410,9 +411,18 @@ Surface any backend server timing metrics (e.g. database latency, etc.) in the d
 * [Spec - Layout Instability](https://github.com/WICG/layout-instability)
 * [Chrome - Origin Trial for Layout Stability API](https://developers.chrome.com/origintrials/#/view_trial/1215971899390033921)
 
+### Cumulative Layout Shift score (CLS)
+
+A metric derived from the Layout Instability API. The cumulative layout shift (CLS) score is determined by calculating the sum of all unexpected (not within 0.5s of a user interaction) layout shift scores from page load until the page's lifecycle state changes to hidden.
+
+* Lab: N/A
+* Field: CrUX
+* [Blogpost - The Layout Instability API](https://web.dev/layout-instability-api/)
+
 ### Largest Contentful Paint
 
 * Lab: N/A
 * Field N/A (Chrome: in development)
 * [Spec - Largest Contentful Paint](https://github.com/WICG/LargestContentfulPaint)
 * [Docs - Largest Contentful Paint](https://docs.google.com/document/d/1ySnglZJiCbOrOMX8PNgE0mRKmt9vglNDyggE8oYN8gQ/edit#heading=h.hjlf1s5m20ko)
+
