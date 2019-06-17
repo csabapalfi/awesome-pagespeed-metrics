@@ -1,5 +1,3 @@
-<!-- markdownlint-disable MD026 -->
-
 # Awesome Web Performance Metrics
 
 - [Collecting metrics](#collecting-metrics)
