@@ -46,9 +46,9 @@
   * [Frame rate](#frame-rate)
   * [Server Timing](#server-timing)
   * [Effective Connection Type](#effective-connection-type)
-  * [Layout Instability](#layout-instability)
   * [Cumulative Layout Shift score (CLS)](#cumulative-layout-shift-score-cls)
   * [Largest Contentful Paint](#largest-contentful-paint)
+  * [Max Potential First Input Delay](#max-potential-first-input-delay)
 
 ## Collecting metrics
 
@@ -415,7 +415,13 @@ A metric derived from the Layout Instability API. The cumulative layout shift (C
 ### Largest Contentful Paint
 
 * Lab: N/A
-* Field N/A (Chrome: in development)
+* Field: N/A (Chrome: in development)
 * [Spec - Largest Contentful Paint](https://github.com/WICG/LargestContentfulPaint)
 * [Docs - Largest Contentful Paint](https://docs.google.com/document/d/1ySnglZJiCbOrOMX8PNgE0mRKmt9vglNDyggE8oYN8gQ/edit#heading=h.hjlf1s5m20ko)
 
+### Max Potential First Input Delay
+
+The maximum potential [First Input Delay](#first-input-delay-fid) that your users could experience. Basically equals to the duration of the longest [long task](#long-tasks) on the browser Main Thread.
+
+* Lab: Lighthouse
+* Field: N/A
