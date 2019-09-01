@@ -1,5 +1,7 @@
 # Awesome Web Performance Metrics [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
+> An awesome list of recommended web performance metrics.
+
 ## Contents
 
 <!-- toc -->
