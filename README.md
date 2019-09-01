@@ -42,32 +42,29 @@
 
 <!-- tocstop -->
 
-## Collecting metrics
-
-### Lab data (Synthetic measurements)
+## Collecting Lab Data (Synthetic Measurements)
 
 Make a request to your page with a tool and evaluate performance.
 
 - Make it realistic: e.g. by throttling network and CPU
 - Reduce noise: e.g. by running multiple times
 
-#### Google Lighthouse (LH)
+### Google Lighthouse
 
 Lighthouse is a tool **built on Google Chrome** to audit web pages. You can run it from Chrome DevTools, a Chrome Extension or from the command line (even with headless Chrome).
 
-- [Docs - Lighthouse](https://developers.google.com/web/tools/lighthouse/#devtools)
-- Tools built on LH:
-  - [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
-  - [Calibre](https://calibreapp.com)
-  - [treo.sh](https://treo.sh/)
-  - and [lots more](https://github.com/GoogleChrome/lighthouse/#lighthouse-integrations)
+- [Docs](https://developers.google.com/web/tools/lighthouse/#devtools)
+- [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) - Hosted Lighthouse reporting by Google.
+- [Calibre](https://calibreapp.com) - Hosted Lighthouse-based performance monitoring.
+- [treo.sh](https://treo.sh/) - Hosted Lighthouse-based performance monitoring.
+- [Other Lighthouse integrations](https://github.com/GoogleChrome/lighthouse/#lighthouse-integrations)
 
 #### WebpageTest (WPT)
 
 WebpageTest is an open source project to test web page performance. It **supports multiple browsers**, testing on real devices and has a free hosted version at [webpagetest.org](https://www.webpagetest.org/)
 
 - [Docs - WebpageTest (WPT)](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/quick-start-quide)
-- Some tools were originally built on WPT (and now support LH as well):
+- Some tools were originally built on WPT (and now support Lighthouse as well):
   - [SpeedCurve](https://speedcurve.com/)
 
 
@@ -108,7 +105,7 @@ First Contentful Paint marks the time at which the **first text or image is pain
 
 - Lab: Lighthouse
 - Field: Chrome 60+, Opera 47+, CrUX
-- [Docs - FCP - LH](https://developers.google.com/web/tools/lighthouse/audits/first-contentful-paint)
+- [Docs - FCP - Lighthouse](https://developers.google.com/web/tools/lighthouse/audits/first-contentful-paint)
 - [Spec - FCP - W3C](https://w3c.github.io/paint-timing/)
 
 
@@ -118,7 +115,7 @@ First Meaningful Paint measures **when the primary content of a page is visible*
 
 - Lab: Lighthouse
 - Field: N/A
-- [Docs - FMP - LH](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint)
+- [Docs - FMP - Lighthouse](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint)
 - [Spec - First Meaningful Paint](https://docs.google.com/document/d/1BR94tJdZLsin5poeet0XoTW60M0SjvOJQttKT-JK8HI/view)
 
 ### Speed Index
@@ -127,7 +124,7 @@ Speed Index shows **how quickly the contents of a page are visibly populated** (
 
 - Lab: Lighthouse, WPT (but slightly different spec)
 - Field: N/A
-- [Docs - Speed Index - LH](https://developers.google.com/web/tools/lighthouse/audits/speed-index)
+- [Docs - Speed Index - Lighthouse](https://developers.google.com/web/tools/lighthouse/audits/speed-index)
 - [Docs - Speed Index - WPT](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index)
 - [Talk - Speed Perception and Lighthouse](https://ldnwebperf.org/events/speed-perception-and-lighthouse/)
 
@@ -147,7 +144,7 @@ Time to interactive is **the time it takes for the page to become fully interact
 - Lab: Lighthouse, WPT (it's called Consistently interactive in WPT, also only in Chrome even in WPT and not shown on the UI at all)
 - Field: Chrome 58+ with polyfill (BUT note that users interacting with your page can skew field measurements of TTI)
 - [Polyfill - TTI](https://github.com/GoogleChromeLabs/tti-polyfill)
-- [Spec - TTI - LH](https://docs.google.com/document/d/1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c/edit)
+- [Spec - TTI - Lighthouse](https://docs.google.com/document/d/1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c/edit)
 - [Blogpost - TTI](https://blog.dareboost.com/en/2019/05/measuring-interactivity-time-to-interactive/)
 
 ### First Input Delay (FID)
@@ -165,11 +162,11 @@ First Input Delay (FID) measures **the time from when a user first interacts wit
 
 You can measure the byte weight of your assets with a number of tools. You would normally track these Lab only as the numbers are usually the same in the Field (but be mindful of device type or geographical location specific pages).
 
-- Lab: LH (custom audit), Sitespeed.io, custom tools
+- Lab: Lighthouse (custom audit), Sitespeed.io, custom tools
 - Field: N/A - but numbers usually the same as in Lab
 - [Sitespeed.io PageXray](https://www.sitespeed.io/documentation/pagexray/)
 - [page-weight cli](https://www.sitespeed.io/documentation/pagexray/) - Splits first-party and third-party.
-- [byte-weight-breakdown - LH custom audit](https://github.com/csabapalfi/byte-weight-breakdown)
+- [byte-weight-breakdown - Lighthouse custom audit](https://github.com/csabapalfi/byte-weight-breakdown)
 - manually look at Chrome DevTools Network Tab
 
 #### JavaScript bytes (incl third-parties)
@@ -343,15 +340,15 @@ See [Time to Interactive (TTI)](#time-to-interactive-tti). WPT still refers to T
 
 Estimated Input Latency is **an estimate of how long your app takes to respond to user input**, in milliseconds, during the busiest 5s window of page load. If your latency is higher than 50 ms, users may perceive your app as laggy. 
 
-- Lab: LH
+- Lab: Lighthouse
 - Field: N/A
-- [Docs - Estimated Input Latency - LH](https://developers.google.com/web/tools/lighthouse/audits/estimated-input-latency)
+- [Docs - Estimated Input Latency - Lighthouse](https://developers.google.com/web/tools/lighthouse/audits/estimated-input-latency)
 
 ### User Timing mark when JS loaded
 
 The User Timing API allows the developer to create application specific timestamps that are part of the browser's performance timeline. You can **create a user timing mark to measure when your JS has loaded** (e.g. for a specific component).
 
-- Lab: LH, WPT
+- Lab: Lighthouse, WPT
 - Field: IE 10+, Safari 11+ (and Chrome, Firefox of course)
 - [Spec - User Timing](https://www.w3.org/TR/user-timing/)
 
