@@ -6,9 +6,8 @@
 
 <!-- toc -->
 
-- [Collecting metrics](#collecting-metrics)
-  - [Lab data (Synthetic measurements)](#lab-data-synthetic-measurements)
-  - [Field data (Real User Monitoring - RUM)](#field-data-real-user-monitoring---rum)
+- [Lab Data (Synthetic Measurements)](#lab-data-synthetic-measurements)
+- [Field Data (Real User Monitoring - RUM)](#field-data-real-user-monitoring---rum)
 - [Recommended metrics](#recommended-metrics)
   - [First Contentful Paint (FCP)](#first-contentful-paint-fcp)
   - [First Meaningful Paint (FMP)](#first-meaningful-paint-fmp)
@@ -42,58 +41,30 @@
 
 <!-- tocstop -->
 
-## Collecting Lab Data (Synthetic Measurements)
+## Lab Data (Synthetic Measurements)
 
-Make a request to your page with a tool and evaluate performance.
+Make a request to your page with a tool and evaluate performance. Make it realistic (e.g. by throttling network and CPU) and reduce noise (e.g. by running multiple times).
 
-- Make it realistic: e.g. by throttling network and CPU
-- Reduce noise: e.g. by running multiple times
-
-### Google Lighthouse
-
-Lighthouse is a tool **built on Google Chrome** to audit web pages. You can run it from Chrome DevTools, a Chrome Extension or from the command line (even with headless Chrome).
-
-- [Docs](https://developers.google.com/web/tools/lighthouse/#devtools)
-- [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) - Hosted Lighthouse reporting by Google.
-- [Calibre](https://calibreapp.com) - Hosted Lighthouse-based performance monitoring.
-- [treo.sh](https://treo.sh/) - Hosted Lighthouse-based performance monitoring.
-- [Other Lighthouse integrations](https://github.com/GoogleChrome/lighthouse/#lighthouse-integrations)
-
-#### WebpageTest (WPT)
-
-WebpageTest is an open source project to test web page performance. It **supports multiple browsers**, testing on real devices and has a free hosted version at [webpagetest.org](https://www.webpagetest.org/)
-
-- [Docs - WebpageTest (WPT)](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/quick-start-quide)
-- Some tools were originally built on WPT (and now support Lighthouse as well):
-  - [SpeedCurve](https://speedcurve.com/)
-
-
-#### Sitespeed.io
-
-Sitespeed.io is a set of Open Source tools to monitor and measure the performance of your web site.
-
-- [Sitespeed.io](https://www.sitespeed.io/)
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse/) - A tool built on Google Chrome to audit web pages. You can run it from Chrome DevTools, a Chrome Extension or from the command line (even with headless Chrome).
+- [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) - Free and hosted Lighthouse reporting (and more) by Google.
+- [WebpageTest](https://www.webpagetest.org/) - Free and hosted web performance testing (also an open source project).
+- [Sitespeed.io](https://www.sitespeed.io/) - A set of open source tools.
+- [Calibre](https://calibreapp.com)
+- [treo.sh](https://treo.sh/)
+- [SpeedCurve](https://speedcurve.com/)
 
 ---
 
-### Field data (Real User Monitoring - RUM)
+## Field Data (Real User Monitoring - RUM)
 
-Collect performance data from real users visiting your page.
+Collect performance data from real users visiting your page. Be mindful of the actual overhead, as it runs in your user's browser.
+Consider browser support of more recent metrics (e.g. compared to your user-base)
 
-- Be mindful of the actual **overhead**, as it runs in your user's browser.
-- Consider **browser support** of more recent metrics (e.g. compared to your user-base)
-- Track load abandonment by [tracking `visibilitychange`](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics#load_abandonment) to account for survivorship bias
-
-#### Your web analytics
-
-- Web analytics tracking can also be used to track performance
-- [Blogpost - Performance tracking with Google Analytics (GA)](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#performance-tracking)
-
-#### Chrome User Experience Report (CrUX)
-
-The Chrome User Experience Report provides user experience metrics for how real-world Chrome users experience popular destinations on the web. Available as a Google BigQuery dataset.
-
-- [Docs - CrUX](https://developers.google.com/web/tools/chrome-user-experience-report/)
+- [Performance tracking with Google Analytics (GA)](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#performance-tracking)
+- [Chrome User Experience Report (CrUX)](https://developers.google.com/web/tools/chrome-user-experience-report/)
+- [Load abandonment](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics#load_abandonment) - Track  `visibilitychange` to account for survivorship bias.
+- [SpeedCurve LUX](https://speedcurve.com/features/lux/)
+- [Akamai mPulse](https://www.akamai.com/uk/en/products/performance/mpulse-real-user-monitoring.jsp)
 
 ---
 
