@@ -58,8 +58,8 @@
 
 Make a request to your page with a tool and evaluate performance.
 
-- **Make it realistic** (e.g. by throttling network and CPU)
-- **Reduce noise** (e.g. by running multiple times)
+- Make it realistic: e.g. by throttling network and CPU
+- Reduce noise: e.g. by running multiple times
 
 #### Google Lighthouse (LH)
 
