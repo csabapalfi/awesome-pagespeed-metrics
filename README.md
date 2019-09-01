@@ -1,6 +1,4 @@
-# Awesome Web Performance Metrics
-
-[![Awesome](https://awesome.re/badge-flat2.svg)](https://github.com/sindresorhus/awesome)
+# Awesome Web Performance Metrics [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
 ## Contents
 
