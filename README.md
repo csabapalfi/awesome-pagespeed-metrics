@@ -2,6 +2,8 @@
 
 ## Contents
 
+<!-- toc -->
+
 - [Collecting metrics](#collecting-metrics)
   - [Lab data (Synthetic measurements)](#lab-data-synthetic-measurements)
     - [Google Lighthouse (LH)](#google-lighthouse-lh)
@@ -11,14 +13,12 @@
     - [Your web analytics](#your-web-analytics)
     - [Chrome User Experience Report (CrUX)](#chrome-user-experience-report-crux)
 - [Recommended metrics](#recommended-metrics)
-  - [Rendering](#rendering)
-    - [First Contentful Paint (FCP)](#first-contentful-paint-fcp)
-    - [First Meaningful Paint (FMP)](#first-meaningful-paint-fmp)
-    - [Speed Index](#speed-index)
-  - [Interactivity](#interactivity)
-    - [First CPU Idle](#first-cpu-idle)
-    - [Time to Interactive (TTI)](#time-to-interactive-tti)
-    - [First Input Delay (FID)](#first-input-delay-fid)
+  - [First Contentful Paint (FCP)](#first-contentful-paint-fcp)
+  - [First Meaningful Paint (FMP)](#first-meaningful-paint-fmp)
+  - [Speed Index](#speed-index)
+  - [First CPU Idle](#first-cpu-idle)
+  - [Time to Interactive (TTI)](#time-to-interactive-tti)
+  - [First Input Delay (FID)](#first-input-delay-fid)
   - [Byte Weight](#byte-weight)
     - [JavaScript bytes (incl third-parties)](#javascript-bytes-incl-third-parties)
     - [Initial document bytes](#initial-document-bytes)
@@ -51,6 +51,9 @@
   - [Cumulative Layout Shift score (CLS)](#cumulative-layout-shift-score-cls)
   - [Largest Contentful Paint](#largest-contentful-paint)
   - [Max Potential First Input Delay](#max-potential-first-input-delay)
+- [License](#license)
+
+<!-- tocstop -->
 
 ## Collecting metrics
 
@@ -112,9 +115,7 @@ The Chrome User Experience Report provides user experience metrics for how real-
 
 ## Recommended metrics
 
-### Rendering
-
-#### First Contentful Paint (FCP)
+### First Contentful Paint (FCP)
 
 First Contentful Paint marks the time at which the **first text or image is painted** (including background images), non-white canvas or SVG. This includes text with pending webfonts. This is the first time users could start consuming page content.
 
@@ -124,7 +125,7 @@ First Contentful Paint marks the time at which the **first text or image is pain
 - [Spec - FCP - W3C](https://w3c.github.io/paint-timing/)
 
 
-#### First Meaningful Paint (FMP)
+### First Meaningful Paint (FMP)
 
 First Meaningful Paint measures **when the primary content of a page is visible**. It's essentially the paint after which the biggest above-the-fold layout change has happened, and web fonts have loaded.
 
@@ -133,7 +134,7 @@ First Meaningful Paint measures **when the primary content of a page is visible*
 - [Docs - FMP - LH](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint)
 - [Spec - First Meaningful Paint](https://docs.google.com/document/d/1BR94tJdZLsin5poeet0XoTW60M0SjvOJQttKT-JK8HI/view)
 
-#### Speed Index
+### Speed Index
 
 Speed Index shows **how quickly the contents of a page are visibly populated** (lower numbers are better). This is done by frequently measuring visual completeness during loading. The quicker the page is more visually complete the lower the value.
 
@@ -143,9 +144,7 @@ Speed Index shows **how quickly the contents of a page are visibly populated** (
 - [Docs - Speed Index - WPT](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index)
 - [Talk - Speed Perception and Lighthouse](https://ldnwebperf.org/events/speed-perception-and-lighthouse/)
 
-### Interactivity
-
-#### First CPU Idle
+### First CPU Idle
 
 First CPU Idle marks the **first time at which the page's main thread is quiet enough to handle user input**.
 
@@ -154,7 +153,7 @@ First CPU Idle marks the **first time at which the page's main thread is quiet e
 - [Docs - First Interactive - WPT](https://github.com/WPO-Foundation/webpagetest/blob/master/docs/Metrics/TimeToInteractive.md)
 - [Docs - First CPU Idle - Lighthouse](https://developers.google.com/web/tools/lighthouse/audits/first-cpu-idle)
 
-#### Time to Interactive (TTI)
+### Time to Interactive (TTI)
 
 Time to interactive is **the time it takes for the page to become fully interactive.** Not to confuse with First Interactive or First CPU Idle. (TODO better definition, this is the most often misunderstood metric - e.g. how 'interactive' is defined)
 
@@ -164,7 +163,7 @@ Time to interactive is **the time it takes for the page to become fully interact
 - [Spec - TTI - LH](https://docs.google.com/document/d/1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c/edit)
 - [Blogpost - TTI](https://blog.dareboost.com/en/2019/05/measuring-interactivity-time-to-interactive/)
 
-#### First Input Delay (FID)
+### First Input Delay (FID)
 
 First Input Delay (FID) measures **the time from when a user first interacts with your site to the time when the browser is actually able to respond** to that interaction. An interaction can be when users click a link, tap on a button, or use a custom, JavaScript-powered control.
 

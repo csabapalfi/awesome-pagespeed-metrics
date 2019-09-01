@@ -1,8 +1,10 @@
 {
   "scripts": {
-    "lint": "awesome-lint"
+    "lint": "awesome-lint",
+    "build": "markdown-toc -i --bullets=- README.md"
   },
   "devDependencies": {
-    "awesome-lint": "^0.11.0"
+    "awesome-lint": "^0.11.0",
+    "markdown-toc": "^1.2.0"
   }
 }
