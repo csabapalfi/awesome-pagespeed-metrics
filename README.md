@@ -6,12 +6,7 @@
 
 - [Collecting metrics](#collecting-metrics)
   - [Lab data (Synthetic measurements)](#lab-data-synthetic-measurements)
-    - [Google Lighthouse (LH)](#google-lighthouse-lh)
-    - [WebpageTest (WPT)](#webpagetest-wpt)
-    - [Sitespeed.io](#sitespeedio)
   - [Field data (Real User Monitoring - RUM)](#field-data-real-user-monitoring---rum)
-    - [Your web analytics](#your-web-analytics)
-    - [Chrome User Experience Report (CrUX)](#chrome-user-experience-report-crux)
 - [Recommended metrics](#recommended-metrics)
   - [First Contentful Paint (FCP)](#first-contentful-paint-fcp)
   - [First Meaningful Paint (FMP)](#first-meaningful-paint-fmp)
@@ -20,20 +15,11 @@
   - [Time to Interactive (TTI)](#time-to-interactive-tti)
   - [First Input Delay (FID)](#first-input-delay-fid)
   - [Byte Weight](#byte-weight)
-    - [JavaScript bytes (incl third-parties)](#javascript-bytes-incl-third-parties)
-    - [Initial document bytes](#initial-document-bytes)
   - [Network Timing](#network-timing)
-    - [DNS](#dns)
-    - [TCP and TLS](#tcp-and-tls)
-    - [TTFB](#ttfb)
 - [Concepts](#concepts)
   - [Critical rendering path](#critical-rendering-path)
   - [Long tasks](#long-tasks)
   - [User-centric metrics](#user-centric-metrics)
-    - [Is it happening](#is-it-happening)
-    - [Is it useful/meaningful](#is-it-usefulmeaningful)
-    - [Is it usable](#is-it-usable)
-    - [Is it delightful/smooth](#is-it-delightfulsmooth)
 - [Other metrics](#other-metrics)
   - [Start render](#start-render)
   - [First Paint (FP)](#first-paint-fp)
@@ -275,29 +261,29 @@ Use the questions below to organize/prioritize your metrics from the user's pers
 
 > Did the navigation start successfully? Has the server responded?
 
-- [First Contentful Paint (FCP)](#first-contentful-paint-fcp)
+- [First Contentful Paint (FCP)](https://github.com/csabapalfi/awesome-web-performance-metrics#first-contentful-paint-fcp)
 
 #### Is it useful/meaningful
 > Has enough content rendered that users can engage with it?
 
-- [First Meaningful Paint (FMP)](#first-meaningful-paint-fmp)
-- [Speed Index](#speed-index)
-- [Hero Element Timing](#hero-element-timing)
+- [First Meaningful Paint (FMP)](https://github.com/csabapalfi/awesome-web-performance-metrics#first-meaningful-paint-fmp)
+- [Speed Index](https://github.com/csabapalfi/awesome-web-performance-metrics#speed-index)
+- [Hero Element Timing](https://github.com/csabapalfi/awesome-web-performance-metrics#hero-element-timing)
 
 
 #### Is it usable
 > Can users interact with the page, or is it still busy loading?
 
-- [User Timing mark when JS loaded](#user-timing-mark-when-js-loaded)
-- [First CPU Idle](#first-cpu-idle)
-- [Time to Interactive (TTI)](#time-to-interactive-tti)
-- [First Input Delay (FID)](#first-input-delay-fid)
-- [Estimated Input Latency](#estimated-input-latency)
+- [User Timing mark when JS loaded](https://github.com/csabapalfi/awesome-web-performance-metrics#user-timing-mark-when-js-loaded)
+- [First CPU Idle](https://github.com/csabapalfi/awesome-web-performance-metrics#first-cpu-idle)
+- [Time to Interactive (TTI)](https://github.com/csabapalfi/awesome-web-performance-metrics#time-to-interactive-tti)
+- [First Input Delay (FID)](https://github.com/csabapalfi/awesome-web-performance-metrics#first-input-delay-fid)
+- [Estimated Input Latency](https://github.com/csabapalfi/awesome-web-performance-metrics#estimated-input-latency)
 
 #### Is it delightful/smooth
 > Are the interactions smooth and natural, free of lag and jank?
 
-- [Frame rate](#frame-rate)
+- [Frame rate](https://github.com/csabapalfi/awesome-web-performance-metrics#frame-rate)
 
 ---
 
