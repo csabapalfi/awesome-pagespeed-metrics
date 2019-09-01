@@ -10,9 +10,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: actions/setup-node@v1
-    - name: awesome-lint
+    - name: test
       run: |
         npm install
-        npm run lint
+        npm test
       env:
         CI: true

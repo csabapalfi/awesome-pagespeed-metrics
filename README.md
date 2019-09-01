@@ -51,7 +51,6 @@
   - [Cumulative Layout Shift score (CLS)](#cumulative-layout-shift-score-cls)
   - [Largest Contentful Paint](#largest-contentful-paint)
   - [Max Potential First Input Delay](#max-potential-first-input-delay)
-- [License](#license)
 
 <!-- tocstop -->
 
