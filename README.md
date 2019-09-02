@@ -43,7 +43,7 @@
 
 ## Lab Data (Synthetic Measurements)
 
-Make a request to your page with a tool and evaluate performance. Make it realistic (e.g. by throttling network and CPU) and reduce noise (e.g. by running multiple times).
+Make a request to your page with a tool and evaluate performance. Be sure to make it realistic (e.g. by throttling network and CPU) and reduce noise (e.g. by running multiple times).
 
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse/) - A tool built on Google Chrome to audit web pages. You can run it from Chrome DevTools, a Chrome Extension or from the command line (even with headless Chrome).
 - [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) - Free and hosted Lighthouse reporting (and more) by Google.
@@ -58,7 +58,7 @@ Make a request to your page with a tool and evaluate performance. Make it realis
 ## Field Data (Real User Monitoring - RUM)
 
 Collect performance data from real users visiting your page. Be mindful of the actual overhead, as it runs in your user's browser.
-Consider browser support of more recent metrics (e.g. compared to your user-base)
+Consider browser support of more recent metrics (e.g. compared to your user-base).
 
 - [Performance tracking with Google Analytics (GA)](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#performance-tracking)
 - [Chrome User Experience Report (CrUX)](https://developers.google.com/web/tools/chrome-user-experience-report/)
