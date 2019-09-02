@@ -57,8 +57,7 @@ Make a request to your page with a tool and evaluate performance. Be sure to mak
 
 ## Field Data (Real User Monitoring - RUM)
 
-Collect performance data from real users visiting your page. Be mindful of the actual overhead, as it runs in your user's browser.
-Consider browser support of more recent metrics (e.g. compared to your user-base).
+Collect performance data from real users visiting your page. Be mindful of the actual overhead, as it runs in your user's browser and watch out for browser support of more recent metrics (e.g. compared to your user-base).
 
 - [Performance tracking with Google Analytics (GA)](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#performance-tracking)
 - [Chrome User Experience Report (CrUX)](https://developers.google.com/web/tools/chrome-user-experience-report/)
