@@ -250,17 +250,16 @@ The maximum potential [First Input Delay](#first-input-delay-fid) that your user
 
 ## Network metrics
 
-When you try to optimize rendering metrics it's crucial to make sure that initial connection setup and your server response time is as fast as possible. 
+Network timing field data can uncover a non-optimized TLS setup, slow DNS lookups or server side processing and issues with CDN configuration. See also a separate section about measuring [transferred bytes](#transferred-bytes).
 
-Network timing field data can uncover a non-optimized TLS setup, slow DNS lookups or server side processing and issues with CDN configuration.
-
-- Lab: e.g. Chrome Devtools but this is usually a Field metric
-- Field: IE9+, (TODO confirm Safari support as it's reported differently by MDN and caniuse.com)
 - [Blogpost - Navigation and Resource Timing](https://developers.google.com/web/fundamentals/performance/navigation-and-resource-timing/)
 - [Spec - Navigation Timing](https://www.w3.org/TR/navigation-timing-2/)
 - [Spec - Resource Timing](https://www.w3.org/TR/resource-timing-2/)
 
 ### DNS latency
+
+- Lab: DNS performance testing tools
+- Field: IE9+, Safari 9+
 
 ```js
 // Measuring DNS lookup time
@@ -269,6 +268,9 @@ var dnsTime = pageNav.domainLookupEnd - pageNav.domainLookupStart;
 ```
 
 ### TCP and SSL/TLS latency
+
+- Lab: See [Qualys SSL Labs](https://www.ssllabs.com/) for an audit
+- Field: IE9+, Safari 9+
 
 ```js
 // Quantifying total connection time
@@ -284,6 +286,9 @@ if (pageNav.secureConnectionStart > 0) {
 ```
 
 ### Time to First Byte (TTFB)
+
+- Lab: most server load testing tools report this
+- Field: IE9+, Safari 9+
 
 ```js
 var ttfb = pageNav.responseStart - pageNav.requestEnd;
