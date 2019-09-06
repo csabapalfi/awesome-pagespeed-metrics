@@ -12,32 +12,36 @@
   - [Critical rendering path](#critical-rendering-path)
   - [Long tasks](#long-tasks)
   - [User-centric metrics](#user-centric-metrics)
-- [Recommended metrics](#recommended-metrics)
+- [Rendering metrics](#rendering-metrics)
   - [First Contentful Paint (FCP)](#first-contentful-paint-fcp)
   - [First Meaningful Paint (FMP)](#first-meaningful-paint-fmp)
   - [Speed Index](#speed-index)
-  - [First CPU Idle](#first-cpu-idle)
-  - [Time to Interactive (TTI)](#time-to-interactive-tti)
-  - [First Input Delay (FID)](#first-input-delay-fid)
-  - [Byte Weight](#byte-weight)
-  - [Network Timing](#network-timing)
-- [Other metrics](#other-metrics)
   - [Start render](#start-render)
   - [First Paint (FP)](#first-paint-fp)
   - [Visually Complete](#visually-complete)
   - [Hero Element Timing](#hero-element-timing)
+  - [Cumulative Layout Shift score (CLS)](#cumulative-layout-shift-score-cls)
+  - [Largest Contentful Paint](#largest-contentful-paint)
+- [Interactivity metrics](#interactivity-metrics)
+  - [First CPU Idle](#first-cpu-idle)
+  - [Time to Interactive (TTI)](#time-to-interactive-tti)
+  - [First Input Delay (FID)](#first-input-delay-fid)
   - [First Interactive](#first-interactive)
   - [Consistently Interactive](#consistently-interactive)
   - [Estimated Input Latency](#estimated-input-latency)
-  - [User Timing mark when JS loaded](#user-timing-mark-when-js-loaded)
+  - [Max Potential First Input Delay](#max-potential-first-input-delay)
+- [Network metrics](#network-metrics)
+  - [DNS latency](#dns-latency)
+  - [TCP and SSL/TLS latency](#tcp-and-ssltls-latency)
+  - [Time to First Byte (TTFB)](#time-to-first-byte-ttfb)
+  - [Transferred bytes](#transferred-bytes)
+- [Other metrics](#other-metrics)
+  - [Google PageSpeed Insights score](#google-pagespeed-insights-score)
+  - [User Timing](#user-timing)
+  - [Server Timing](#server-timing)
+  - [Frame rate](#frame-rate)
   - [DOMContentLoaded](#domcontentloaded)
   - [window.load](#windowload)
-  - [Frame rate](#frame-rate)
-  - [Server Timing](#server-timing)
-  - [Effective Connection Type](#effective-connection-type)
-  - [Cumulative Layout Shift score (CLS)](#cumulative-layout-shift-score-cls)
-  - [Largest Contentful Paint](#largest-contentful-paint)
-  - [Max Potential First Input Delay](#max-potential-first-input-delay)
 
 <!-- tocstop -->
 
@@ -96,7 +100,7 @@ Users are typically looking for visual feedback and reassurance. To measure this
 
 ---
 
-## Recommended metrics
+## Rendering metrics
 
 ### First Contentful Paint (FCP)
 
@@ -127,109 +131,6 @@ Speed Index shows **how quickly the contents of a page are visibly populated** (
 - [Docs - Speed Index - WPT](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index)
 - [Talk - Speed Perception and Lighthouse](https://ldnwebperf.org/events/speed-perception-and-lighthouse/)
 
-### First CPU Idle
-
-First CPU Idle marks the **first time at which the page's main thread is quiet enough to handle user input**.
-
-- Lab: Lighthouse, WPT (but it's called **First interactive** in WPT)
-- Field: N/A
-- [Docs - First Interactive - WPT](https://github.com/WPO-Foundation/webpagetest/blob/master/docs/Metrics/TimeToInteractive.md)
-- [Docs - First CPU Idle - Lighthouse](https://developers.google.com/web/tools/lighthouse/audits/first-cpu-idle)
-
-### Time to Interactive (TTI)
-
-Time to interactive is **the time it takes for the page to become fully interactive.** Not to confuse with First Interactive or First CPU Idle. (TODO better definition, this is the most often misunderstood metric - e.g. how 'interactive' is defined)
-
-- Lab: Lighthouse, WPT (it's called Consistently interactive in WPT, also only in Chrome even in WPT and not shown on the UI at all)
-- Field: Chrome 58+ with polyfill (BUT note that users interacting with your page can skew field measurements of TTI)
-- [Polyfill - TTI](https://github.com/GoogleChromeLabs/tti-polyfill)
-- [Spec - TTI - Lighthouse](https://docs.google.com/document/d/1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c/edit)
-- [Blogpost - TTI](https://blog.dareboost.com/en/2019/05/measuring-interactivity-time-to-interactive/)
-
-### First Input Delay (FID)
-
-First Input Delay (FID) measures **the time from when a user first interacts with your site to the time when the browser is actually able to respond** to that interaction. An interaction can be when users click a link, tap on a button, or use a custom, JavaScript-powered control.
-
-- Lab: N/A (as it requires the user to interact with the page)
-- Field: IE9+ (and Safari, Chrome, Firefox) (with polyfill - 0.4KB)
-- [Docs - FID](https://developers.google.com/web/updates/2018/05/first-input-delay)
-- [Polyfill - FID](https://github.com/GoogleChromeLabs/first-input-delay)
-
----
-
-### Byte Weight
-
-You can measure the byte weight of your assets with a number of tools. You would normally track these Lab only as the numbers are usually the same in the Field (but be mindful of device type or geographical location specific pages).
-
-- Lab: Lighthouse (custom audit), Sitespeed.io, custom tools
-- Field: N/A - but numbers usually the same as in Lab
-- [Sitespeed.io PageXray](https://www.sitespeed.io/documentation/pagexray/)
-- [page-weight cli](https://www.sitespeed.io/documentation/pagexray/) - Splits first-party and third-party.
-- [byte-weight-breakdown - Lighthouse custom audit](https://github.com/csabapalfi/byte-weight-breakdown)
-- manually look at Chrome DevTools Network Tab
-
-#### JavaScript bytes (incl third-parties)
-
-Measure and keep track of the compressed (and uncompressed) byte weight of your own JS bundles and all thirdparty JS loaded on your page. Third parties can be analytics, marketing tags, customer support chat widget, etc.
-
-Loading lots of JavaScript is usually the root cause of high [TTI](#time-to-interactive-tti-) or [FID](#first-input-delay-fid-) values.
-
-- [Can You Afford It?: Real-world Web Performance Budgets](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/)
-- [Which third party scripts are most excessive](https://github.com/patrickhulce/third-party-web)
-
-#### Initial document bytes
-
-Your initial HTML document is alway number one on your critical rendering path. Be sure not to excessively embed resources like SVGs or large amount JS or CSS. (Some critical CSS or JS is ok, the key here is how much).
-
-- [Is your HTML bloated? A flamegraph can tell you why](https://medium.com/@csabapalfi/is-your-html-bloated-a-flamegraph-can-tell-you-why-e60e4313583c)
-
----
-
-### Network Timing
-
-When you try to optimize rendering metrics it's crucial to make sure that initial connection setup and your server response time is as fast as possible. 
-
-Network timing field data can uncover a non-optimized TLS setup, slow DNS lookups or server side processing and issues with CDN configuration.
-
-- Lab: e.g. Chrome Devtools but this is usually a Field metric
-- Field: IE9+, (TODO confirm Safari support as it's reported differently by MDN and caniuse.com)
-- [Blogpost - Navigation and Resource Timing](https://developers.google.com/web/fundamentals/performance/navigation-and-resource-timing/)
-- [Spec - Navigation Timing](https://www.w3.org/TR/navigation-timing-2/)
-- [Spec - Resource Timing](https://www.w3.org/TR/resource-timing-2/)
-
-#### DNS
-
-```js
-// Measuring DNS lookup time
-var pageNav = performance.getEntriesByType("navigation")[0];
-var dnsTime = pageNav.domainLookupEnd - pageNav.domainLookupStart;
-```
-
-#### TCP and TLS
-
-```js
-// Quantifying total connection time
-var pageNav = performance.getEntriesByType("navigation")[0];
-var connectionTime = pageNav.connectEnd - pageNav.connectStart;
-var tlsTime = 0; // <-- Assume 0 by default
-
-// Did any TLS stuff happen?
-if (pageNav.secureConnectionStart > 0) {
-  // Awesome! Calculate it!
-  tlsTime = pageNav.connectEnd - pageNav.secureConnectionStart;
-}
-```
-
-#### TTFB
-
-```js
-// Time to First Byte (TTFB)
-var ttfb = pageNav.responseStart - pageNav.requestEnd;
-```
-
----
-
-## Other metrics
 
 ### Start render
 
@@ -271,64 +172,6 @@ Hero Element Timing captures **when specific elements are painted** by the brows
 - [Docs - Element Timing Explainer](https://docs.google.com/document/d/1blFeMVdqxB0V3BAJh60ptOBFY7cJSXnf7VyW3wspbZ8/edit#heading=h.eny79fwwx642)
 - [Docs - Hero Text Element Timestamps](https://docs.google.com/document/d/1co1yefZWQ4QvG_2WT0nCrqxcAgjU08um9Boe_JzHkdE/edit#heading=h.zwg1kfkhqmx)
 
-### First Interactive
-
-See [First CPU Idle](#first-cpu-idle). WPT still calls it First Interactive but Google/Lighthouse renamed to First CPU Idle to avoid confusing this with [Time to Interactive (TTI)](#time-to-interactive-tti)
-
-### Consistently Interactive
-
-See [Time to Interactive (TTI)](#time-to-interactive-tti). WPT still refers to TTI as Consistently Interactive but it's only available for Chrome and not surfaced on the UI (only in raw results XML/JSON).
-
-### Estimated Input Latency
-
-Estimated Input Latency is **an estimate of how long your app takes to respond to user input**, in milliseconds, during the busiest 5s window of page load. If your latency is higher than 50 ms, users may perceive your app as laggy. 
-
-- Lab: Lighthouse
-- Field: N/A
-- [Docs - Estimated Input Latency - Lighthouse](https://developers.google.com/web/tools/lighthouse/audits/estimated-input-latency)
-
-### User Timing mark when JS loaded
-
-The User Timing API allows the developer to create application specific timestamps that are part of the browser's performance timeline. You can **create a user timing mark to measure when your JS has loaded** (e.g. for a specific component).
-
-- Lab: Lighthouse, WPT
-- Field: IE 10+, Safari 11+ (and Chrome, Firefox of course)
-- [Spec - User Timing](https://www.w3.org/TR/user-timing/)
-
-```js
-componentDidMount() {
-    performance.mark("yourcomponent.usable");
-}
-```
-
-### DOMContentLoaded
-
-- [Docs - `DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded)
-
-### window.load
-
-- [Docs - `window.load`](https://developer.mozilla.org/en-US/docs/Web/Events/load)
-
-### Frame rate
-
- The frame rate is the **frequency at which the browser can display frames**. A frame represents the amount of work a browser does in one event loop iteration such as processing DOM events, resizing, scrolling, rendering, CSS animations, etc. A frame rate of 60 fps (frames per second) is a common target for a good responsive user experience. This means the browser should process a frame in about 16.7 ms.
-
-- Lab: Chrome and FF Devtools
-- Field: No browser implements the Frame Timing API yet but you can roll your own fps meter using `requestAnimationFrame`
-- [Docs - Frame Timing API](https://developer.mozilla.org/en-US/docs/Web/API/Frame_Timing_API)
-- [Docs - Chrome Devtools - FPS](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/#analyze_frames_per_second)
-- [Docs - Firefox Developer Tools - Frame rate](https://developer.mozilla.org/en-US/docs/Tools/Performance/Frame_rate)
-
-### Server Timing
-
-Surface any backend server timing metrics (e.g. database latency, etc.) in the developer tools in the user's browser or in the PerformanceServerTiming interface.
-
-- [Docs - Server Timing](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server-Timing)
-
-
-### Effective Connection Type
-
-- [Network Information API](https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API)
 
 ### Cumulative Layout Shift score (CLS)
 
@@ -347,12 +190,166 @@ A metric derived from the Layout Instability API. The cumulative layout shift (C
 - [Spec - Largest Contentful Paint](https://github.com/WICG/LargestContentfulPaint)
 - [Docs - Largest Contentful Paint](https://docs.google.com/document/d/1ySnglZJiCbOrOMX8PNgE0mRKmt9vglNDyggE8oYN8gQ/edit#heading=h.hjlf1s5m20ko)
 
+---
+
+## Interactivity metrics
+
+### First CPU Idle
+
+First CPU Idle marks the **first time at which the page's main thread is quiet enough to handle user input**.
+
+- Lab: Lighthouse, WPT (but it's called **First interactive** in WPT)
+- Field: N/A
+- [Docs - First Interactive - WPT](https://github.com/WPO-Foundation/webpagetest/blob/master/docs/Metrics/TimeToInteractive.md)
+- [Docs - First CPU Idle - Lighthouse](https://developers.google.com/web/tools/lighthouse/audits/first-cpu-idle)
+
+### Time to Interactive (TTI)
+
+Time to interactive is **the time it takes for the page to become fully interactive.** Not to confuse with First Interactive or First CPU Idle. (TODO better definition, this is the most often misunderstood metric - e.g. how 'interactive' is defined)
+
+- Lab: Lighthouse, WPT (it's called Consistently interactive in WPT, also only in Chrome even in WPT and not shown on the UI at all)
+- Field: Chrome 58+ with polyfill (BUT note that users interacting with your page can skew field measurements of TTI)
+- [Polyfill - TTI](https://github.com/GoogleChromeLabs/tti-polyfill)
+- [Spec - TTI - Lighthouse](https://docs.google.com/document/d/1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c/edit)
+- [Blogpost - TTI](https://blog.dareboost.com/en/2019/05/measuring-interactivity-time-to-interactive/)
+
+### First Input Delay (FID)
+
+First Input Delay (FID) measures **the time from when a user first interacts with your site to the time when the browser is actually able to respond** to that interaction. An interaction can be when users click a link, tap on a button, or use a custom, JavaScript-powered control.
+
+- Lab: N/A (as it requires the user to interact with the page)
+- Field: IE9+ (and Safari, Chrome, Firefox) (with polyfill - 0.4KB)
+- [Docs - FID](https://developers.google.com/web/updates/2018/05/first-input-delay)
+- [Polyfill - FID](https://github.com/GoogleChromeLabs/first-input-delay)
+
+
+### First Interactive
+
+See [First CPU Idle](#first-cpu-idle). WPT still calls it First Interactive but Google/Lighthouse renamed to First CPU Idle to avoid confusing this with [Time to Interactive (TTI)](#time-to-interactive-tti)
+
+### Consistently Interactive
+
+See [Time to Interactive (TTI)](#time-to-interactive-tti). WPT still refers to TTI as Consistently Interactive but it's only available for Chrome and not surfaced on the UI (only in raw results XML/JSON).
+
+### Estimated Input Latency
+
+Estimated Input Latency is **an estimate of how long your app takes to respond to user input**, in milliseconds, during the busiest 5s window of page load. If your latency is higher than 50 ms, users may perceive your app as laggy. 
+
+- Lab: Lighthouse
+- Field: N/A
+- [Docs - Estimated Input Latency - Lighthouse](https://developers.google.com/web/tools/lighthouse/audits/estimated-input-latency)
+
 ### Max Potential First Input Delay
 
 The maximum potential [First Input Delay](#first-input-delay-fid) that your users could experience. Basically equals to the duration of the longest [long task](#long-tasks) on the browser Main Thread.
 
 - Lab: Lighthouse
 - Field: N/A
+
+---
+
+## Network metrics
+
+Network timing field data can uncover a non-optimized TLS setup, slow DNS lookups or server side processing and issues with CDN configuration. See also a separate section about measuring [transferred bytes](#transferred-bytes).
+
+- [Blogpost - Navigation and Resource Timing](https://developers.google.com/web/fundamentals/performance/navigation-and-resource-timing/)
+- [Spec - Navigation Timing](https://www.w3.org/TR/navigation-timing-2/)
+- [Spec - Resource Timing](https://www.w3.org/TR/resource-timing-2/)
+
+### DNS latency
+
+- Lab: DNS performance testing tools
+- Field: IE9+, Safari 9+
+
+```js
+// Measuring DNS lookup time
+var pageNav = performance.getEntriesByType("navigation")[0];
+var dnsTime = pageNav.domainLookupEnd - pageNav.domainLookupStart;
+```
+
+### TCP and SSL/TLS latency
+
+- Lab: See [Qualys SSL Labs](https://www.ssllabs.com/ssltest/index.html) for an audit
+- Field: IE9+, Safari 9+
+
+```js
+// Quantifying total connection time
+var pageNav = performance.getEntriesByType("navigation")[0];
+var connectionTime = pageNav.connectEnd - pageNav.connectStart;
+var tlsTime = 0; // <-- Assume 0 by default
+
+// Did any TLS stuff happen?
+if (pageNav.secureConnectionStart > 0) {
+  // Awesome! Calculate it!
+  tlsTime = pageNav.connectEnd - pageNav.secureConnectionStart;
+}
+```
+
+### Time to First Byte (TTFB)
+
+- Lab: most server load testing tools report this
+- Field: IE9+, Safari 9+
+
+```js
+var ttfb = pageNav.responseStart - pageNav.requestEnd;
+```
+
+### Transferred bytes
+
+You can measure the byte weight of your assets with a number of tools. You would normally track these Lab only as the numbers are usually the same in the Field (but be mindful of device type or geographical location specific pages).
+
+Measuring own (and third-party) JavaScript bytes is crucial as JavaScript is the main cause of high [TTI](#time-to-interactive-tti) or [FID](#first-input-delay-fid) values.
+
+- Lab: Lighthouse (budgets), Sitespeed.io, custom tools
+- Field: N/A - but numbers usually the same as in Lab
+- [Sitespeed.io PageXray](https://www.sitespeed.io/documentation/pagexray/)
+- [Lighthouse Performance Budgets](https://developers.google.com/web/tools/lighthouse/audits/budgets)
+- [Can You Afford It?: Real-world Web Performance Budgets](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/)
+- [Which third party scripts are most excessive](https://github.com/patrickhulce/third-party-web)
+
+---
+
+## Other metrics
+
+### Google PageSpeed Insights score
+
+- [About PageSpeed Insights](https://developers.google.com/speed/docs/insights/v5/about)
+- [What's in the Google PageSpeed score](https://medium.com/expedia-group-tech/whats-in-the-google-pagespeed-score-a5fc93f91e91)
+- [How Google Pagespeed works](https://calibreapp.com/blog/how-pagespeed-works/)
+
+
+### User Timing
+
+The User Timing API allows the developer to create application specific timestamps that are part of the browser's performance timeline. e.g. you can create a user timing mark to measure when your JS has loaded for a specific component on the page.
+
+- Lab: Lighthouse, WPT
+- Field: IE 10+, Safari 11+ (and Chrome, Firefox of course)
+- [Spec - User Timing](https://www.w3.org/TR/user-timing/)
+
+### Server Timing
+
+Surface any backend server timing metrics (e.g. database latency, etc.) in the developer tools in the user's browser or in the PerformanceServerTiming interface.
+
+- [Docs - Server Timing](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server-Timing)
+
+
+### Frame rate
+
+ The frame rate is the **frequency at which the browser can display frames**. A frame represents the amount of work a browser does in one event loop iteration such as processing DOM events, resizing, scrolling, rendering, CSS animations, etc. A frame rate of 60 fps (frames per second) is a common target for a good responsive user experience. This means the browser should process a frame in about 16.7 ms.
+
+- Lab: Chrome and FF Devtools
+- Field: No browser implements the Frame Timing API yet but you can roll your own fps meter using `requestAnimationFrame`
+- [Docs - Frame Timing API](https://developer.mozilla.org/en-US/docs/Web/API/Frame_Timing_API)
+- [Docs - Chrome Devtools - FPS](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/#analyze_frames_per_second)
+- [Docs - Firefox Developer Tools - Frame rate](https://developer.mozilla.org/en-US/docs/Tools/Performance/Frame_rate)
+
+### DOMContentLoaded
+
+- [Docs - `DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded)
+
+### window.load
+
+- [Docs - `window.load`](https://developer.mozilla.org/en-US/docs/Web/Events/load)
 
 ## License
 
