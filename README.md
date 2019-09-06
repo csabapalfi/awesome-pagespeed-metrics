@@ -293,7 +293,7 @@ var ttfb = pageNav.responseStart - pageNav.requestEnd;
 
 You can measure the byte weight of your assets with a number of tools. You would normally track these Lab only as the numbers are usually the same in the Field (but be mindful of device type or geographical location specific pages).
 
-Measuring own (and third-party) JavaScript bytes is crucial as Javascript is the main cause of high [TTI](#time-to-interactive-tti) or [FID](#first-input-delay-fid) values.
+Measuring own (and third-party) JavaScript bytes is crucial as JavaScript is the main cause of high [TTI](#time-to-interactive-tti) or [FID](#first-input-delay-fid) values.
 
 - Lab: Lighthouse (budgets), Sitespeed.io, custom tools
 - Field: N/A - but numbers usually the same as in Lab
