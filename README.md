@@ -89,9 +89,9 @@ To optimize interactivity metrics like [Time to Interactive (TTI)](#time-to-inte
 Users are typically looking for visual feedback and reassurance. To measure this perceived performance (at various stages of loading) we can choose metrics that directly answer the questions below.
 
 - [User-centric Performance Metrics](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics)
-- Is it happening? - Did the navigation start successfully? Has the server responded?
-- Is it useful/meaningful? - Has enough content rendered that users can engage with it?
-- Is it usable - Can users interact with the page, or is it still busy loading?
+- Is it happening? - Did the navigation start successfully? Has the server responded? (e.g [FCP](https://github.com/csabapalfi/awesome-web-performance-metrics/#first-contentful-paint-fcp))
+- Is it useful/meaningful? - Has enough content rendered that users can engage with it? (e.g. [FMP](https://github.com/csabapalfi/awesome-web-performance-metrics/#first-meaningful-paint-fmp))
+- Is it usable - Can users interact with the page, or is it still busy loading? (e.g [TTI](https://github.com/csabapalfi/awesome-web-performance-metrics/#time-to-interactive-tti))
 - Is it delightful/smooth? - Are the interactions smooth and natural, free of lag and jank?
 
 ---
