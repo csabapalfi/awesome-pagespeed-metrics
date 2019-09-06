@@ -30,6 +30,7 @@
   - [Consistently Interactive](#consistently-interactive)
   - [Estimated Input Latency](#estimated-input-latency)
   - [Max Potential First Input Delay](#max-potential-first-input-delay)
+  - [Total Blocking Time](#total-blocking-time)
 - [Network metrics](#network-metrics)
   - [DNS latency](#dns-latency)
   - [TCP and SSL/TLS latency](#tcp-and-ssltls-latency)
@@ -245,6 +246,12 @@ The maximum potential [First Input Delay](#first-input-delay-fid) that your user
 
 - Lab: Lighthouse
 - Field: N/A
+
+### Total Blocking Time
+
+- Lab: Lighthouse
+- Field: N/A
+- [Total Blocking Time](https://docs.google.com/document/d/1xCERB_X7PiP5RAZDwyIkODnIXoBk-Oo7Mi9266aEdGg/edit)
 
 ---
 
