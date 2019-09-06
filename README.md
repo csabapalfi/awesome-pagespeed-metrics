@@ -269,7 +269,7 @@ var dnsTime = pageNav.domainLookupEnd - pageNav.domainLookupStart;
 
 ### TCP and SSL/TLS latency
 
-- Lab: See [Qualys SSL Labs](https://www.ssllabs.com/) for an audit
+- Lab: See [Qualys SSL Labs](https://www.ssllabs.com/ssltest/index.html) for an audit
 - Field: IE9+, Safari 9+
 
 ```js
