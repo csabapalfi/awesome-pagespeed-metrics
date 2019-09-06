@@ -1,7 +1,7 @@
 {
   "scripts": {
     "lint": "awesome-lint",
-    "build": "markdown-toc -i --bullets=- --skip=License --maxdepth=3 README.md",
+    "build": "markdown-toc -i --bullets=- --skip=License README.md",
     "test": "npm run build -- --check && npm run lint"
   },
   "devDependencies": {
