@@ -6,8 +6,12 @@
 
 <!-- toc -->
 
-- [Lab Data (Synthetic Measurements)](#lab-data-synthetic-measurements)
-- [Field Data (Real User Monitoring - RUM)](#field-data-real-user-monitoring---rum)
+- [Concepts](#concepts)
+  - [Lab Data (Synthetic Measurements)](#lab-data-synthetic-measurements)
+  - [Field Data (Real User Monitoring - RUM)](#field-data-real-user-monitoring---rum)
+  - [Critical rendering path](#critical-rendering-path)
+  - [Long tasks](#long-tasks)
+  - [User-centric metrics](#user-centric-metrics)
 - [Recommended metrics](#recommended-metrics)
   - [First Contentful Paint (FCP)](#first-contentful-paint-fcp)
   - [First Meaningful Paint (FMP)](#first-meaningful-paint-fmp)
@@ -17,10 +21,6 @@
   - [First Input Delay (FID)](#first-input-delay-fid)
   - [Byte Weight](#byte-weight)
   - [Network Timing](#network-timing)
-- [Concepts](#concepts)
-  - [Critical rendering path](#critical-rendering-path)
-  - [Long tasks](#long-tasks)
-  - [User-centric metrics](#user-centric-metrics)
 - [Other metrics](#other-metrics)
   - [Start render](#start-render)
   - [First Paint (FP)](#first-paint-fp)
@@ -41,7 +41,9 @@
 
 <!-- tocstop -->
 
-## Lab Data (Synthetic Measurements)
+## Concepts
+
+### Lab Data (Synthetic Measurements)
 
 Make a request to your page with a tool and evaluate performance. Be sure to make it realistic (e.g. by throttling network and CPU) and reduce noise (e.g. by running multiple times).
 
@@ -55,7 +57,7 @@ Make a request to your page with a tool and evaluate performance. Be sure to mak
 
 ---
 
-## Field Data (Real User Monitoring - RUM)
+### Field Data (Real User Monitoring - RUM)
 
 Collect performance data from real users visiting your page. Be mindful of the actual overhead, as it runs in your user's browser and watch out for browser support of more recent metrics (e.g. compared to your user-base).
 
@@ -64,6 +66,33 @@ Collect performance data from real users visiting your page. Be mindful of the a
 - [Load abandonment](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics#load_abandonment) - Track  `visibilitychange` to account for survivorship bias.
 - [SpeedCurve LUX](https://speedcurve.com/features/lux/)
 - [Akamai mPulse](https://www.akamai.com/uk/en/products/performance/mpulse-real-user-monitoring.jsp)
+
+### Critical rendering path
+
+The critical rendering path is **everything that happens between receiving network bytes and rendering something on the screen**. To optimize any rendering metrics like [First Contentful Paint (FCP)](#first-contentful-paint-fcp) or [Speed Index](#speed-index) you have to understand how the critical rendering path works.
+
+- [Critical rendering path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/)
+
+### Long tasks
+
+The browser Main Thread that handles user input is also the one executing JavaScript (among many other things). Blocking the Main Thread for too long can make your page unresponsive.
+
+A user perceives any visual change within 100ms as instant. Any task blocking the Main Thread by **taking longer than 50ms is considered a long task** (as it might make the browser unresponsive to user input).
+
+To optimize interactivity metrics like [Time to Interactive (TTI)](#time-to-interactive-tti) and [First Input Delay (FID)](#first-input-delay-fid) you have to understand long tasks and how to avoid them as much as possible.
+
+- [Spec - Long Tasks](https://w3c.github.io/longtasks/)
+- [Blogpost - Tracking CPU with Long Tasks API](https://calendar.perfplanet.com/2017/tracking-cpu-with-long-tasks-api/)
+
+### User-centric metrics
+
+Users are typically looking for visual feedback and reassurance. To measure this perceived performance (at various stages of loading) we can choose metrics that directly answer the questions below.
+
+- [User-centric Performance Metrics](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics)
+- Is it happening? - Did the navigation start successfully? Has the server responded?
+- Is it useful/meaningful? - Has enough content rendered that users can engage with it?
+- Is it usable - Can users interact with the page, or is it still busy loading?
+- Is it delightful/smooth? - Are the interactions smooth and natural, free of lag and jank?
 
 ---
 
@@ -197,62 +226,6 @@ if (pageNav.secureConnectionStart > 0) {
 // Time to First Byte (TTFB)
 var ttfb = pageNav.responseStart - pageNav.requestEnd;
 ```
-
----
-
-## Concepts
-
-
-### Critical rendering path
-
-The critical rendering path is **everything that happens between receiving network bytes and rendering something on the screen**. To optimize any rendering metrics like [First Contentful Paint (FCP)](#first-contentful-paint-fcp) or [Speed Index](#speed-index) you have to understand how the critical rendering path works.
-
-- [Critical rendering path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/)
-
-### Long tasks
-
-The browser Main Thread that handles user input is also the one executing JavaScript (among many other things). Blocking the Main Thread for too long can make your page unresponsive.
-
-A user perceives any visual change within 100ms as instant. Any task blocking the Main Thread by **taking longer than 50ms is considered a long task** (as it might make the browser unresponsive to user input).
-
-To optimize interactivity metrics like [Time to Interactive (TTI)](#time-to-interactive-tti) and [First Input Delay (FID)](#first-input-delay-fid) you have to understand long tasks and how to avoid them as much as possible.
-
-- [Spec - Long Tasks](https://w3c.github.io/longtasks/)
-- [Blogpost - Tracking CPU with Long Tasks API](https://calendar.perfplanet.com/2017/tracking-cpu-with-long-tasks-api/)
-
-### User-centric metrics
-
-[Blogpost - User-centric Performance Metrics](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics)
-
-Use the questions below to organize/prioritize your metrics from the user's perspective.
-
-#### Is it happening
-
-> Did the navigation start successfully? Has the server responded?
-
-- [First Contentful Paint (FCP)](https://github.com/csabapalfi/awesome-web-performance-metrics#first-contentful-paint-fcp)
-
-#### Is it useful/meaningful
-> Has enough content rendered that users can engage with it?
-
-- [First Meaningful Paint (FMP)](https://github.com/csabapalfi/awesome-web-performance-metrics#first-meaningful-paint-fmp)
-- [Speed Index](https://github.com/csabapalfi/awesome-web-performance-metrics#speed-index)
-- [Hero Element Timing](https://github.com/csabapalfi/awesome-web-performance-metrics#hero-element-timing)
-
-
-#### Is it usable
-> Can users interact with the page, or is it still busy loading?
-
-- [User Timing mark when JS loaded](https://github.com/csabapalfi/awesome-web-performance-metrics#user-timing-mark-when-js-loaded)
-- [First CPU Idle](https://github.com/csabapalfi/awesome-web-performance-metrics#first-cpu-idle)
-- [Time to Interactive (TTI)](https://github.com/csabapalfi/awesome-web-performance-metrics#time-to-interactive-tti)
-- [First Input Delay (FID)](https://github.com/csabapalfi/awesome-web-performance-metrics#first-input-delay-fid)
-- [Estimated Input Latency](https://github.com/csabapalfi/awesome-web-performance-metrics#estimated-input-latency)
-
-#### Is it delightful/smooth
-> Are the interactions smooth and natural, free of lag and jank?
-
-- [Frame rate](https://github.com/csabapalfi/awesome-web-performance-metrics#frame-rate)
 
 ---
 
