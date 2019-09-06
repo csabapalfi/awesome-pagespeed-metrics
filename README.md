@@ -205,10 +205,10 @@ First CPU Idle marks the **first time at which the page's main thread is quiet e
 
 ### Time to Interactive (TTI)
 
-Time to interactive is **the time it takes for the page to become fully interactive.** Not to confuse with First Interactive or First CPU Idle. (TODO better definition, this is the most often misunderstood metric - e.g. how 'interactive' is defined)
+Time to interactive is **the time it takes for the page to become fully interactive** (as in Main Thread quiet for 5s). Not to confuse with First Interactive or First CPU Idle. (Warning: one of the most confusing and misunderstood metrics).
 
-- Lab: Lighthouse, WPT (it's called Consistently interactive in WPT, also only in Chrome even in WPT and not shown on the UI at all)
-- Field: Chrome 58+ with polyfill (BUT note that users interacting with your page can skew field measurements of TTI)
+- Lab: Lighthouse, WPT (see [Consistently Interactive](#consistently-interactive))
+- Field: Not recommended as users interacting with your page can skew field measurements of TTI
 - [Polyfill - TTI](https://github.com/GoogleChromeLabs/tti-polyfill)
 - [Spec - TTI - Lighthouse](https://docs.google.com/document/d/1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c/edit)
 - [Blogpost - TTI](https://blog.dareboost.com/en/2019/05/measuring-interactivity-time-to-interactive/)
