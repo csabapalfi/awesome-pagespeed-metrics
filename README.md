@@ -190,6 +190,7 @@ A metric derived from the Layout Instability API. The cumulative layout shift (C
 - Field: N/A (Chrome: in development)
 - [Spec - Largest Contentful Paint](https://github.com/WICG/LargestContentfulPaint)
 - [Docs - Largest Contentful Paint](https://docs.google.com/document/d/1ySnglZJiCbOrOMX8PNgE0mRKmt9vglNDyggE8oYN8gQ/edit#heading=h.hjlf1s5m20ko)
+- [Blogpost - Largest Contentful Paint](https://web.dev/largest-contentful-paint/)
 
 ---
 
