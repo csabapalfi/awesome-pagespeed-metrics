@@ -71,6 +71,7 @@ Collect performance data from real users visiting your page. Be mindful of the a
 - [Load abandonment](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics#load_abandonment) - Track  `visibilitychange` to account for survivorship bias.
 - [SpeedCurve LUX](https://speedcurve.com/features/lux/)
 - [Akamai mPulse](https://www.akamai.com/uk/en/products/performance/mpulse-real-user-monitoring.jsp)
+- [Sematext Experience](https://sematext.com/experience/) 
 
 ### Critical rendering path
 
@@ -98,6 +99,13 @@ Users are typically looking for visual feedback and reassurance. To measure this
 - Is it useful/meaningful? - Has enough content rendered that users can engage with it? (e.g. [FMP](https://github.com/csabapalfi/awesome-web-performance-metrics/#first-meaningful-paint-fmp))
 - Is it usable - Can users interact with the page, or is it still busy loading? (e.g [TTI](https://github.com/csabapalfi/awesome-web-performance-metrics/#time-to-interactive-tti))
 - Is it delightful/smooth? - Are the interactions smooth and natural, free of lag and jank?
+
+### Apdex score
+
+Application Performance Index, or [Apdex](https://en.wikipedia.org/wiki/Apdex), is a measurement of your users’ level of satisfaction based on the response time of request(s) when interacting with your website or application. 
+
+- [Apdex technical specification](http://www.apdex.org/index.php/category/specification/)
+- [How to Use Apdex Score to Measure User Satisfaction](https://sematext.com/blog/how-to-use-your-apdex-score-to-measure-user-satisfaction/)
 
 ---
 
