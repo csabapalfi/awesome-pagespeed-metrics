@@ -12,6 +12,7 @@
   - [Critical rendering path](#critical-rendering-path)
   - [Long tasks](#long-tasks)
   - [User-centric metrics](#user-centric-metrics)
+  - [Apdex score](#apdex-score)
 - [Rendering metrics](#rendering-metrics)
   - [First Contentful Paint (FCP)](#first-contentful-paint-fcp)
   - [First Meaningful Paint (FMP)](#first-meaningful-paint-fmp)
