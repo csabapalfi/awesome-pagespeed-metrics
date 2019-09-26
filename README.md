@@ -56,10 +56,10 @@ Make a request to your page with a tool and evaluate performance. Be sure to mak
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse/) - A tool built on Google Chrome to audit web pages. You can run it from Chrome DevTools, a Chrome Extension or from the command line (even with headless Chrome).
 - [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) - Free and hosted Lighthouse reporting (and more) by Google.
 - [WebpageTest](https://www.webpagetest.org/) - Free and hosted web performance testing (also an open source project).
-- [Sitespeed.io](https://www.sitespeed.io/) - A set of open source tools.
-- [Calibre](https://calibreapp.com)
-- [treo.sh](https://treo.sh/)
-- [SpeedCurve](https://speedcurve.com/)
+- [Sitespeed.io](https://www.sitespeed.io/) - A set of open source performance monitoring tools.
+- [Calibre](https://calibreapp.com) - Web performance monitoring SaaS.
+- [treo.sh](https://treo.sh/) - Web performance monitoring SaaS.
+- [SpeedCurve](https://speedcurve.com/) - Web performance monitoring SaaS.
 
 ---
 
@@ -70,9 +70,9 @@ Collect performance data from real users visiting your page. Be mindful of the a
 - [Performance tracking with Google Analytics (GA)](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#performance-tracking)
 - [Chrome User Experience Report (CrUX)](https://developers.google.com/web/tools/chrome-user-experience-report/)
 - [Load abandonment](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics#load_abandonment) - Track  `visibilitychange` to account for survivorship bias.
-- [SpeedCurve LUX](https://speedcurve.com/features/lux/)
-- [Akamai mPulse](https://www.akamai.com/uk/en/products/performance/mpulse-real-user-monitoring.jsp)
-- [Sematext Experience](https://sematext.com/experience/) 
+- [SpeedCurve LUX](https://speedcurve.com/features/lux/) - Real User Monitoring SaaS.
+- [Akamai mPulse](https://www.akamai.com/uk/en/products/performance/mpulse-real-user-monitoring.jsp) - Real User Monitoring SaaS.
+- [Sematext Experience](https://sematext.com/experience/) - Real User Monitoring SaaS.
 
 ### Critical rendering path
 
