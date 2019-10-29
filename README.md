@@ -308,7 +308,7 @@ if (pageNav.secureConnectionStart > 0) {
 - Field: IE9+, Safari 9+
 
 ```js
-var ttfb = pageNav.responseStart - pageNav.requestEnd;
+var ttfb = pageNav.responseStart - pageNav.requestStart;
 ```
 
 ### Transferred bytes
