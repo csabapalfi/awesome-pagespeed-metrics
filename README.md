@@ -21,8 +21,8 @@
   - [First Paint (FP)](#first-paint-fp)
   - [Visually Complete](#visually-complete)
   - [Hero Element Timing](#hero-element-timing)
-  - [Cumulative Layout Shift score (CLS)](#cumulative-layout-shift-score-cls)
-  - [Largest Contentful Paint](#largest-contentful-paint)
+  - [Cumulative Layout Shift (CLS)](#cumulative-layout-shift-cls)
+  - [Largest Contentful Paint (LCP)](#largest-contentful-paint-lcp)
 - [Interactivity metrics](#interactivity-metrics)
   - [First CPU Idle](#first-cpu-idle)
   - [Time to Interactive (TTI)](#time-to-interactive-tti)
@@ -31,7 +31,7 @@
   - [Consistently Interactive](#consistently-interactive)
   - [Estimated Input Latency](#estimated-input-latency)
   - [Max Potential First Input Delay](#max-potential-first-input-delay)
-  - [Total Blocking Time](#total-blocking-time)
+  - [Total Blocking Time (TBT)](#total-blocking-time-tbt)
 - [Network metrics](#network-metrics)
   - [DNS latency](#dns-latency)
   - [TCP and SSL/TLS latency](#tcp-and-ssltls-latency)
@@ -183,7 +183,7 @@ Hero Element Timing captures **when specific elements are painted** by the brows
 - [Docs - Hero Text Element Timestamps](https://docs.google.com/document/d/1co1yefZWQ4QvG_2WT0nCrqxcAgjU08um9Boe_JzHkdE/edit#heading=h.zwg1kfkhqmx)
 
 
-### Cumulative Layout Shift score (CLS)
+### Cumulative Layout Shift (CLS)
 
 A metric derived from the Layout Instability API. The cumulative layout shift (CLS) score is determined by calculating the sum of all unexpected (not within 0.5s of a user interaction) layout shift scores from page load until the page's lifecycle state changes to hidden.
 
@@ -193,7 +193,7 @@ A metric derived from the Layout Instability API. The cumulative layout shift (C
 - [Chrome - Origin Trial for Layout Stability API](https://developers.chrome.com/origintrials/#/view_trial/1215971899390033921)
 - [Blogpost - The Layout Instability API](https://web.dev/layout-instability-api/)
 
-### Largest Contentful Paint
+### Largest Contentful Paint (LCP)
 
 - Lab: N/A
 - Field: N/A (Chrome: in development)
@@ -257,7 +257,7 @@ The maximum potential [First Input Delay](#first-input-delay-fid) that your user
 - Lab: Lighthouse
 - Field: N/A
 
-### Total Blocking Time
+### Total Blocking Time (TBT)
 
 - Lab: Lighthouse
 - Field: N/A
