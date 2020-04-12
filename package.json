@@ -5,7 +5,7 @@
     "test": "npm run build -- --check && npm run lint"
   },
   "devDependencies": {
-    "awesome-lint": "^0.11.0",
-    "@csabapalfi/markdown-toc": "2.0.0"
+    "@csabapalfi/markdown-toc": "2.0.0",
+    "awesome-lint": "^0.12.1"
   }
 }
