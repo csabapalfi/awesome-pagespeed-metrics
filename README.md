@@ -1,4 +1,4 @@
-# Awesome Web Performance Metrics [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+# Awesome Page Speed Metrics [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
 > Metrics to help understand page speed and user experience.
 
