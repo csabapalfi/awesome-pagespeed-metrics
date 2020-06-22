@@ -103,7 +103,7 @@ Users are typically looking for visual feedback and reassurance. To measure this
 
 ### Apdex score
 
-Application Performance Index, or [Apdex](https://en.wikipedia.org/wiki/Apdex), is a measurement of your users’ level of satisfaction based on the response time of request(s) when interacting with your website or application. 
+Application Performance Index, or [Apdex](https://en.wikipedia.org/wiki/Apdex), is a measurement of your users' level of satisfaction based on the response time of request(s) when interacting with your website or application. 
 
 - [Apdex technical specification](http://www.apdex.org/index.php/category/specification/)
 - [How to Use Apdex Score to Measure User Satisfaction](https://sematext.com/blog/how-to-use-your-apdex-score-to-measure-user-satisfaction/)
