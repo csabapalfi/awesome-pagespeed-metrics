@@ -6,6 +6,6 @@
   },
   "devDependencies": {
     "@csabapalfi/markdown-toc": "2.0.0",
-    "awesome-lint": "^0.12.1"
+    "awesome-lint": "^0.13.0"
   }
 }
