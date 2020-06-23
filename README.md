@@ -2,7 +2,7 @@
 
 > Metrics to help understand page speed and user experience.
 
-Start at [web.dev/metrics](https://web.dev/metrics/) (which now largely replaces this list).
+If you're just getting started check out [web.dev/metrics](https://web.dev/metrics/) first.
 
 ## Contents
 
