@@ -2,6 +2,8 @@
 
 > Metrics to help understand page speed and user experience.
 
+Start at [web.dev/metrics](https://web.dev/metrics/) (which now largely replaces this list).
+
 ## Contents
 
 <!-- toc -->
@@ -12,24 +14,19 @@
   - [Critical rendering path](#critical-rendering-path)
   - [Long tasks](#long-tasks)
   - [User-centric metrics](#user-centric-metrics)
-  - [Apdex score](#apdex-score)
 - [Rendering metrics](#rendering-metrics)
   - [First Contentful Paint (FCP)](#first-contentful-paint-fcp)
-  - [First Meaningful Paint (FMP)](#first-meaningful-paint-fmp)
-  - [Speed Index](#speed-index)
-  - [Start render](#start-render)
-  - [First Paint (FP)](#first-paint-fp)
-  - [Visually Complete](#visually-complete)
-  - [Hero Element Timing](#hero-element-timing)
-  - [Cumulative Layout Shift (CLS)](#cumulative-layout-shift-cls)
   - [Largest Contentful Paint (LCP)](#largest-contentful-paint-lcp)
+  - [Cumulative Layout Shift (CLS)](#cumulative-layout-shift-cls)
+  - [Visually Complete](#visually-complete)
+  - [Speed Index](#speed-index)
+  - [(Hero) Element Timing](#hero-element-timing)
 - [Interactivity metrics](#interactivity-metrics)
   - [First CPU Idle](#first-cpu-idle)
   - [Time to Interactive (TTI)](#time-to-interactive-tti)
   - [First Input Delay (FID)](#first-input-delay-fid)
   - [First Interactive](#first-interactive)
   - [Consistently Interactive](#consistently-interactive)
-  - [Estimated Input Latency](#estimated-input-latency)
   - [Max Potential First Input Delay](#max-potential-first-input-delay)
   - [Total Blocking Time (TBT)](#total-blocking-time-tbt)
 - [Network metrics](#network-metrics)
@@ -88,27 +85,20 @@ The browser Main Thread that handles user input is also the one executing JavaSc
 
 A user perceives any visual change within 100ms as instant. Any task blocking the Main Thread by **taking longer than 50ms is considered a long task** (as it might make the browser unresponsive to user input).
 
-To optimize interactivity metrics like [Time to Interactive (TTI)](#time-to-interactive-tti) and [First Input Delay (FID)](#first-input-delay-fid) you have to understand long tasks and how to avoid them as much as possible.
+To optimize interactivity metrics like [Total Blocking Time (TBT)](#total-blocking-time-tbt) and [First Input Delay (FID)](#first-input-delay-fid) you have to understand long tasks and how to avoid them as much as possible.
 
 - [Spec - Long Tasks](https://w3c.github.io/longtasks/)
 - [Blogpost - Tracking CPU with Long Tasks API](https://calendar.perfplanet.com/2017/tracking-cpu-with-long-tasks-api/)
 
 ### User-centric metrics
 
-Users are typically looking for visual feedback and reassurance. To measure this perceived performance (at various stages of loading) we can choose metrics that directly answer the questions below.
+It's important to track metrics relevant to users and their experience. To measure the perceived performance we can choose metrics by framing them around a few key questions.
 
-- [User-centric Performance Metrics](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics)
+- [Docs - User-centric Performance Metrics - web.dev](https://web.dev/user-centric-performance-metrics/)
 - Is it happening? - Did the navigation start successfully? Has the server responded? (e.g [FCP](https://github.com/csabapalfi/awesome-web-performance-metrics/#first-contentful-paint-fcp))
-- Is it useful/meaningful? - Has enough content rendered that users can engage with it? (e.g. [FMP](https://github.com/csabapalfi/awesome-web-performance-metrics/#first-meaningful-paint-fmp))
-- Is it usable - Can users interact with the page, or is it still busy loading? (e.g [TTI](https://github.com/csabapalfi/awesome-web-performance-metrics/#time-to-interactive-tti))
+- Is it useful/meaningful? - Has enough content rendered that users can engage with it? (e.g. [LCP](https://github.com/csabapalfi/awesome-web-performance-metrics/#largest-contentful-paint-lcp))
+- Is it usable - Can users interact with the page, or is it still busy loading? (e.g [TBT](https://github.com/csabapalfi/awesome-web-performance-metrics/#total-blocking-time-tbt))
 - Is it delightful/smooth? - Are the interactions smooth and natural, free of lag and jank?
-
-### Apdex score
-
-Application Performance Index, or [Apdex](https://en.wikipedia.org/wiki/Apdex), is a measurement of your users' level of satisfaction based on the response time of request(s) when interacting with your website or application. 
-
-- [Apdex technical specification](http://www.apdex.org/index.php/category/specification/)
-- [How to Use Apdex Score to Measure User Satisfaction](https://sematext.com/blog/how-to-use-your-apdex-score-to-measure-user-satisfaction/)
 
 ---
 
@@ -116,22 +106,38 @@ Application Performance Index, or [Apdex](https://en.wikipedia.org/wiki/Apdex), 
 
 ### First Contentful Paint (FCP)
 
-First Contentful Paint marks the time at which the **first text or image is painted** (including background images), non-white canvas or SVG. This includes text with pending webfonts. This is the first time users could start consuming page content.
+The First Contentful Paint (FCP) metric measures the time from when the page starts loading to when any part of the page's content is rendered on the screen. For this metric, "content" refers to text, images (including background images), `<svg>` elements, or non-white `<canvas>` elements.
 
 - Lab: Lighthouse
-- Field: Chrome 60+, Opera 47+, CrUX
-- [Docs - FCP - Lighthouse](https://developers.google.com/web/tools/lighthouse/audits/first-contentful-paint)
-- [Spec - FCP - W3C](https://w3c.github.io/paint-timing/)
+- Field: Chrome 60+, CrUX
+- [Docs - FCP - web.dev](https://web.dev/fcp/)
+- [Spec - Paint Timing - W3C](https://w3c.github.io/paint-timing/)
 
+### Largest Contentful Paint (LCP)
 
-### First Meaningful Paint (FMP)
+The Largest Contentful Paint (LCP) metric reports the render time of the largest content element visible within the viewport.
 
-First Meaningful Paint measures **when the primary content of a page is visible**. It's essentially the paint after which the biggest above-the-fold layout change has happened, and web fonts have loaded.
+- Lab: Lighthouse/WPT
+- Field: Chrome 77+
+- [Docs - LCP - web.dev](https://web.dev/largest-contentful-paint/)
+- [Spec - LCP - W3C](https://github.com/WICG/largest-contentful-paint#readme)
 
-- Lab: Lighthouse
+### Cumulative Layout Shift (CLS)
+
+ A layout shift occurs any time a visible element changes its position from one frame to the next. CLS measures the sum total of all individual layout shift scores for every unexpected layout shift that occurs during the entire lifespan of the page.
+
+- Lab: Lighthouse/WPT
+- Field: Chrome 77+
+- [Docs - CLS - web.dev](https://web.dev/cls/)
+- [Spec - Layout Instability API - W3C](https://github.com/WICG/layout-instability)
+
+### Visually Complete
+
+The Visually Complete is the time from the start of the initial navigation until the **visible (above the fold) part of your page is no longer changing**. (e.g. WPT measures this using a color histogram of the page based on video/screenshots recording).
+
+- Lab: WPT
 - Field: N/A
-- [Docs - FMP - Lighthouse](https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint)
-- [Spec - First Meaningful Paint](https://docs.google.com/document/d/1BR94tJdZLsin5poeet0XoTW60M0SjvOJQttKT-JK8HI/view)
+- [Docs - Visually Complete - WPT](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index)
 
 ### Speed Index
 
@@ -139,69 +145,19 @@ Speed Index shows **how quickly the contents of a page are visibly populated** (
 
 - Lab: Lighthouse, WPT (but slightly different spec)
 - Field: N/A
-- [Docs - Speed Index - Lighthouse](https://developers.google.com/web/tools/lighthouse/audits/speed-index)
+- [Docs - Speed Index - web.dev](https://web.dev/speed-index/)
 - [Docs - Speed Index - WPT](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index)
-- [Talk - Speed Perception and Lighthouse](https://ldnwebperf.org/events/speed-perception-and-lighthouse/)
+- [Talk - Speed Perception and Lighthouse](https://ldnwebperf.org/sessions/speed-perception-and-lighthouse/)
 
+### (Hero) Element Timing
 
-### Start render
-
-The Start Render is the time from the start of the initial navigation until the **first non-white content is painted** to the browser display.
-
-- Lab: WPT
-- Field: N/A but similar to [First Paint (FP)](#first-paint-fp)
-- [Docs - Start Render - WPT](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics)
-
-
-### First Paint (FP)
-
-First Paint reports the time when **the browser first rendered after navigation**. This excludes the default background paint, but includes non-default background paint. This is the first key moment developers care about in page load – when the browser has started to render the page.
-
-- Lab: LightHouse JSON report includes it but not the HTML report, also similar to [Start render](#start-render) in WPT
-- Field: Chrome 60+, Opera 47+, CrUX
-- [Spec - FP - W3C](https://w3c.github.io/paint-timing/)
-
-### Visually Complete
-
-The Visually Complete is the time from the start of the initial navigation until the **visible (above the fold) part of your page is no longer changing**. (Measured using a color histogram based on video/screenshots recording).
+Element Timing captures **when specific elements are painted** by the browser. Hero elements can be defined as the largest h1, img or background image (or custom ones using the Element Timing API)
 
 - Lab: WPT
-- Field: N/A
-- [Docs - Visually Complete - WPT](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index)
-
-### Hero Element Timing
-
-Hero Element Timing captures **when specific elements are painted** by the browser (e.g. your `h1` or your hero image, etc).
-
-- Lab: WPT
-- Field: N/A but see unmantained polyfill below
-- [W3C GitHub issue - Element Timing API](https://github.com/w3c/charter-webperf/issues/30)
-- [Spec - Hero Element Timing](https://docs.google.com/document/d/1yRYfYR1DnHtgwC4HRR04ipVVhT1h5gkI6yPmKCgJkyQ/edit#)
+- Field: Chrome 77+
+- [Docs - Last Painted Hero - WPT](https://github.com/WPO-Foundation/webpagetest/blob/master/docs/Metrics/HeroElements.md)
+- [Spec - Element Timing API](https://wicg.github.io/element-timing/)
 - [Blogpost - Hero Element Timing - SpeedCurve](https://speedcurve.com/blog/web-performance-monitoring-hero-times/)
-- [Polyfill - Hero Element Timing](https://github.com/tdresser/hero-element-polyfill) - see also the [announcement here](https://groups.google.com/a/chromium.org/forum/m/#!topic/progressive-web-metrics/ND6JVZRWqqg)
-- [Blogpost - User Timing for Element Timing - SpeedCurve](https://speedcurve.com/blog/user-timing-and-custom-metrics/)
-- [Blogpost - Last Painted Hero coming to WebpageTest](https://speedcurve.com/blog/last-painted-hero/)
-- [Docs - Element Timing Explainer](https://docs.google.com/document/d/1blFeMVdqxB0V3BAJh60ptOBFY7cJSXnf7VyW3wspbZ8/edit#heading=h.eny79fwwx642)
-- [Docs - Hero Text Element Timestamps](https://docs.google.com/document/d/1co1yefZWQ4QvG_2WT0nCrqxcAgjU08um9Boe_JzHkdE/edit#heading=h.zwg1kfkhqmx)
-
-
-### Cumulative Layout Shift (CLS)
-
-A metric derived from the Layout Instability API. The cumulative layout shift (CLS) score is determined by calculating the sum of all unexpected (not within 0.5s of a user interaction) layout shift scores from page load until the page's lifecycle state changes to hidden.
-
-- Lab: N/A
-- Field: CrUX + Chrome 73+ (origin trial)
-- [Spec - Layout Instability](https://github.com/WICG/layout-instability)
-- [Chrome - Origin Trial for Layout Stability API](https://developers.chrome.com/origintrials/#/view_trial/1215971899390033921)
-- [Blogpost - The Layout Instability API](https://web.dev/layout-instability-api/)
-
-### Largest Contentful Paint (LCP)
-
-- Lab: N/A
-- Field: N/A (Chrome: in development)
-- [Spec - Largest Contentful Paint](https://github.com/WICG/LargestContentfulPaint)
-- [Docs - Largest Contentful Paint](https://docs.google.com/document/d/1ySnglZJiCbOrOMX8PNgE0mRKmt9vglNDyggE8oYN8gQ/edit#heading=h.hjlf1s5m20ko)
-- [Blogpost - Largest Contentful Paint](https://web.dev/largest-contentful-paint/)
 
 ---
 
@@ -244,26 +200,21 @@ See [First CPU Idle](#first-cpu-idle). WPT still calls it First Interactive but 
 
 See [Time to Interactive (TTI)](#time-to-interactive-tti). WPT still refers to TTI as Consistently Interactive but it's only available for Chrome and not surfaced on the UI (only in raw results XML/JSON).
 
-### Estimated Input Latency
-
-Estimated Input Latency is **an estimate of how long your app takes to respond to user input**, in milliseconds, during the busiest 5s window of page load. If your latency is higher than 50 ms, users may perceive your app as laggy. 
-
-- Lab: Lighthouse
-- Field: N/A
-- [Docs - Estimated Input Latency - Lighthouse](https://developers.google.com/web/tools/lighthouse/audits/estimated-input-latency)
-
 ### Max Potential First Input Delay
 
 The maximum potential [First Input Delay](#first-input-delay-fid) that your users could experience. Basically equals to the duration of the longest [long task](#long-tasks) on the browser Main Thread.
 
 - Lab: Lighthouse
 - Field: N/A
+- [Docs - Max Potential FID - web.dev](https://web.dev/lighthouse-max-potential-fid/)
 
 ### Total Blocking Time (TBT)
 
+The Total Blocking Time (TBT) metric measures the total amount of time between First Contentful Paint (FCP) and Time to Interactive (TTI) where the main thread was blocked for long enough to prevent input responsiveness.
+
 - Lab: Lighthouse
 - Field: N/A
-- [Total Blocking Time](https://docs.google.com/document/d/1xCERB_X7PiP5RAZDwyIkODnIXoBk-Oo7Mi9266aEdGg/edit)
+- [Docs - Total Blocking Time - web.dev](https://web.dev/tbt/)
 
 ---
 
