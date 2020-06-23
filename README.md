@@ -22,13 +22,10 @@ If you're just getting started check out [web.dev/metrics](https://web.dev/metri
   - [Speed Index](#speed-index)
   - [(Hero) Element Timing](#hero-element-timing)
 - [Interactivity metrics](#interactivity-metrics)
-  - [First CPU Idle](#first-cpu-idle)
   - [Time to Interactive (TTI)](#time-to-interactive-tti)
-  - [First Input Delay (FID)](#first-input-delay-fid)
-  - [First Interactive](#first-interactive)
-  - [Consistently Interactive](#consistently-interactive)
-  - [Max Potential First Input Delay](#max-potential-first-input-delay)
   - [Total Blocking Time (TBT)](#total-blocking-time-tbt)
+  - [First Input Delay (FID)](#first-input-delay-fid)
+  - [Max Potential First Input Delay](#max-potential-first-input-delay)
 - [Network metrics](#network-metrics)
   - [DNS latency](#dns-latency)
   - [TCP and SSL/TLS latency](#tcp-and-ssltls-latency)
@@ -163,24 +160,23 @@ Element Timing captures **when specific elements are painted** by the browser. H
 
 ## Interactivity metrics
 
-### First CPU Idle
-
-First CPU Idle marks the **first time at which the page's main thread is quiet enough to handle user input**.
-
-- Lab: Lighthouse, WPT (but it's called **First interactive** in WPT)
-- Field: N/A
-- [Docs - First Interactive - WPT](https://github.com/WPO-Foundation/webpagetest/blob/master/docs/Metrics/TimeToInteractive.md)
-- [Docs - First CPU Idle - Lighthouse](https://developers.google.com/web/tools/lighthouse/audits/first-cpu-idle)
-
 ### Time to Interactive (TTI)
 
-Time to interactive is **the time it takes for the page to become fully interactive** (as in Main Thread quiet for 5s). Not to confuse with First Interactive or First CPU Idle. (Warning: one of the most confusing and misunderstood metrics).
+Time to interactive is **the time it takes for the page to become fully interactive** (as in Main Thread quiet for 5s). Sometimes called Consistently Interactice and not to be confused with First Interactive or First CPU Idle. (Warning: one of the most confusing and misunderstood metrics).
 
-- Lab: Lighthouse, WPT (see [Consistently Interactive](#consistently-interactive))
+- Lab: Lighthouse, WPT
 - Field: Not recommended as users interacting with your page can skew field measurements of TTI
-- [Polyfill - TTI](https://github.com/GoogleChromeLabs/tti-polyfill)
+- [Docs - TTI - web.dev](https://web.dev/tti/)
 - [Spec - TTI - Lighthouse](https://docs.google.com/document/d/1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c/edit)
 - [Blogpost - TTI](https://blog.dareboost.com/en/2019/05/measuring-interactivity-time-to-interactive/)
+
+### Total Blocking Time (TBT)
+
+The Total Blocking Time (TBT) metric measures the total amount of time between First Contentful Paint (FCP) and Time to Interactive (TTI) where the main thread was blocked for long enough to prevent input responsiveness.
+
+- Lab: Lighthouse
+- Field: N/A
+- [Docs - TBT - web.dev](https://web.dev/tbt/)
 
 ### First Input Delay (FID)
 
@@ -188,17 +184,8 @@ First Input Delay (FID) measures **the time from when a user first interacts wit
 
 - Lab: N/A (as it requires the user to interact with the page)
 - Field: IE9+ (and Safari, Chrome, Firefox) (with polyfill - 0.4KB)
-- [Docs - FID](https://developers.google.com/web/updates/2018/05/first-input-delay)
+- [Docs - FID - web.dev](https://web.dev/fid/)
 - [Polyfill - FID](https://github.com/GoogleChromeLabs/first-input-delay)
-
-
-### First Interactive
-
-See [First CPU Idle](#first-cpu-idle). WPT still calls it First Interactive but Google/Lighthouse renamed to First CPU Idle to avoid confusing this with [Time to Interactive (TTI)](#time-to-interactive-tti)
-
-### Consistently Interactive
-
-See [Time to Interactive (TTI)](#time-to-interactive-tti). WPT still refers to TTI as Consistently Interactive but it's only available for Chrome and not surfaced on the UI (only in raw results XML/JSON).
 
 ### Max Potential First Input Delay
 
@@ -207,14 +194,6 @@ The maximum potential [First Input Delay](#first-input-delay-fid) that your user
 - Lab: Lighthouse
 - Field: N/A
 - [Docs - Max Potential FID - web.dev](https://web.dev/lighthouse-max-potential-fid/)
-
-### Total Blocking Time (TBT)
-
-The Total Blocking Time (TBT) metric measures the total amount of time between First Contentful Paint (FCP) and Time to Interactive (TTI) where the main thread was blocked for long enough to prevent input responsiveness.
-
-- Lab: Lighthouse
-- Field: N/A
-- [Docs - Total Blocking Time - web.dev](https://web.dev/tbt/)
 
 ---
 
