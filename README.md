@@ -70,6 +70,7 @@ Collect performance data from real users visiting your page. Be mindful of the a
 - [Sematext Experience](https://sematext.com/experience/) - Real User Monitoring SaaS.
 - [Perfume.js](https://zizzamia.github.io/perfume/) - Open Source Library to collect Field Data.
 - [Web Vitals](https://github.com/GoogleChrome/web-vitals) - Open Source Library to collect Field Data.
+- [Vercel Analytics](https://vercel.com/docs/analytics) - Real User Monitoring based on Web Vitals.
 
 ### Critical rendering path
 
