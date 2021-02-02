@@ -54,7 +54,7 @@ Make a request to your page with a tool and evaluate performance. Be sure to mak
 - [Calibre](https://calibreapp.com) - Web performance monitoring SaaS.
 - [treo.sh](https://treo.sh/) - Web performance monitoring SaaS.
 - [SpeedCurve](https://speedcurve.com/) - Web performance monitoring SaaS.
-- [AwesomeTechStack](https://awesometechstack.com/) - A Tool to analyze a website's technology stack, which provides insights into the security, modernity, and performance of any website's technology stack and guidance to improve web vitals and the technology stack.
+- [AwesomeTechStack](https://awesometechstack.com/) - Website awesomeness monitoring Tool
 
 ---
 
