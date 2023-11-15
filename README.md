@@ -55,6 +55,7 @@ Make a request to your page with a tool and evaluate performance. Be sure to mak
 - [treo.sh](https://treo.sh/) - Web performance monitoring SaaS.
 - [SpeedCurve](https://speedcurve.com/) - Web performance monitoring SaaS.
 - [AwesomeTechStack](https://awesometechstack.com/) - Website awesomeness monitoring Tool.
+- [Sematext Synthetics](https://sematext.com/synthetic-monitoring) - Website uptime, API, and SSL certificate monitoring.  Includes status pages and scriptable multi-page user transaction monitoring, etc.
 
 ---
 
