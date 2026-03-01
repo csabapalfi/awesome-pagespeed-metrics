@@ -55,6 +55,7 @@ Make a request to your page with a tool and evaluate performance. Be sure to mak
 - [treo.sh](https://treo.sh/) - Web performance monitoring SaaS.
 - [SpeedCurve](https://speedcurve.com/) - Web performance monitoring SaaS.
 - [AwesomeTechStack](https://awesometechstack.com/) - Website awesomeness monitoring Tool.
+- [PageGuard](https://pageguard.org/) - Free all-in-one website health scanner measuring SEO, ADA/WCAG accessibility, Core Web Vitals (LCP, CLS, FCP), and best practices in 30 seconds.
 
 ---
 
