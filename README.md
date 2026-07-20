@@ -52,6 +52,7 @@ Make a request to your page with a tool and evaluate performance. Be sure to mak
 - [WebpageTest](https://www.webpagetest.org/) - Free and hosted web performance testing (also an open source project).
 - [Sitespeed.io](https://www.sitespeed.io/) - A set of open source performance monitoring tools.
 - [Calibre](https://calibreapp.com) - Web performance monitoring SaaS.
+- [Screpy](https://screpy.com/) - Website monitoring for Core Web Vitals, page-speed changes, and technical SEO issues.
 - [treo.sh](https://treo.sh/) - Web performance monitoring SaaS.
 - [SpeedCurve](https://speedcurve.com/) - Web performance monitoring SaaS.
 - [AwesomeTechStack](https://awesometechstack.com/) - Website awesomeness monitoring Tool.
